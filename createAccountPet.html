@@ -74,10 +74,8 @@
 
                     </fieldset>
 
-                    <fieldset>
-                        <label for="raza" name="raza">Seleccione la raza</label>
-                    </fieldset>
-
+                    <label for="raza" name="raza">Seleccione la raza</label>
+                    
                     <fieldset class="FieldIBP">
                         <legend>Perro
                             <select>
@@ -134,20 +132,24 @@
                     </fieldset>
 
                     <fieldset class="FieldIB">
+                        <legend> Tamaño
+                            <select>
+                                <option type="weight" name="chico">Chico</option>
+                                <option type="weight" name="mediano">Mediano</option>
+                                <option type="weight" name="grande">Grande</option>
+                            </select>
+                        </legend>
 
-                        <label for="peso">Tamaño- debe ser una caja</label>
-                        <input type="weight" name="peso" id="weight" class="StyleInp" required>
-
-                    </fieldset>
+                    </fieldset required>
 
                     <fieldset class="FieldIB">
+                        <legend> Sexo
+                            <select>
+                                <option type="sexo" name="masculino">Masculido</option>
+                                <option type="sexo" name="femenino">Femenino</option>
+                            </select>
+                        </legend>
 
-                        <legend for="sexo" class="sexo-mascota">Sexo</legend>
-                        <label for="radio-masculino"><input type="radio" name="sexo" value="masculino" id="radio-masculino" checked> Macho</label>
-                        
-    
-                        <label for="radio-femenino"><input type="radio" name="sexo" value="femenino" id="radio-femenino"> Hembra</label>
-    
                     </fieldset required>
 
                     <fieldset>
