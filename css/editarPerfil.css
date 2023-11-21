@@ -1,0 +1,110 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-fluid {
+  flex: 1;
+  display: flex;
+}
+
+/*Ajustes de la barra lateral*/
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100%;
+}
+
+.navbar-brand img {
+  max-width: 100%;
+  height: auto;
+  margin-right: 10px;
+}
+.navbar-brand {
+  color: black;
+}
+
+.navbar-brand:hover {
+  color: black;
+}
+.nav-link {
+  color: rgb(100, 100, 100);
+}
+
+.nav-link:hover {
+  color: rgb(100, 100, 100);
+}
+
+/*Cambiar el color de la barra de distancia*/
+/*Cambiar color del deslizador*/
+.form-range::-webkit-slider-thumb {
+  background-color: #ff4500;
+}
+/*Cambiar color del deslizador*/
+.form-range::-webkit-slider-thumb:active {
+  background-color: indigo;
+}
+/*Cambiar el color del switch Adopcion*/
+.form-switch .form-check-input:checked {
+  background-color: crimson;
+  border-color: crimson;
+}
+
+/*Color del boton*/
+.btn-primary {
+  width: 140px;
+  padding: 8px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
+}
+
+.main-content {
+  flex: 1;
+  padding: 15px;
+}
+
+/*Cuadrados para mostrar perfiles*/
+.perfil {
+  border: 1px solid #ddd;
+  background-color: rgb(225, 225, 225);
+  padding: 15px;
+  margin: 35px;
+  width: 320px;
+  height: 370px;
+  text-align: center;
+  display: inline-block;
+}
+
+.perfil img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.botonModificar {
+  width: 140px;
+  padding: 8px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
+  text-decoration: none; /* Asegura que el botón no se comporte como un enlace */
+  display: inline-block;
+}
+
+.botonModificar:hover {
+  color: white;
+  background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
+}
+
+h4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

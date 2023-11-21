@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/editarPerfil.css" as="style" />
+    <title>Configuración</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- Navbar lateral -->
+      <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+        <div class="position-sticky">
+          <a class="navbar-brand" href="homeDogewayLogeado_josue.html">
+            <img src="img/Logo.png" alt="Logo" />
+            Dogeway
+          </a>
+          <ul class="nav flex-column">
+            <h5 class="offcanvas-title p-3">Configuración de la cuenta</h5>
+            <li class="nav-item p-3 py-md-1">
+              <a href="#" class="nav-link" onclick="scrollToSection('cuenta')"
+                >Correo</a
+              >
+            </li>
+            <li class="nav-item p-3 py-md-1">
+              <a href="#" class="nav-link" onclick="scrollToSection('cuenta')"
+                >Número de teléfono</a
+              >
+            </li>
+            <li class="nav-item p-3 py-md-1">
+              <a href="#" class="nav-link" onclick="scrollToSection('cuenta')"
+                >Cuentas conectadas</a
+              >
+            </li>
+            <!--Barra de rango-->
+            <h5 class="offcanvas-title p-3">Configuración de descubrimiento</h5>
+            <li class="nav-item p-3 py-md-3">
+              <label for="range1" class="form-label"
+                >Distancia de preferencia</label
+              >
+              <input
+                type="range"
+                class="form-range m-1"
+                min="1"
+                max="5"
+                step="0.5"
+                id="range1"
+              />
+            </li>
+            <!--Boton de adopcion-->
+            <h5 class="offcanvas-title p-3">Configuración de adopción</h5>
+            <li class="nav-item p-3 py-md-3">
+              <div class="form-check form-switch m-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value=""
+                  id="check1"
+                />
+                <label for="check1" class="form-check-label">Adopción</label>
+              </div>
+            </li>
+            <!--Boton cancelar-->
+            <li class="nav-item p-3">
+              <a href="homeDogewayLogeado_josue.html"
+                ><button type="button" class="btn btn-primary">
+                  Cancelar
+                </button></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Contenido principal -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+        <div class="perfiles">
+          <!--configuracion de perfiles-->
+          <h2>Configuración de perfiles</h2>
+          <div id="perfilesContainer">
+            <!-- Los recuadros de perfil se llenarán aquí dinámicamente -->
+          </div>
+        </div>
+        <div class="Cuenta" id="cuenta">
+          <h2>Configuración de la cuenta</h2>
+          <h4>Correo electrónico</h4>
+          <!-- Formulario para modificar correo -->
+          <form class="edit-form">
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Actual:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                value="usuario@example.com"
+                readonly
+              />
+            </div>
+            <div class="mb-3">
+              <label for="newEmail" class="form-label">Nuevo Correo:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="newEmail"
+                placeholder="Ingrese el nuevo correo"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                title="Ingrese un correo electrónico válido"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Cambiar correo
+            </button>
+          </form>
+          <h4>Número de teléfono</h4>
+          <!-- Formulario para el numero de telefono -->
+          <form action="#" method="post">
+            <div class="mb-3">
+              <label for="viejoNumero">Actual número de teléfono:</label>
+              <input
+                type="tel"
+                id="viejoNumero"
+                name="viejoNumero"
+                pattern="[0-9]{10}"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="nuevoNumero">Nuevo número de teléfono:</label>
+              <input
+                type="tel"
+                id="nuevoNumero"
+                name="nuevoNumero"
+                pattern="[0-9]{10}"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Cambiar numero
+            </button>
+          </form>
+          <h4>Cuentas conectadas</h4>
+          <!--vincular cuentas-->
+          <form action="/guardar_configuracion" method="post">
+            <div class="mb-3">
+              <label for="nuevaCuenta">Agregar Nueva Cuenta:</label>
+              <input type="text" id="nuevaCuenta" name="nuevaCuenta" required />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Agregar cuenta
+            </button>
+          </form>
+
+          <h4>Cuentas vinculadas</h4>
+          <!-- Aquí mostrarías las cuentas conectadas actualmente y permitirías a los usuarios eliminarlas -->
+          <!--Supuestamente ya tiene el formato para spring-->
+          <ul th:if="${cuentasConectadas}">
+            <li th:each="cuenta : ${cuentasConectadas}">
+              <span th:text="${cuenta.correo}"></span>
+              <form th:action="@{/eliminar-cuenta}" th:method="post">
+                <input
+                  type="hidden"
+                  name="correo"
+                  th:value="${cuenta.correo}"
+                />
+                <button type="submit" class="btn btn-primary">Eliminar</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </main>
+    </div>
+    <script src="JS/editarPerfil.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
