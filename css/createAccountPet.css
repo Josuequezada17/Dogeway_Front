@@ -48,17 +48,14 @@ form label, form legend{
        
 }
 
-.FieldIB{
-    display: inline-grid;
-    width: 44%;
-    margin-top: 40px;
-    margin: 0px 10px 20px 0px;
-}
-
 .FieldIBP{
     display: inline;
     width: 40%;
-    margin: 20px 10px 20px 0px;
+    margin: 20px 0px 20px;
+}
+
+.raza{
+
 }
 
 .mas{
@@ -66,7 +63,6 @@ form label, form legend{
     width: 15%;
     display: grid;
     position: relative;
-    /* top: 10px; */
     bottom: 15px;
     left: 125px;
 }

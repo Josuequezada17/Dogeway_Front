@@ -58,7 +58,7 @@
                         window.location.href = 'error.html';
                     }
                 };
-*/
+                */
             </script>
 
         </header>
@@ -72,82 +72,50 @@
                         <label for="nombre">Nombre de la mascota</label>
                         <input type="text" name="nombreMascota" id="nombre" class="StyleInp" required>
 
-                    </fieldset>
-
-                    <label for="raza" name="raza">Seleccione la raza</label>
+                    </fieldset required>
                     
-                    <fieldset class="FieldIBP">
-                        <legend>Perro
-                            <select>
-                                <option name="labradorRetriever">Labrador Retriever</option>
-                                <option name="pastorAleman">Pastor Alemán</option>
-                                <option name="goldenRetriever">Golden Retriever</option>
-                                <option name="bulldogFrances">Bulldog Francés</option>
-                                <option name="beagle">Beagle</option>
-                                <option name="poodle">Poodle (Caniche)</option>
-                                <option name="boxer">Boxer</option>
-                                <option name="dachshund">Dachshund (Teckel)</option>
-                                <option name="siberianHusky">Siberian Husky</option>
-                                <option name="chihuahua">Chihuahua</option>
-                                <option name="rottweiler">Rottweiler</option>
-                                <option name="shihTzu">Shih Tzu</option>
-                                <option name="borderCollie">Border Collie</option>
-                                <option name="pomerania">Pomerania</option>
-                                <option name="doberman">Doberman</option>
-                                <option name="shetlandSheepdog">Shetland Sheepdog</option>
-                                <option name="cavalierKingCharlesSpaniel">Cavalier King Charles Spaniel</option>
-                                <option name="grearDane">Great Dane</option>
-                                <option name="bichonFrise">Bichon Frise</option>
-                                <option name="cockerSpaniel">Cocker Spaniel</option>
-                            </select required>
-                        </legend>
-                    </fieldset>
+                    
+
+                    <label for="raza" name="raza">Seleccione el tipo de:</label>
 
                     <fieldset class="FieldIBP">
-
-                        <legend>Gato
-                            <select>
-                                <option name="persa">Persa</option>                                
-                                <option name="siames">Siames</option>
-                                <option name="maineCoon">Maine Coon</option>
-                                <option name="shynx">Sphynx</option>
-                                <option name="ragdoll">Ragdoll</option>
-                                <option name="britishShorthair">British Shorthair</option>
-                                <option name="bengal">Bengal</option>
-                                <option name="abyssianian">Abyssinian</option>
-                                <option name="scottishFold">Scottish Fold</option>
-                                <option name="burmese">Burmese</option>
-                                <option name="russianBlue">Russian Blue</option>
-                                <option name="orientalShorthair">Oriental Shorthair</option>
-                                <option name="devonRex">Devon Rex</option>
-                                <option name="americanShorthair">American Shorthair</option>
-                                <option name="norwegianForestCat">Norwegian Forest Cat</option>
-                                <option name="turkishAngora">Turkish Angora</option>
-                                <option name="egyptianMau">Egyptian Mau</option>
-                                <option name="manx">Manx</option>
-                                <option name="tonkinese">Tonkinese</option>
-                                <option name="exotico">Exótico</option>
-                            </select required>
+                        <legend> 
+                            <label for="nombre">Mascota
+                                <select>
+                                    <option name="perro">Perro</option>
+                                    <option name="gato">Gato</option>
+                                    <option name="conejo">Conejo</option>
+                                </select required>
+                            </label>
                         </legend>
-                    </fieldset>
+                    </fieldset required>
 
-                    <fieldset class="FieldIB">
-                        <legend> Tamaño
-                            <select>
-                                <option type="weight" name="chico">Chico</option>
-                                <option type="weight" name="mediano">Mediano</option>
-                                <option type="weight" name="grande">Grande</option>
-                            </select>
-                        </legend>
+                    <fieldset class="">
+                        <label for="raza" class="raza">Raza</label>
+                        <input type="text" name="raza" id="raza" class="StyleInp" required>
+                    </fieldset required>
+
+                    <fieldset class="FieldIBP">
+                        <legend>
+                            <label for="tamano">Tamaño 
+                                <select>
+                                    <option type="weight" name="chico">Chico</option>
+                                    <option type="weight" name="mediano">Mediano</option>
+                                    <option type="weight" name="grande">Grande</option>
+                                </select required>
+                            </label>
+                        </legend required>
 
                     </fieldset required>
 
-                    <fieldset class="FieldIB">
-                        <legend> Sexo
-                            <select>
-                                <option type="sexo" name="masculino">Masculido</option>
-                                <option type="sexo" name="femenino">Femenino</option>
-                            </select>
+                    <fieldset class="FieldIBP">
+                        <legend> 
+                            <label for="sexo">Sexo
+                                <select>
+                                    <option type="sexo" name="masculino">Masculido</option>
+                                    <option type="sexo" name="femenino">Femenino</option>
+                                </select>
+                            </label>
                         </legend>
 
                     </fieldset required>
