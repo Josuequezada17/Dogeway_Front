@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <title>Crear cuenta de mascota</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        <link rel="stylesheet" href="css/createAccountPet.css" as="style" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header class="masthead">
+
+            <nav class=" navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+
+                <div class="container">
+
+                    <img class="logo" src="img/Logo.png" alt="">
+                    <a class="navbar-brand" href="homeDogewayLogeado_josue.html">DogeWay</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="aboutUsLogeado.html" name="aboutUs">Mas Informacion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="PrivacyPolicyLogeado.html" name="privacyPolicy">Seguridad</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" name="asistencia">Asistencia</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous">
+            </script>
+
+            <script>/*
+                window.onload = function () {
+                    if (!localStorage.getItem('token')) {
+                        window.location.href = 'error.html';
+                    }
+                };
+*/
+            </script>
+
+        </header>
+
+        <main>
+            <form id="form">
+                
+                <div class="column">
+                    <fieldset>
+
+                        <label for="nombre">Nombre de la mascota</label>
+                        <input type="text" name="nombreMascota" id="nombre" class="StyleInp" required>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="raza" name="raza">Seleccione la raza</label>
+                    </fieldset>
+
+                    <fieldset class="FieldIBP">
+                        <legend>Perro
+                            <select>
+                                <option name="labradorRetriever">Labrador Retriever</option>
+                                <option name="pastorAleman">Pastor Alemán</option>
+                                <option name="goldenRetriever">Golden Retriever</option>
+                                <option name="bulldogFrances">Bulldog Francés</option>
+                                <option name="beagle">Beagle</option>
+                                <option name="poodle">Poodle (Caniche)</option>
+                                <option name="boxer">Boxer</option>
+                                <option name="dachshund">Dachshund (Teckel)</option>
+                                <option name="siberianHusky">Siberian Husky</option>
+                                <option name="chihuahua">Chihuahua</option>
+                                <option name="rottweiler">Rottweiler</option>
+                                <option name="shihTzu">Shih Tzu</option>
+                                <option name="borderCollie">Border Collie</option>
+                                <option name="pomerania">Pomerania</option>
+                                <option name="doberman">Doberman</option>
+                                <option name="shetlandSheepdog">Shetland Sheepdog</option>
+                                <option name="cavalierKingCharlesSpaniel">Cavalier King Charles Spaniel</option>
+                                <option name="grearDane">Great Dane</option>
+                                <option name="bichonFrise">Bichon Frise</option>
+                                <option name="cockerSpaniel">Cocker Spaniel</option>
+                            </select required>
+                        </legend>
+                    </fieldset>
+
+                    <fieldset class="FieldIBP">
+
+                        <legend>Gato
+                            <select>
+                                <option name="persa">Persa</option>                                
+                                <option name="siames">Siames</option>
+                                <option name="maineCoon">Maine Coon</option>
+                                <option name="shynx">Sphynx</option>
+                                <option name="ragdoll">Ragdoll</option>
+                                <option name="britishShorthair">British Shorthair</option>
+                                <option name="bengal">Bengal</option>
+                                <option name="abyssianian">Abyssinian</option>
+                                <option name="scottishFold">Scottish Fold</option>
+                                <option name="burmese">Burmese</option>
+                                <option name="russianBlue">Russian Blue</option>
+                                <option name="orientalShorthair">Oriental Shorthair</option>
+                                <option name="devonRex">Devon Rex</option>
+                                <option name="americanShorthair">American Shorthair</option>
+                                <option name="norwegianForestCat">Norwegian Forest Cat</option>
+                                <option name="turkishAngora">Turkish Angora</option>
+                                <option name="egyptianMau">Egyptian Mau</option>
+                                <option name="manx">Manx</option>
+                                <option name="tonkinese">Tonkinese</option>
+                                <option name="exotico">Exótico</option>
+                            </select required>
+                        </legend>
+                    </fieldset>
+
+                    <fieldset class="FieldIB">
+
+                        <label for="peso">Tamaño- debe ser una caja</label>
+                        <input type="weight" name="peso" id="weight" class="StyleInp" required>
+
+                    </fieldset>
+
+                    <fieldset class="FieldIB">
+
+                        <legend for="sexo" class="sexo-mascota">Sexo</legend>
+                        <label for="radio-masculino"><input type="radio" name="sexo" value="masculino" id="radio-masculino" checked> Macho</label>
+                        
+    
+                        <label for="radio-femenino"><input type="radio" name="sexo" value="femenino" id="radio-femenino"> Hembra</label>
+    
+                    </fieldset required>
+
+                    <fieldset>
+                        <label for="descripcion">Descripcion</label>
+                        <textarea cols="70" rows="10" id="descripcion" class="StyleInp" required name="descripcion"></textarea>
+                    </fieldset required>
+
+                </div>
+
+                <div class="column" class="columnPhotos">
+                        <form action="/upload" method="post" enctype="multipart/form-data">
+                            <div class="DivInpImg">
+                                <input type="file" id="image1" class="InpImg" accept="image/*" name="img1" required> 
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image2" class="InpImg" accept="image/*" name="img2" required>
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image3" class="InpImg" accept="image/*" name="img3">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image4" class="InpImg" accept="image/*" name="img4">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image5" class="InpImg" accept="image/*" name="img5">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image6" class="InpImg" accept="image/*" name="img6">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                        </form>
+                        
+                </div>
+
+                <div class="Btn_XY">
+                    <button type="submit" class="BtnGrl" name="continuar">Continuar</button>
+                </div>
+                
+    
+            </form>
+            <script src="JS/createAccountPet.js"></script>
+
+        </main>
+
+        <footer>
+            
+        </footer>
+    </body>
+
+</html>

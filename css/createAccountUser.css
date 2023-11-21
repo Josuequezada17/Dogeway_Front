@@ -1,0 +1,108 @@
+body{
+    font-family: 'Baloo 2', sans-serif;
+}
+
+form {
+    margin-top: 40px;
+    display: flex;
+}
+
+.logo{
+    margin-right: 10px;
+}
+
+form label, form legend{
+    display: block;
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #000;
+}
+
+.column {
+    flex: 1;
+    width: 50%;
+    margin: 75px;
+}
+
+.columnPhotos{
+    text-align: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.StyleInp {
+    display: block;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #000;
+    width: 80%;
+    padding: 7px;
+    margin-bottom: 20px;
+    text-align: left;
+       
+}
+
+#fecha_nacimiento{
+    text-align: center;
+}
+
+.FieldIB{
+    display: inline;
+    width: 44%;
+}
+
+.Btn_XY{
+    display: flex; 
+    justify-content: end; 
+    align-items: center;
+    margin: 0px 100px 20px 0px;
+}
+
+.BtnGrl {
+    width: 120px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.BtnGrl:hover {
+    background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
+}
+
+.InpImg {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    cursor: pointer;
+}
+
+.DivInpImg {
+    display: inline-block;
+    width: 140px;
+    height: 200px;
+    border-style: dashed;
+    border-color: gray;
+    border-radius: 35px;
+    margin: 10px;
+    background: #D9D9D9;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.mas{
+    height: 15%;
+    width: 15%;
+    display: grid;
+    position: relative;
+    /* top: 10px; */
+    bottom: 15px;
+    left: 125px;
+}

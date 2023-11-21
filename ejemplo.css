@@ -1,0 +1,157 @@
+
+body{
+  background: url(img/Fondo.png);
+  font-family: 'Baloo 2', sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  height: 100vh;
+}
+  
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .logo{
+    margin-right: 10px;
+  }
+  
+  
+  
+  /*.endPage{
+      text-align: center;
+      background: url('img/bg.jpg');
+      padding: 40px;
+  }*/
+  
+  .BtnGrl-logIn {
+    width: 120px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(94, 90, 93), rgb(82, 76, 76));
+    color: #ffffff;
+    font-weight: bold;
+  }
+    
+  .BtnGrl-logIn:hover {
+    background: linear-gradient(to top right, rgb(66, 63, 65), rgb(158, 154, 154));
+  }
+  
+  .BtnGrl-rPet{
+    width: 180px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(204, 3, 64), rgb(204, 12, 23));
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .BtnGrl-rPet:hover {
+    background: linear-gradient(to top right, rgb(139, 19, 109), rgb(211, 7, 7));
+  }
+  
+  .BtnGrl-aPet{
+    width: 180px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(16, 34, 116), rgb(0, 152, 253));
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 50%;
+  }
+  
+  .BtnGrl-aPet:hover {
+    background: linear-gradient(to top right, rgb(4, 24, 95), rgb(1, 50, 80));
+  }
+  
+  .texto{
+    padding: 9px;
+    border: none;
+    border-radius: 50px;
+    background: #00000080;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: calc(16px + ((100vw - 500px) / 800) * 100);
+    text-align: center;
+  }
+  
+  .infoS{
+    top: 42%;
+    height: 50vh;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  section {
+  margin-top: 40px;
+  display: flex;
+  }
+  
+  .logo{
+    margin-right: 10px;
+  }
+  
+  section a{
+    display: block;
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #000;
+  }
+  
+  @media (min-width: 150px) and (max-width: 350px ) {
+    .texto {
+    font-size: calc(16px + ((100vw - 200px) / 800) * 100);
+  }
+    .infoS{
+      top: 35%;
+    }
+  
+  }
+  
+  @media (min-width: 351px) and (max-width: 550px) {
+    .texto {
+      font-size: calc(16px + ((100vw - 300px) / 800) * 100);
+    }
+    .infoS{
+      top: 35%;
+    }
+  }
+  
+  @media (min-width: 551px) and (max-width: 750px) {
+    .texto {
+      font-size: calc(16px + ((100vw - 250px) / 800) * 100);
+    }
+    .infoS{
+      top: 39%;
+    }
+  }
+  
+  @media (min-width: 751px) and (max-width: 950px ) {
+    .texto {
+      font-size: calc(16px + ((100vw - 300px) / 800) * 100);
+    }
+    .infoS{
+      top: 40%;
+    }
+  }
+  
+  @media (min-width: 951px) and (max-width: 1150px ) {
+    .texto {
+      font-size: calc(16px + ((100vw - 300px) / 800) * 100);
+    }
+    .infoS{
+      top: 42%;
+    }
+  }
+  
