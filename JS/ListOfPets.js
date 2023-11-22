@@ -10,7 +10,7 @@ window.onload = function () {
     }
 
     
-
+}
 
 function userInformation(correo, token) {
     fetch(`http://localhost:8080/pet/listallpets?correo=${encodeURIComponent(correo)}`, {
@@ -70,7 +70,10 @@ function userInformation(correo, token) {
                         imgElement.addEventListener('click', function () {
                             sessionStorage.setItem('paginacion',0);
                             sessionStorage.setItem('currentPet', JSON.stringify(mascota));
+                            var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
+                            ListOfUsers(sessionStorage.token,currentPet.animal,!currentPet.genero,currentPet.tamano,sessionStorage.paginacion);
                             alert('La mascota ha sido cambiada por ' + mascota.nombre);
+                            
                             window.location.href = 'match.html';
                         });
             
@@ -122,8 +125,8 @@ function ListOfUsers(token, Animal,Genero,Tamano, page) {
             return response.json();
         })
         .then(data => {
-            sessionStorage.setItem('matchPet',JSON.stringify(data.content));
-            console.log('Respuesta del servidor:exitosa');
+            sessionStorage.setItem('matchPet',JSON.stringify(data.content[0]));
+            console.log('Respuesta del servidor:exitosa',data.content[0]);
 var contenedor = document.getElementById('others-animals');
 // Crear una tabla
 var tabla = document.createElement('table');
@@ -216,4 +219,3 @@ contenedor.appendChild(tabla);
 
 
     }
-}

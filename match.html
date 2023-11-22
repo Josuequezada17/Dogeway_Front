@@ -113,7 +113,7 @@
                             <script>
                                 if(sessionStorage.getItem('currentPet')){
                                 var matchpet = JSON.parse(sessionStorage.getItem('matchpet'))
-                                document.getElementById('foto').textContent = matchpet[0].foto;
+                                document.getElementById('foto').textContent = matchpet.foto;
 
                                 }
                             </script>
@@ -123,25 +123,40 @@
                     <div class="buttons-container">
 
                         <!-- Se agrega el referencia para dar match -->
-                        <button onclick="match(currentPet.id, matchPet[0].id,sessionStorage.token)">
+                        <button onclick="matchPet()">
                             <img src="img/Ok.png" alt="Match">
                         </button>
-                    
-                        <!-- se agrega la referencia para no dar el match -->
-                        <button onclick="NotMatch(currentPet.id, matchPet[0].id,sessionStorage.token)">
+                        
+                        <button onclick="notMatchPet()">
                             <img src="img/Cancel.png" alt="NotMatch">
                         </button>
-                    
-                    
-                    
-                    <script>
-                        // Obtener el valor del almacenamiento local
-                        if (sessionStorage.getItem('currentPet')) {
-                            var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
-                            var matchPet = JSON.parse(sessionStorage.getItem('matchPet'));
+                        
+                        <script>
+                            function matchPet() {
+                                var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
+                                var matchPet = JSON.parse(sessionStorage.getItem('matchPet'));
+                                var token = sessionStorage.getItem('token');
+                        
+                                if (currentPet && matchPet && token) {
+                                    match(currentPet.id, matchPet.id, token);
+                                } else {
+                                    console.error("Error: Alguno de los objetos o el token es indefinido.");
+                                }
+                            }
+                        
+                            function notMatchPet() {
+                                var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
+                                var matchPet = JSON.parse(sessionStorage.getItem('matchPet'));
+                                var token = sessionStorage.getItem('token');
+                        
+                                if (currentPet && matchPet && token) {
+                                    NotMatch(currentPet.id, matchPet.id, token);
+                                } else {
+                                    console.error("Error: Alguno de los objetos o el token es indefinido.");
+                                }
+                            }
                             
-                        }
-                    </script>
+                        </script>
                         
 
                     </div>
@@ -177,7 +192,7 @@
         if (!sessionStorage.getItem('token')) {
             window.location.href = 'error.html';
         }
-        
+      
         
     };
 

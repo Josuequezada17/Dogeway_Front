@@ -32,15 +32,23 @@ function match(Id_pet, Id_pet_match, token) {
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                            window.location.href = 'match.html';
+                           // window.location.href = 'match.html';
                         })
                         .catch(error => {
                             console.error('Error al recuperar información:', error);
                         });
                 } else if (match.status === "ACEPTADA") {
                     console.log("El match ha sido aceptado");
+                    var contador = sessionStorage.getItem('paginacion');
+                            contador++;
+                            sessionStorage.setItem('paginacion', contador);
+                           // window.location.href = 'match.html';
                 } else if (match.status === "RECHAZADA") {
                     console.log("No se puede concretar el match");
+                    var contador = sessionStorage.getItem('paginacion');
+                            contador++;
+                            sessionStorage.setItem('paginacion', contador);
+                            //window.location.href = 'match.html';
                 }
             } else {
                 const apiUrl = `http://localhost:8080/match/NewMatch`;
@@ -73,6 +81,7 @@ function match(Id_pet, Id_pet_match, token) {
                         var contador = sessionStorage.getItem('paginacion');
                         contador++;
                         sessionStorage.setItem('paginacion', contador);
+                       // window.location.href = 'match.html';
                     })
                     .catch(error => {
                         console.error('Error al recuperar información:', error);
@@ -85,33 +94,101 @@ function match(Id_pet, Id_pet_match, token) {
         });
 }
 
-function NotMatch(id_pet, id_pet_match, token) {
+function NotMatch(Id_pet, Id_pet_match, token) {
 
 
-    const apiUrl = `http://localhost:8080/match/aceptar?id_pet=${id_pet}&id_pet_match=${id_pet_match}&newStatus=RECHAZADA`;
+   
 
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Authorization': token,
-            'Content-Type': 'application/json'
-        },
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error de red: ${response.status} - ${response.statusText}`);
-            }
-            return response.json();
-        })
+    var match;
+ 
+    verifyMatch(Id_pet, Id_pet_match, token)
         .then(data => {
-            console.log('Respuesta del servidor: exitosa', data);
-            var contador = sessionStorage.getItem('paginacion');
-            contador++;
-            sessionStorage.setItem('paginacion', contador);
-            window.location.href = 'match.html';
+            // Guardar el JSON en la variable match
+            match = data;
+            console.log('Variable match:', match.idpetmatch);
+
+            if (match.idpet!=-1 && match.idpetmatch!=-1){
+                if (match.status === "PENDIENTE") {
+                   
+                    const apiUrl = `http://localhost:8080/match/aceptar?id_pet=${match.idpet}&id_pet_match=${match.idpetmatch}&newStatus=RECHAZADA`;
+
+                    fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': token,
+                            'Content-Type': 'application/json'
+                        },
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error de red: ${response.status} - ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log('Respuesta del servidor: exitosa', data);
+                            var contador = sessionStorage.getItem('paginacion');
+                            contador++;
+                            sessionStorage.setItem('paginacion', contador);
+                            window.location.href = 'match.html';
+                        })
+                        .catch(error => {
+                            console.error('Error al recuperar información:', error);
+                        });
+                } else if (match.status === "RECHAZADA") {
+                    console.log("No se puede concretar el match");
+                    var contador = sessionStorage.getItem('paginacion');
+                            contador++;
+                            sessionStorage.setItem('paginacion', contador);
+                            window.location.href = 'match.html';
+                }else if (match.status === "ACEPATADA") {
+
+                    var contador = sessionStorage.getItem('paginacion');
+                    contador++;
+                    sessionStorage.setItem('paginacion', contador);
+                    window.location.href = 'match.html';
+                }
+            } else {
+                const apiUrl = `http://localhost:8080/match/NewMatch`;
+
+                var newStatus = 'RECHAZADA';
+                const match2 = {
+                    idpet: Id_pet,
+                    idpetmatch: Id_pet_match,
+                    status: newStatus
+                };
+
+
+                return fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': token,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(match2)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Error de red: ${response.status} - ${response.statusText}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Respuesta del servidor: exitosa', data);
+
+                        var contador = sessionStorage.getItem('paginacion');
+                        contador++;
+                        sessionStorage.setItem('paginacion', contador);
+                        window.location.href = 'match.html';
+                    })
+                    .catch(error => {
+                        console.error('Error al recuperar información:', error);
+                    });
+            }
         })
         .catch(error => {
-            console.error('Error al recuperar información:', error);
+            // Manejar errores aquí
+            console.error('Error en la solicitud:', error);
         });
 }
 
