@@ -121,7 +121,7 @@ function ListOfUsers(token, Animal,Genero,Tamano, page) {
         .then(data => {
             console.log('Respuesta del servidor:exitosa');
 var contenedor = document.getElementById('others-animals');
-localStorage.getItem('matchPet',data);
+localStorage.setItem('matchPet',JSON.stringify(data.content));
 // Crear una tabla
 var tabla = document.createElement('table');
 tabla.border = '1';

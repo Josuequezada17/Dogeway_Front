@@ -1,17 +1,15 @@
-function match(CurrentUser,MatchUser){
+function match(Id_pet,Id_pet_match,token){
 
 
-    var match=verifyMatch(CurrentUser,MatchUser)
+    var match=verifyMatch(Id_pet,Id_pet_match,token);
+ 
+    if(match){
 
     if(match.status==="PENDIENTE"){
 
 
-        const apiUrl = `http://localhost:8080/match/aceptar`;
-        const status= {
-        id_user: match.id_user,
-        id_user_match: match.id_user_match,
-        Status:'ACEPTADA'
-    };
+        const apiUrl = `http://localhost:8080/match/aceptar?id_pet=${id_pet}&id_pet_match=${id_pet_match}&newStatus=ACEPTADA`;
+       
 
     fetch(apiUrl, {
         method: 'POST',
@@ -20,7 +18,7 @@ function match(CurrentUser,MatchUser){
             'Content-Type': 'application/json'
            
         },
-        body: JSON.stringify(status)
+        
     })
         .then(response => {
             if (!response.ok) {
@@ -54,15 +52,19 @@ function match(CurrentUser,MatchUser){
 
      console.log("No se puede concretar el match")
 
-    }else{
+    }
 
+    }else if(match.status===undefined){
 
-        const apiUrl = `http://localhost:8080/match/aceptar`;
-        const status= {
-        id_user: Id_user,
-        id_user_match:Id_user_match,
-        Status:'PENDIENTE'
-    };
+    const apiUrl = `http://localhost:8080/match/NewMatch`;
+
+    var newStatus='PENDIENTE';
+    const match2={
+        idpet:Id_pet,
+        idpetmatch:Id_pet_match,
+        status: newStatus
+    }
+    console.log(match2);
 
     fetch(apiUrl, {
         method: 'POST',
@@ -71,7 +73,8 @@ function match(CurrentUser,MatchUser){
             'Content-Type': 'application/json'
            
         },
-        body: JSON.stringify(status)
+        body: JSON.stringify(match2)
+     
     })
         .then(response => {
             if (!response.ok) {
@@ -85,7 +88,7 @@ function match(CurrentUser,MatchUser){
             var contador=localStorage.getItem('paginacion');
          contador++;
          localStorage.setItem('paginacion',contador);
-         window.location.href = 'match.html';
+        
           
    
         })
@@ -108,12 +111,8 @@ function match(CurrentUser,MatchUser){
 
 function NotMatch(id_pet,id_pet_match){
 
-    const apiUrl = `http://localhost:8080/match/aceptar`;
-    const status= {
-    id_user: match.id_user,
-    id_user_match: match.id_user_match,
-    Status:'RECHAZADA'
-};
+    const apiUrl = `http://localhost:8080/match/aceptar?id_pet=${id_pet}&id_pet_match=${id_pet_match}&newStatus=RECHAZADA`;
+    
 
 fetch(apiUrl, {
     method: 'POST',
@@ -122,7 +121,7 @@ fetch(apiUrl, {
         'Content-Type': 'application/json'
        
     },
-    body: JSON.stringify(status)
+  
 })
     .then(response => {
         if (!response.ok) {
@@ -131,7 +130,7 @@ fetch(apiUrl, {
         return response.json();
     })
     .then(data => {
-        console.log('Respuesta del servidor:exitosa',data);
+        console.log('Respuesta del servidor:exitos',data);
         var contador=localStorage.getItem('paginacion');
      contador++;
      localStorage.setItem('paginacion',contador);
@@ -153,7 +152,7 @@ fetch(apiUrl, {
 
 
 
-function verifyMatch(Id_pet,Id_pet_match){
+function verifyMatch(Id_pet,Id_pet_match,token){
 
     const apiUrl = `http://localhost:8080/match/status?id_pet=${Id_pet}&id_pet_match=${Id_pet_match}`;
     
@@ -174,12 +173,13 @@ function verifyMatch(Id_pet,Id_pet_match){
         })
         .then(data => {
             console.log('Respuesta del servidor:exitosa',data);
+
            return data;
    
         })
         .catch(error => {
             console.error('Error al recuperar información:', error);
-            // Manejar el error de manera adecuada, por ejemplo, redirigir a una página de error
+            throw error
    
         });
    
