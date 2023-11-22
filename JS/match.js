@@ -6,7 +6,7 @@ function match(CurrentUser,MatchUser){
     if(match.status==="PENDIENTE"){
 
 
-        const apiUrl = `http://localhost:8080/match/acceptar`;
+        const apiUrl = `http://localhost:8080/match/aceptar`;
         const status= {
         id_user: match.id_user,
         id_user_match: match.id_user_match,
@@ -108,7 +108,7 @@ function match(CurrentUser,MatchUser){
 
 function NotMatch(id_pet,id_pet_match){
 
-    const apiUrl = `http://localhost:8080/match/acceptar`;
+    const apiUrl = `http://localhost:8080/match/aceptar`;
     const status= {
     id_user: match.id_user,
     id_user_match: match.id_user_match,
