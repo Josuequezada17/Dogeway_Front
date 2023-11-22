@@ -110,16 +110,16 @@
           .then(data => {
               console.log('Respuesta del servidor:', data);
               const token = data.jwTtoken;
-              localStorage.clear();
-              localStorage.setItem('token', token);
-              localStorage.setItem('user', message.correo);
+              sessionStorage.clear();
+              sessionStorage.setItem('token', token);
+              sessionStorage.setItem('user', message.correo);
   
   
               window.location.href = 'homeDogewayLogeado_josue.html';
   
           })
           .catch(error => {
-              localStorage.removeItem('token');
+              sessionStorage.removeItem('token');
               console.error('Error al enviar la solicitud:', error);
               alert("Uno de los campos es incorrecto,Verificalo");
 

@@ -1,11 +1,15 @@
 window.onload = function () {
-    userInformation(localStorage.user, localStorage.token);
+    userInformation(sessionStorage.user, sessionStorage.token);
 
-    if(localStorage.getItem('currentPet')){
-    var currentPet = JSON.parse(localStorage.getItem('currentPet'));
+    if(sessionStorage.getItem('currentPet')){
+    var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
     
-    ListOfUsers(localStorage.token,currentPet.animal,!currentPet.genero,currentPet.tamano,localStorage.paginacion);
+    ListOfUsers(sessionStorage.token,currentPet.animal,!currentPet.genero,currentPet.tamano,sessionStorage.paginacion);
+    
+    
     }
+
+    
 
 
 function userInformation(correo, token) {
@@ -64,9 +68,8 @@ function userInformation(correo, token) {
             
                         // Agregar un evento de clic a la imagen
                         imgElement.addEventListener('click', function () {
-                            localStorage.setItem('paginacion',0);
-                            localStorage.setItem('currentPet', JSON.stringify(mascota));
-                            
+                            sessionStorage.setItem('paginacion',0);
+                            sessionStorage.setItem('currentPet', JSON.stringify(mascota));
                             alert('La mascota ha sido cambiada por ' + mascota.nombre);
                             window.location.href = 'match.html';
                         });
@@ -78,7 +81,7 @@ function userInformation(correo, token) {
                     }
                     if(index===2){
                         celda.style.width='145px';
-                        var currentPet = JSON.parse(localStorage.getItem('currentPet'))
+                        var currentPet = JSON.parse(sessionStorage.getItem('currentPet'))
                         if (currentPet && mascota['nombre'] === currentPet.nombre) {
                             celda.style.color = 'red';
                         }
@@ -119,9 +122,9 @@ function ListOfUsers(token, Animal,Genero,Tamano, page) {
             return response.json();
         })
         .then(data => {
+            sessionStorage.setItem('matchPet',JSON.stringify(data.content));
             console.log('Respuesta del servidor:exitosa');
 var contenedor = document.getElementById('others-animals');
-localStorage.setItem('matchPet',JSON.stringify(data.content));
 // Crear una tabla
 var tabla = document.createElement('table');
 tabla.border = '1';

@@ -91,8 +91,8 @@
 
                     <script>
                         // Obtener el valor del almacenamiento local
-                        if(localStorage.getItem('currentPet')){
-                        var currentPet = JSON.parse(localStorage.getItem('currentPet'))
+                        if(sessionStorage.getItem('currentPet')){
+                        var currentPet = JSON.parse(sessionStorage.getItem('currentPet'))
                         document.getElementById('id-current').textContent = currentPet.id;
                         document.getElementById('name-current').textContent = currentPet.nombre;
                         }
@@ -111,9 +111,9 @@
 
 
                             <script>
-                                if(localStorage.getItem('currentPet')){
-                                var matchpet = JSON.parse(localStorage.getItem('matchpet'))
-                                document.getElementById('foto').textContent = matchpet.foto;
+                                if(sessionStorage.getItem('currentPet')){
+                                var matchpet = JSON.parse(sessionStorage.getItem('matchpet'))
+                                document.getElementById('foto').textContent = matchpet[0].foto;
 
                                 }
                             </script>
@@ -123,12 +123,12 @@
                     <div class="buttons-container">
 
                         <!-- Se agrega el referencia para dar match -->
-                        <button onclick="match(currentPet.id, matchPet[0].id,localStorage.token)">
+                        <button onclick="match(currentPet.id, matchPet[0].id,sessionStorage.token)">
                             <img src="img/Ok.png" alt="Match">
                         </button>
                     
                         <!-- se agrega la referencia para no dar el match -->
-                        <button onclick="NotMatch(currentPet.id, matchPet[0].id,localStorage.token)">
+                        <button onclick="NotMatch(currentPet.id, matchPet[0].id,sessionStorage.token)">
                             <img src="img/Cancel.png" alt="NotMatch">
                         </button>
                     
@@ -136,11 +136,10 @@
                     
                     <script>
                         // Obtener el valor del almacenamiento local
-                        if (localStorage.getItem('currentPet')) {
-                            var currentPet = JSON.parse(localStorage.getItem('currentPet'));
-                            var matchPet = JSON.parse(localStorage.getItem('matchPet'));
-                            document.getElementById('id-current').textContent = currentPet.id;
-                            document.getElementById('id-match').textContent = matchPet[0].id;
+                        if (sessionStorage.getItem('currentPet')) {
+                            var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
+                            var matchPet = JSON.parse(sessionStorage.getItem('matchPet'));
+                            
                         }
                     </script>
                         
@@ -172,14 +171,19 @@
 
 </body>
 
-<script src="Js/ListOfPets.js">
+<script>
 
     window.onload = function () {
-        if (!localStorage.getItem('token')) {
+        if (!sessionStorage.getItem('token')) {
             window.location.href = 'error.html';
         }
         
+        
     };
+
+</script>
+
+<script src="Js/ListOfPets.js">
 
 </script>
 
