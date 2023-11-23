@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/adoptar.css" as="style" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="js/adopcion.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
 
     </head>
@@ -32,6 +33,10 @@
 
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto">
+
+                            <li class="nav-item">
+                                <a  style="color:green" class="nav-link" href="#" name="user">Adopciones Pendientes</a>
+                            </li>
 
                             <li class="nav-item active">
                                 <a class="nav-link" href="match.html" name="match">Match</a>
@@ -79,9 +84,7 @@
                             <h4>Motivo de adopción</h4>
                             <div class="form-group shadow-textarea" shadow-textarea>
                                 <label for="MotivoAdopcion"></label>
-                                <textarea class="form-control" name="motivoAdopcion" id="MotivoAdopcion"
-                                    style="width: 300px; height:250px">
-                                </textarea>
+                                <textarea class="form-control" name="MotivoAdopcion" id="MotivoAdopcion"style="width: 300px; height:250px"></textarea>
                             </div>
 
                         </div>
@@ -105,10 +108,11 @@
                         
                         <script>
                             function AdoptarPet() {
-                                var currentUser = JSON.parse(sessionStorage.getItem('user'));
+                                var currentUser = JSON.parse(sessionStorage.getItem('AllDataUser'));
                                 var adoptarPet = JSON.parse(sessionStorage.getItem('adoptarPet'));
+                                console.log(adoptarPet);
                                 var token = sessionStorage.getItem('token');
-                                var motivoAdopcion = document.getElementById('motivoAdopcion').value; // Obtiene el valor del área de texto
+                                var motivoAdopcion = document.getElementById('MotivoAdopcion').value; // Obtiene el valor del área de texto
                         
                                 if (currentUser && adoptarPet && token) {
                                     adoptar(currentUser.id, adoptarPet.id,motivoAdopcion, token);

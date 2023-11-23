@@ -23,9 +23,10 @@ function userInformation(correo, token) {
             return response.json();
         })
         .then(data => {
-
-            sessionStorage.setItem('AllDataUser',data);
+            
+            sessionStorage.setItem('AllDataUser',JSON.stringify(data));
             sessionStorage.setItem('paginacion',0);
+            console.log(data);
 
         })
         .catch(error => {

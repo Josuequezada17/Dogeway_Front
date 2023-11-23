@@ -3,19 +3,20 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
     var modalMatch = document.querySelector('.modalMatch');
     var closeModalMatch = document.querySelector('.closeMatchFoto');
     var match;
-    verifyMatch(Id_pet, Id_pet_match, token)
+  
+    verifyAdoptar(Id_pet, Id_pet_match, token)
         .then(data => {
             // Guardar el JSON en la variable match
             match = data;
-            console.log('Variable match:', match.idpetmatch);
+            console.log('Variable match:', match);
 
-            if (match.idpet!=-1 && match.idpetmatch!=-1){
+            if (match.iduser!=-1 && match.iduserpropietario!=-1){
                 if (match.status === "PENDIENTE") {
-                   if(match.idpet == Id_pet && match.idpetmatch == Id_pet_match){
-                    alert("match ya fue hecho a este usuario");
+                   if(match.iduser == Id_pet && match.iduserpropietario == Id_pet_match){
+                    alert("la solicitud de adopcion ya fue enviada espere la respuesta del otro usuario");
                    }
                    else{
-                    const apiUrl = `http://localhost:8080/adoptar/aceptar?id_pet=${match.idpet}&id_pet_match=${match.idpetmatch}&newStatus=ACEPTADA`;
+                    const apiUrl = `http://localhost:8080/adoptar/aceptar?id_user=${match.idpet}&id_user_propietario=${match.idpetmatch}&message=${Message}&newStatus=ACEPTADA`;
 
                     fetch(apiUrl, {
                         method: 'POST',
@@ -65,12 +66,12 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                             window.location.href = 'match.html';
                 }
             } else {
-                const apiUrl = `http://localhost:8080/adoptar/NewAdopcion`;
+                const apiUrl = `http://localhost:8080/adopcion/NewAdopcion`;
 
                 var newStatus = 'PENDIENTE';
                 const match2 = {
-                    idpet: Id_pet,
-                    idpetmatch: Id_pet_match,
+                    iduser: Id_pet,
+                    iduserpropietario: Id_pet_match,
                     status: newStatus,
                     message:Message
                 };
@@ -113,16 +114,16 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
 
     var match;
  
-    verifyMatch(Id_pet, Id_pet_match, token)
+    verifyAdoptar(Id_pet, Id_pet_match, token)
         .then(data => {
             // Guardar el JSON en la variable match
             match = data;
-            console.log('Variable match:', match.idpetmatch);
+            console.log('Variable match:', match);
 
-            if (match.idpet!=-1 && match.idpetmatch!=-1){
+            if (match.iduser!=-1 && match.iduserpropietario!=-1){
                 if (match.status === "PENDIENTE") {
                    
-                    const apiUrl = `http://localhost:8080/adopcion/aceptar?id_pet=${match.idpet}&id_pet_match=${match.idpetmatch}&newStatus=RECHAZADA`;
+                    const apiUrl = `http://localhost:8080/adoptar/aceptar?id_user=${match.idpet}&id_user_propietario=${match.idpetmatch}&message=${Message}&newStatus=RECHAZADA`;
 
                     fetch(apiUrl, {
                         method: 'POST',
@@ -208,7 +209,7 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
 function verifyAdoptar(Id_pet, Id_pet_match, token) {
 
   
-    const apiUrl = `http://localhost:8080/adopcion/status?id_pet=${Id_pet}&id_pet_match=${Id_pet_match}`;
+    const apiUrl = `http://localhost:8080/adopcion/status?id_user=${Id_pet}&id_user_propietario=${Id_pet_match}`;
     
     return fetch(apiUrl, {
         method: 'GET',

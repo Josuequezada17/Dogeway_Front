@@ -95,7 +95,7 @@ function match(Id_pet, Id_pet_match, token) {
                         var contador = sessionStorage.getItem('paginacion');
                         contador++;
                         sessionStorage.setItem('paginacion', contador);
-                       // window.location.href = 'match.html';
+                       window.location.href = 'match.html';
                     })
                     .catch(error => {
                         console.error('Error al recuperar información:', error);
