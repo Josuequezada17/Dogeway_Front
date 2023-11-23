@@ -1,9 +1,7 @@
-const modalMatch = document.querySelector('.modalMatch');
-const closeModalMatch = document.querySelector('.closeMatchFoto');
 
 function match(Id_pet, Id_pet_match, token) {
-
-
+    var modalMatch = document.querySelector('.modalMatch');
+    var closeModalMatch = document.querySelector('.closeMatchFoto');
     var match;
     verifyMatch(Id_pet, Id_pet_match, token)
         .then(data => {
@@ -34,19 +32,27 @@ function match(Id_pet, Id_pet_match, token) {
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                           window.location.href = 'match.html';
+                            modalMatch.classList.add('modalMatch--show');
+                           setTimeout(function() {
+                            window.location.href = 'match.html';
+                        }, 3000);
                         })
                         .catch(error => {
                             console.error('Error al recuperar información:', error);
                         });
                 } else if (match.status === "ACEPTADA") {
                     console.log("El match ha sido aceptado");
-                    mostrarMatch();
                     
-                    var contador = sessionStorage.getItem('paginacion');
+                    
+                            var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                           window.location.href = 'match.html';
+                            modalMatch.classList.add('modalMatch--show');
+                           
+                            setTimeout(function() {
+                            window.location.href = 'match.html';
+                        }, 3000);
+                        
                 } else if (match.status === "RECHAZADA") {
                     console.log("No se puede concretar el match");
                     var contador = sessionStorage.getItem('paginacion');
@@ -231,10 +237,3 @@ function verifyMatch(Id_pet, Id_pet_match, token) {
     });
 }
 
-function mostrarMatch(){
-    modalMatch.classList.add('modalMatch--show');
-}
-
-function closeModalMatch(){
-    modalMatch.classList.remove('modalMatch--show');
-}

@@ -803,7 +803,7 @@ transform: scale(1.1);
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('imagenes/terry.JPG'); /* Reemplaza con la ruta de tu imagen de fondo */
+  background-image: url('../img/terry.JPG'); /* Reemplaza con la ruta de tu imagen de fondo */
   background-size: cover;
   background-position: center;
   opacity: 0.4; /* Ajusta la opacidad según tus preferencias */
