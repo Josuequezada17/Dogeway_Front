@@ -12,7 +12,7 @@ function match(Id_pet, Id_pet_match, token) {
             if (match.idpet!=-1 && match.idpetmatch!=-1){
                 if (match.status === "PENDIENTE") {
                    if(match.idpet == Id_pet && match.idpetmatch == Id_pet_match){
-                    console.log("match");
+                    alert("match ya fue hecho a este usuario");
                    }
                    else{
                     const apiUrl = `http://localhost:8080/match/aceptar?id_pet=${match.idpet}&id_pet_match=${match.idpetmatch}&newStatus=ACEPTADA`;
@@ -43,7 +43,7 @@ function match(Id_pet, Id_pet_match, token) {
                         .catch(error => {
                             console.error('Error al recuperar información:', error);
                         });}
-                        
+
                 } else if (match.status === "ACEPTADA") {
                     console.log("El match ha sido aceptado");
                     
