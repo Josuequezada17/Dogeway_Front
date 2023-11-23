@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/adoptar.css" as="style" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="js/adopcion.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
 
     </head>
@@ -74,104 +73,11 @@
 
         <main class="header masthead">
 
-            <div>
-                <div class="match ">
-                    <div class="contenedor tres-columnas">
-
-
-                        <div class="info container-match box-table">
-                            
-                            <h4>Motivo de adopción</h4>
-                            <div class="form-group shadow-textarea" shadow-textarea>
-                                <label for="MotivoAdopcion"></label>
-                                <textarea class="form-control" name="MotivoAdopcion" id="MotivoAdopcion"style="width: 300px; height:250px"></textarea>
-                            </div>
-
-                        </div>
-
-                        <div class="info container-match">
-                            <div class="cuadro">
-                                <div class="cuadro-azul">
-                                    <img class="imagen" src="img/pastor-aleman.png" alt="" name="imgMascota">
-                                </div>
-
-                                <div class="buttons-container2">
-
-                                   <!-- Se agrega el referencia para dar match -->
-                        <button onclick="AdoptarPet()">
-                            <img src="img/Ok.png" alt="Match">
-                        </button>
-                        
-                        <button onclick="NotAdoptPet()">
-                            <img src="img/Cancel.png" alt="NotMatch">
-                        </button>
-                        
-                        <script>
-                            function AdoptarPet() {
-                                var currentUser = JSON.parse(sessionStorage.getItem('AllDataUser'));
-                                var adoptarPet = JSON.parse(sessionStorage.getItem('adoptarPet'));
-                                console.log(adoptarPet);
-                                var token = sessionStorage.getItem('token');
-                                var motivoAdopcion = document.getElementById('MotivoAdopcion').value; // Obtiene el valor del área de texto
-                        
-                                if (currentUser && adoptarPet && token) {
-                                    adoptar(currentUser.id, adoptarPet.id,motivoAdopcion, token);
-                                } else {
-                                    console.error("Error: Alguno de los objetos o el token es indefinido.");
-                                }
-                            }
-                        
-                            function NotAdoptPet() {
-                                var currentUser = JSON.parse(sessionStorage.getItem('user'));
-                                var adoptarPet = JSON.parse(sessionStorage.getItem('adoptarPet'));
-                                var token = sessionStorage.getItem('token');
-                        
-                                if (currentUser && adoptarPet && token) {
-                                    NotAdoptar(currentUser.id, adoptarPet.id, token);
-                                } else {
-                                    console.error("Error: Alguno de los objetos o el token es indefinido.");
-                                }
-                            }
-                            
-                        </script>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="info box-table">
-                            <h4>Informacion Usuario</h4>
-
-                           
-                            <div class="info box-table" id="others-adopt">
-
-
-                            </div>
-            
-                            <div>
-            
-                                <fieldset class="FieldIB">
-                                    <button class="BtnGrl ">Reportar</button>
-                                </fieldset>
-            
-                                <fieldset class="FieldIB">
-                                    <button class="BtnGrl ">Bloquear</button>
-                                </fieldset>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
         </main>
 
     </body>
 
-    <script src="Js/ListOfAdoptar.js">
-
-    </script>
+    
 
     <footer>
         
