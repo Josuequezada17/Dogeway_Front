@@ -57,17 +57,17 @@
         </header>
 
         <main>
-            <form id="form">
+            <form id="form-register">   
                 
                 <div class="column">
                     
                     <fieldset>
 
                         <label for="nombre">Nombre completo</label>
-                        <input type="text" name="nombreCompleto" id="nombre" class="StyleInp" required>
+                        <input type="text" name="nombreCompleto" id="nombres" class="StyleInp" required>
 
                         <label for="Apellido">Apellidos</label>
-                        <input type="text" name="apellidos" id="apellido" class="StyleInp" required>
+                        <input type="text" name="apellidos" id="apellidos" class="StyleInp" required>
 
                         <label for="correoElectronico">Correo Electrónico</label>
                         <input type="email" name="correo" id="correo" class="StyleInp" placeholder="email@domain.com"
@@ -77,26 +77,26 @@
 
                     <fieldset class="FieldIB">
                         <legend>Intereses
-                            <select name="interes">
-                                <option>Perros</option>
-                                <option>Gatos</option>
-                                <option>Conejos</option>
+                            <select name="interes" id="Intereses">
+                                <option >PERROS</option>
+                                <option>GATOS</option>
+                                <option>CONEJOS</option>
                             </select required>
                         </legend>
                     </fieldset>
 
                     <fieldset class="FieldIB">
                         <legend>Genero
-                            <select name="genero">
-                                <option>Masculino</option>
-                                <option>Femenino</option>
+                            <select name="genero" id="Genero">
+                                <option>MASCULINO</option>
+                                <option>FEMENINO</option>
                                 <option>Otro</option>
                             </select required>
                         </legend>
                     </fieldset>
 
-                    <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                    <input type="date" id="fecha_nacimiento" class="StyleInp" name="fecha_nacimiento" required>
+                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                    <input type="date" id="fechaNacimiento" class="StyleInp" name="fechaNacimiento" required>
 
                     <fieldset>
                         <label for="pais">Pais</label>
@@ -106,7 +106,7 @@
                         <input type="country" id="estado" class="StyleInp" name="estado" required>
 
                         <label for="colonia">Ciudad</label>
-                        <input type="country" id="colonia" class="StyleInp" name="colonia" required>
+                        <input type="country" id="ciiudad" class="StyleInp" name="ciud" required>
                     </fieldset>
 
                     <label for="telefono">Teléfono</label>
@@ -172,7 +172,77 @@
 
 
             </form>
+            
             <script src="JS/createAccountUser.js"></script>
+
+            <script>
+
+                document.getElementById('form-register').addEventListener('submit', function(event) {
+                  event.preventDefault();  // Evitar que se realice la acción predeterminada del formulario
+              
+                  // Obtener los valores de los campos de entrada
+                  const nombreValue = document.getElementById('nombres').value;
+                  const apellidoValue = document.getElementById('apellidos').value;
+                  const correoValue = document.getElementById('correo').value;
+                  const InteresesValue = document.getElementById('Intereses').value;
+                  const generoValue = document.getElementById('Genero').value;
+                  const fechaNacimientoValue = document.getElementById('fechaNacimiento').value;
+                  const paisValue = document.getElementById('pais').value;
+                  const estadoValue = document.getElementById('estado').value;
+                  const ciudadValue = document.getElementById('ciudad').value;
+                  const telefonoValue = document.getElementById('telefono').value;
+                  const passwordValue = document.getElementById('password').value;
+                  const confirm_passwordValue = document.getElementById('confirm_password').value;
+                  const image1Value = document.getElementById('image1').value;
+
+
+                  if(passwordValue == !confirm_passwordValue){
+                    alert("Contraseña incorrecta");
+                  }else{
+                    alert("Contraseña validada");
+                  }
+              
+                  // Crear el objeto JSON con los valores de los campos de entrada
+                  const message = {
+                      nombres: nombreValue,
+                      apellidos: apellidoValue,
+                      correo:correoValue,
+                      intereses:InteresesValue,
+                      genero: generoValue,
+                      fechaNacimiento: fechaNacimientoValue,
+                      pais: paisValue,
+                  };
+              
+                  // Realizar la solicitud POST al servidor
+                  fetch('http://localhost:8080/singup', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(message)
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                      console.log('Respuesta del servidor:', data);
+                      const token = data.jwTtoken;
+                      sessionStorage.clear();
+                      sessionStorage.setItem('token', token);
+                      sessionStorage.setItem('user', message.correo);
+          
+          
+                      window.location.href = 'homeDogewayLogeado_josue.html';
+          
+                  })
+                  .catch(error => {
+                      sessionStorage.removeItem('token');
+                      console.error('Error al enviar la solicitud:', error);
+                      alert("Uno de los campos es incorrecto,Verificalo");
+        
+                  });
+                });
+              
+              </script>
+              
 
         </main>
 
