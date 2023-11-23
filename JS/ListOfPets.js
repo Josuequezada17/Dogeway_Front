@@ -107,7 +107,7 @@ function userInformation(correo, token) {
 
 
 function ListOfUsers(token, Animal,Genero,Tamano, page) {
-    const apiUrl = `http://localhost:8080/pet/explore-byanimal?animal=${Animal}&tamano=${Tamano}&genero=${Genero}&page=${page}`;
+    const apiUrl = `http://localhost:8080/pet/explore-byanimal?animal=${Animal}&tamano=${Tamano}&genero=${Genero}&utilidadDeMascota=MATCH&page=${page}`;
 
 
     fetch(apiUrl, {
