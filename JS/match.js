@@ -2,7 +2,6 @@ function match(Id_pet, Id_pet_match, token) {
 
 
     var match;
- 
     verifyMatch(Id_pet, Id_pet_match, token)
         .then(data => {
             // Guardar el JSON en la variable match
@@ -32,7 +31,7 @@ function match(Id_pet, Id_pet_match, token) {
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                           // window.location.href = 'match.html';
+                           window.location.href = 'match.html';
                         })
                         .catch(error => {
                             console.error('Error al recuperar información:', error);
@@ -42,13 +41,13 @@ function match(Id_pet, Id_pet_match, token) {
                     var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                           // window.location.href = 'match.html';
+                           window.location.href = 'match.html';
                 } else if (match.status === "RECHAZADA") {
                     console.log("No se puede concretar el match");
                     var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                            //window.location.href = 'match.html';
+                            window.location.href = 'match.html';
                 }
             } else {
                 const apiUrl = `http://localhost:8080/match/NewMatch`;
