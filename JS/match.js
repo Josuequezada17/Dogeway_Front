@@ -1,3 +1,6 @@
+const modalMatch = document.querySelector('.modalMatch');
+const closeModalMatch = document.querySelector('.closeMatchFoto');
+
 function match(Id_pet, Id_pet_match, token) {
 
 
@@ -39,6 +42,8 @@ function match(Id_pet, Id_pet_match, token) {
                         });
                 } else if (match.status === "ACEPTADA") {
                     console.log("El match ha sido aceptado");
+                    mostrarMatch();
+                    
                     var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
@@ -225,4 +230,12 @@ function verifyMatch(Id_pet, Id_pet_match, token) {
         console.error('Error al recuperar información:', error);
         throw error;
     });
+}
+
+function mostrarMatch(){
+    modalMatch.classList.add('modalMatch--show');
+}
+
+function closeModalMatch(){
+    modalMatch.classList.remove('modalMatch--show');
 }
