@@ -939,3 +939,139 @@ transform: scale(1.1);
   margin-bottom: 50px;
   margin-top: -150px;
 }
+
+/*----------------------------------------------VENTANA MODAL ADOPTAR------------------------------*/
+.modalAdoptar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+}
+
+.modalAdoptar--show{
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s; 
+}
+
+.modalContainerAdoptar {
+  margin: auto;
+  width: 600px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalContainerAdoptar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../img/terry.JPG'); /* Reemplaza con la ruta de tu imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4; /* Ajusta la opacidad según tus preferencias */
+  z-index: -1; /* Coloca el fondo detrás del contenido del modal */
+  border-radius: 6px; /* Ajusta el redondeo de las esquinas según sea necesario */
+}
+
+/* Resto del estilo sigue igual */
+.modalContainerAdoptar {
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  grid-auto-columns: 100%;
+  text-align: center;
+}
+
+.closeAdoptar {
+  text-align: right;
+  margin-top: -35px; /* Ajusta la posición vertical según sea necesario */
+}
+
+.closeAdoptarFoto {
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.closeAdoptarFoto:hover {
+  transform: scale(1.1);
+}
+
+.adoptarTitulo {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+  position: relative; /* Asegura que el contenido esté por encima del fondo */
+  margin-top: -15px;
+  margin-bottom: 320px; /* Ajusta el espacio entre el título y el siguiente elemento */
+}
+
+.adoptarTituloSuperior,
+.adoptarTituloInferior{
+  font-size: 100px;
+  font-weight: bold;
+  color: #ff6b6b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.adoptarTitulo2 {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+  position: relative; /* Asegura que el contenido esté por encima del fondo */
+  margin-top: -475px;
+}
+
+.adoptarTituloInferior2{
+  font-size: 100px;
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 2px #ff6b6b;
+  -webkit-text-stroke: 2px #ff6b6b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: -100px;
+  font-style: italic;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%); /* Recorta la mitad izquierda del texto */
+  
+}
+
+.adoptarTituloSuperior {
+  font-size: 40px;
+  color: #ff6b6b;
+  font-style: italic;
+}
+
+.adoptarTituloInferior {
+  text-shadow: 0 4px 6px rgba(255, 107, 107, 0.5);
+  font-style: italic;
+
+}
+
+.informacion {
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  color: white;
+  margin-right: 10px;
+  padding: 5px;
+  font-weight: bold;
+  margin-top: -80px;
+  margin-bottom: 30px; /* Ajusta el espacio entre el texto informativo y el siguiente elemento */
+}

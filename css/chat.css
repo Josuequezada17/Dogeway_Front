@@ -62,7 +62,7 @@ body {
     margin: 10px 20px;
   }
   
-  .BtnGrl {
+  .BtnGrlReportar {
     width: 120px;
     padding: 8px;
     border: none;
@@ -74,7 +74,24 @@ body {
       
   }
   
-  .BtnGrl:hover {
+  .BtnGrlReportar:hover {
+    
+    background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
+  }
+
+  .BtnGrlBloqueo {
+    width: 120px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 10px;
+      
+  }
+  
+  .BtnGrlBloqueo:hover {
     
     background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
   }
@@ -353,206 +370,244 @@ body {
   @-o-keyframes table_loader{ 50%{width:100%}}
   
   /*------------------------- Ventana Modal Reportar ------------------------------------------------------*/
-  
-  .modalReportar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #111111bd;
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .6s .9s;
-    --transform: translateY(-100vh);
-    --transition: transform .8s;
+
+.modalReportar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+}
+
+.modalReportar--show{
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s; 
+}
+
+
+
+.modalContenedorReportar{
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: 580px;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  grid-auto-columns: 100%;
+  text-align: center;
+  transform:  var(--transform);
+  transition: var(--transition);
+}
+
+@media screen and (max-width: 600px) {
+  .modalContenedorReportar {
+    width: 90%; /* Reducir el ancho del modal para pantallas pequeñas */
+    height: auto; /* Ajustar la altura según el contenido o según sea necesario */
+    padding: 2em; /* Ajustar el espacio interno del modal para pantallas pequeñas */
+    /* Otros ajustes necesarios para pantallas pequeñas */
   }
-  
-  .modalReportar--show{
-    opacity: 1;
-    pointer-events: unset;
-    transition: opacity .6s;
-    --transform: translateY(0);
-    --transition: transform .8s .8s; 
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .modalContenedorReportar {
+    width: 70%; /* Ajustar el ancho del modal para pantallas medianas */
+    height: auto; /* Ajustar la altura según el contenido o según sea necesario */
+    /* Otros ajustes necesarios para pantallas medianas */
   }
-  
-  .modalContenedorReportar{
-    margin: auto;
-    width: 90%;
-    background-color: #fff;
-    max-width: 600px;
-    max-height: 90%;
-    border-radius: 6px;
-    padding: 3em 2.5em;
-    display: grid;
-    gap: 1em;
-    grid-auto-columns: 100%;
-    text-align: center;
-    transform:  var(--transform);
-    transition: var(--transition);
+}
+
+@media screen and (min-width: 1025px) {
+  .modalContenedorReportar {
+    height: auto;
   }
-  
-  .modalTituloReportar{
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .radio_optionReportar{
-    margin-right: 10px;
-    margin-bottom: 25px;
-  }
-  
-  .button_optionReportar{
-    width: 50%;
-    height: 50px;
-    padding: 8px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  .button_optionReportar:hover{
-    background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
-  }
-  
-  .text_optionReportar{
-    width: 300px;
-    padding: 10px;
-    border: 0;
-    background-color: #eee;
-    font-size: 16px;
-    margin-bottom: 50px;
-  }
-  
-  .opcionesReportar{
-    text-align: left;
-  }
-  
-  label {
-    font-size: 1.2rem; 
-    color: #333; 
-    margin-right: 10px; 
-    padding: 5px; 
-    font-weight: bold;
-  }
-  
-  .imagenReportar{
-    text-align: right;
-  }
-  
-  .fotoCloseReportar{
-    width: 55px;
-    height: 55px;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .fotoCloseReportar:hover{
-    transform: scale(1.1);
-  }
-  
-  /*------------------------- Ventana Modal Bloquear ------------------------------------------------------*/
-  .modalBloquear{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #111111bd;
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .6s .9s;
-    --transform: translateY(-100vh);
-    --transition: transform .8s;
-  }
-  
-  .modalBloquear--show{
-    opacity: 1;
-    pointer-events: unset;
-    transition: opacity .6s;
-    --transform: translateY(0);
-    --transition: transform .8s .8s; 
-  }
-  
-  .modalContenedorBloquear{
-    margin: auto;
-    width: 90%;
-    background-color: #fff;
-    max-width: 600px;
-    max-height: 90%;
-    border-radius: 6px;
-    padding: 3em 2.5em;
-    display: grid;
-    gap: 1em;
-    grid-auto-columns: 100%;
-    text-align: center;
-    transform:  var(--transform);
-    transition: var(--transition);
-  }
-  
-  .modalTituloBloquear{
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .radio_optionBloquear{
-    margin-right: 10px;
-    margin-bottom: 25px;
-  }
-  
-  .button_optionBloquear{
-    width: 50%;
-    height: 50px;
-    padding: 8px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  .button_optionBloquear:hover{
-    background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
-  }
-  
-  .text_optionBloquear{
-    width: 300px;
-    padding: 10px;
-    border: 0;
-    background-color: #eee;
-    font-size: 16px;
-    margin-bottom: 50px;
-  }
-  
-  .opcionesBloquear{
-    text-align: left;
-  }
-  
-  label {
-    font-size: 1.2rem; 
-    color: #333; 
-    margin-right: 10px; 
-    padding: 5px; 
-    font-weight: bold;
-  }
-  
-  .imagenBloquear{
-    text-align: right;
-  }
-  
-  .fotoCloseBloquear{
-    width: 55px;
-    height: 55px;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .fotoCloseBloquear:hover{
-    transform: scale(1.1);
-  }
+}
+
+.modalTituloReportar{
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;  
+  margin-top: -35px;  
+}
+
+.radio_optionReportar{
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+.button_optionReportar{
+  width: 50%;
+  height: 50px;
+  padding: 8px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.button_optionReportar:hover{
+  background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
+}
+
+.text_optionReportar{
+  width: 300px;
+  padding: 10px;
+  border: 0;
+  background-color: #eee;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.opcionesReportar{
+  text-align: left;
+}
+
+label {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem; 
+  color: #333; 
+  margin-right: 10px; 
+  padding: 5px; 
+  font-weight: bold;
+}
+
+.imagenReportar{
+  text-align: right;
+}
+
+.fotoCloseReportar{
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: -30px;
+}
+
+.fotoCloseReportar:hover{
+  transform: scale(1.1);
+}
+
+
+/*------------------------- Ventana Modal Bloquear ------------------------------------------------------*/
+.modalBloquear{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+}
+
+.modalBloquear--show{
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s; 
+}
+
+.modalContenedorBloquear{
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: 580px;  width: 90%;
+  background-color: #fff;
+  max-width: 600px;
+  max-height: 90%;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  grid-auto-columns: 100%;
+  text-align: center;
+  transform:  var(--transform);
+  transition: var(--transition);
+}
+
+.modalTituloBloquear{
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;  
+  margin-top: -35px;  
+}
+
+.radio_optionBloquear{
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+.button_optionBloquear{
+  width: 50%;
+  height: 50px;
+  padding: 8px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.button_optionBloquear:hover{
+  background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
+}
+
+.text_optionBloquear{
+  width: 300px;
+  padding: 10px;
+  border: 0;
+  background-color: #eee;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.opcionesBloquear{
+  text-align: left;
+}
+
+label {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem; 
+  color: #333; 
+  margin-right: 10px; 
+  padding: 5px; 
+  font-weight: bold;
+}
+
+.imagenBloquear{
+text-align: right;
+}
+
+.fotoCloseBloquear{
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: -30px;
+}
+
+.fotoCloseBloquear:hover{
+transform: scale(1.1);
+}
