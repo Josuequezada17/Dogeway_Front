@@ -134,7 +134,6 @@ h1 {
 }
 
 .BtnGrlReportar:hover {
-  color: rgb(117, 105, 105);
   background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
 }
 
@@ -151,7 +150,6 @@ h1 {
 }
 
 .BtnGrlBloqueo:hover {
-  color: rgb(117, 105, 105);
   background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
 }
 
