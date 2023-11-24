@@ -588,8 +588,8 @@ text-align: right;
 transform: scale(1.1);
 }
 
-/*----------------------------------------VENTANA MODAL MATCH--------------------------------------------------*/
-.modalMatch {
+/*----------------------------------------------VENTANA MODAL MATCH------------------------------*/
+.modalAdoptar {
   position: fixed;
   top: 0;
   left: 0;
@@ -605,7 +605,7 @@ transform: scale(1.1);
   --transition: transform .8s;
 }
 
-.modalMatch--show{
+.modalAdoptar--show{
   opacity: 1;
   pointer-events: unset;
   transition: opacity .6s;
@@ -613,7 +613,7 @@ transform: scale(1.1);
   --transition: transform .8s .8s; 
 }
 
-.modalContainerMatch {
+.modalContainerAdoptar {
   margin: auto;
   width: 600px;
   height: 600px;
@@ -621,7 +621,7 @@ transform: scale(1.1);
   overflow: hidden;
 }
 
-.modalContainerMatch::before {
+.modalContainerAdoptar::before {
   content: '';
   position: absolute;
   top: 0;
@@ -637,7 +637,7 @@ transform: scale(1.1);
 }
 
 /* Resto del estilo sigue igual */
-.modalContainerMatch {
+.modalContainerAdoptar {
   padding: 3em 2.5em;
   display: grid;
   gap: 1em;
@@ -645,23 +645,23 @@ transform: scale(1.1);
   text-align: center;
 }
 
-.closeMatch {
+.closeAdoptar {
   text-align: right;
   margin-top: -35px; /* Ajusta la posición vertical según sea necesario */
 }
 
-.closeMatchFoto {
+.closeAdoptarFoto {
   width: 55px;
   height: 55px;
   cursor: pointer;
   transition: transform 0.2s;
 }
 
-.closeMatchFoto:hover {
+.closeAdoptarFoto:hover {
   transform: scale(1.1);
 }
 
-.matchTitulo {
+.adoptarTitulo {
   font-family: 'Arial', sans-serif;
   text-align: center;
   padding: 20px;
@@ -670,8 +670,8 @@ transform: scale(1.1);
   margin-bottom: 320px; /* Ajusta el espacio entre el título y el siguiente elemento */
 }
 
-.matchTituloSuperior,
-.matchTituloInferior{
+.adoptarTituloSuperior,
+.adoptarTituloInferior{
   font-size: 100px;
   font-weight: bold;
   color: #ff6b6b;
@@ -679,7 +679,7 @@ transform: scale(1.1);
   text-transform: uppercase;
 }
 
-.matchTitulo2 {
+.adoptarTitulo2 {
   font-family: 'Arial', sans-serif;
   text-align: center;
   padding: 20px;
@@ -687,7 +687,7 @@ transform: scale(1.1);
   margin-top: -475px;
 }
 
-.matchTituloInferior2{
+.adoptarTituloInferior2{
   font-size: 100px;
   font-weight: bold;
   color: transparent;
@@ -701,13 +701,13 @@ transform: scale(1.1);
   
 }
 
-.matchTituloSuperior {
+.adoptarTituloSuperior {
   font-size: 40px;
   color: #ff6b6b;
   font-style: italic;
 }
 
-.matchTituloInferior {
+.adoptarTituloInferior {
   text-shadow: 0 4px 6px rgba(255, 107, 107, 0.5);
   font-style: italic;
 
@@ -722,14 +722,4 @@ transform: scale(1.1);
   font-weight: bold;
   margin-top: -80px;
   margin-bottom: 30px; /* Ajusta el espacio entre el texto informativo y el siguiente elemento */
-}
-
-.opcionMandarMensaje {
-  width: 100%;
-  padding: 10px;
-  border: 1px;
-  background-color: #eee;
-  font-size: 16px;
-  margin-bottom: 50px;
-  margin-top: -150px;
 }
