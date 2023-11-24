@@ -3,8 +3,9 @@ window.onload = function () {
 
     if(sessionStorage.getItem('currentPet')){
     var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
-    
-    ListOfUsers(sessionStorage.token,currentPet.animal,!currentPet.genero,currentPet.tamano,sessionStorage.paginacion);
+    var currentUser =currentPet.userResponseDTO;
+   console.log(currentUser.id);
+    ListOfUsers(sessionStorage.token,currentUser.id);
     
     
     }
@@ -13,7 +14,7 @@ window.onload = function () {
 }
 
 function userInformation(correo, token) {
-    fetch(`http://localhost:8080/pet/listallpets?correo=${encodeURIComponent(correo)}&utilidadDeMascota=MATCH`, {
+    fetch(`http://localhost:8080/pet/listallpets?correo=${encodeURIComponent(correo)}&utilidadDeMascota=ADOPCION`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -70,11 +71,12 @@ function userInformation(correo, token) {
                         imgElement.addEventListener('click', function () {
                             sessionStorage.setItem('paginacion',0);
                             sessionStorage.setItem('currentPet', JSON.stringify(mascota));
+                            sessionStorage.setItem('userPropietary',JSON.stringify(mascota.userResponseDTO));
                             var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
                             ListOfUsers(sessionStorage.token,currentPet.animal,!currentPet.genero,currentPet.tamano,sessionStorage.paginacion);
                             alert('La mascota ha sido cambiada por ' + mascota.nombre);
                             
-                            window.location.href = 'match.html';
+                            window.location.href = 'adopcionesPendientes.html';
                         });
             
                         celda.appendChild(imgElement);
@@ -106,8 +108,8 @@ function userInformation(correo, token) {
 
 
 
-function ListOfUsers(token, Animal,Genero,Tamano, page) {
-    const apiUrl = `http://localhost:8080/pet/explore-byanimal?animal=${Animal}&tamano=${Tamano}&genero=${Genero}&utilidadDeMascota=MATCH&page=${page}`;
+function ListOfUsers(token, Id) {
+    const apiUrl = `http://localhost:8080/adopcion/solicitudes?id_user_propietario=${Id}&status=PENDIENTE`;
 
 
     fetch(apiUrl, {
@@ -125,9 +127,8 @@ function ListOfUsers(token, Animal,Genero,Tamano, page) {
             return response.json();
         })
         .then(data => {
-            sessionStorage.setItem('matchPet',JSON.stringify(data.content[0]));
-            console.log('Respuesta del servidor:exitosa',data.content[0]);
-var contenedor = document.getElementById('others-animals');
+            console.log('Respuesta del servidor:exitosa',data);
+var contenedor = document.getElementById('solicitudes');
 // Crear una tabla
 var tabla = document.createElement('table');
 tabla.border = '1';
@@ -137,15 +138,15 @@ tabla.classList.add('box-table');
 var encabezado = tabla.createTHead();
 var filaEncabezado = encabezado.insertRow();
 filaEncabezado.insertCell().textContent = 'Usuario';
-filaEncabezado.insertCell().textContent = 'Mascota';
 
 // Crear filas de datos
-data.content.forEach(function (mascota) {
+var userDTO = data[sessionStorage.paginacion];
+sessionStorage.setItem('CurrentAdoptarPet',JSON.stringify(userDTO));
+
     // Crear una fila
     var fila = tabla.insertRow();
 
     // Acceder a userResponseDTO
-    var userDTO = mascota.userResponseDTO;
 
     // Columna 1: Información del Usuario
     var celdaUsuario = fila.insertCell();
@@ -173,31 +174,6 @@ data.content.forEach(function (mascota) {
     celdaUsuario.appendChild(GeneroUsuario);
 
 
-    // Columna 2: Información de la Mascota
-    var celdaMascota = fila.insertCell();
-    celdaMascota.style.width='200px'
-
-    // Agregar la foto de la mascota
-    var imgMascota = document.createElement('img');
-    imgMascota.src = mascota.foto; // Ajusta esto según la estructura real de tu objeto
-    imgMascota.classList='img-pet';
-    imgMascota.alt = 'Mascota Image';
-    celdaMascota.appendChild(imgMascota);
-
-    // Agregar nombre de la mascota
-    var nombreMascota = document.createElement('p');
-    nombreMascota.textContent = mascota.nombre; // Ajusta esto según la estructura real de tu objeto
-    celdaMascota.appendChild(nombreMascota);
-
-    var descripcion = document.createElement('p');
-    descripcion.textContent = mascota.descripcion; // Ajusta esto según la estructura real de tu objeto
-    celdaMascota.appendChild(descripcion);
-
-
-    var personalidad = document.createElement('p');
-    personalidad.textContent = mascota.personalidad; // Ajusta esto según la estructura real de tu objeto
-    celdaMascota.appendChild(personalidad);
-});
 
 // Agregar la tabla al contenedor
 contenedor.appendChild(tabla);

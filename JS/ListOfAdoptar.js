@@ -60,6 +60,8 @@ function ListOfUsers(token,page) {
         .then(data => {
             sessionStorage.setItem('adoptarPet',JSON.stringify(data.content[0]));
             console.log('Respuesta del servidor:exitosa',data.content[0]);
+            var user=data.content[0];
+          
 var contenedor = document.getElementById('others-adopt');
 // Crear una tabla
 var tabla = document.createElement('table');
@@ -137,7 +139,7 @@ contenedor.appendChild(tabla);
 
            
             
-
+            
 
             
 

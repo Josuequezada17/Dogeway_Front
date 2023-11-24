@@ -84,7 +84,7 @@
                             <h4>Motivo de adopción</h4>
                             <div class="form-group shadow-textarea" shadow-textarea>
                                 <label for="MotivoAdopcion"></label>
-                                <textarea class="form-control" name="MotivoAdopcion" id="MotivoAdopcion"style="width: 300px; height:250px"></textarea>
+                                <textarea class="form-control" name="MotivoAdopcion" id="MotivoAdopcion"style="width: 300px; height:250px" required></textarea>
                             </div>
 
                         </div>
@@ -122,12 +122,14 @@
                             }
                         
                             function NotAdoptPet() {
-                                var currentUser = JSON.parse(sessionStorage.getItem('user'));
+                                var currentUser = JSON.parse(sessionStorage.getItem('AllDataUser'));
                                 var adoptarPet = JSON.parse(sessionStorage.getItem('adoptarPet'));
+                                console.log(adoptarPet);
                                 var token = sessionStorage.getItem('token');
+                                var motivoAdopcion = document.getElementById('MotivoAdopcion').value; // Obtiene el valor del área de texto
                         
                                 if (currentUser && adoptarPet && token) {
-                                    NotAdoptar(currentUser.id, adoptarPet.id, token);
+                                    NotAdoptar(currentUser.id, adoptarPet.id,token);
                                 } else {
                                     console.error("Error: Alguno de los objetos o el token es indefinido.");
                                 }

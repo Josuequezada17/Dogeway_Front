@@ -12,11 +12,12 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
 
             if (match.iduser!=-1 && match.iduserpropietario!=-1){
                 if (match.status === "PENDIENTE") {
-                   if(match.iduser == Id_pet && match.iduserpropietario == Id_pet_match){
+                   if(match.iduser != Id_pet && match.iduserpropietario != Id_pet_match ){
                     alert("la solicitud de adopcion ya fue enviada espere la respuesta del otro usuario");
                    }
                    else{
-                    const apiUrl = `http://localhost:8080/adoptar/aceptar?id_user=${match.idpet}&id_user_propietario=${match.idpetmatch}&message=${Message}&newStatus=ACEPTADA`;
+                    
+                    const apiUrl = `http://localhost:8080/adopcion/aceptar?id_user=${match.iduser}&id_user_propietario=${match.iduserpropietario}&message=${Message}&newStatus=ACEPTADA`;
 
                     fetch(apiUrl, {
                         method: 'POST',
@@ -38,7 +39,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                             sessionStorage.setItem('paginacion', contador);
                             modalMatch.classList.add('modalMatch--show');
                            setTimeout(function() {
-                            window.location.href = 'match.html';
+                            window.location.href = 'adoptar.html';
                         }, 3000);
                         })
                         .catch(error => {
@@ -55,7 +56,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                             modalMatch.classList.add('modalMatch--show');
                            
                             setTimeout(function() {
-                            window.location.href = 'match.html';
+                            window.location.href = 'adoptar.html';
                         }, 3000);
                         
                 } else if (match.status === "RECHAZADA") {
@@ -63,7 +64,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                     var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                            window.location.href = 'match.html';
+                            window.location.href = 'adoptar.html';
                 }
             } else {
                 const apiUrl = `http://localhost:8080/adopcion/NewAdopcion`;
@@ -97,7 +98,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                         var contador = sessionStorage.getItem('paginacion');
                         contador++;
                         sessionStorage.setItem('paginacion', contador);
-                       // window.location.href = 'match.html';
+                       window.location.href = 'adoptar.html';
                     })
                     .catch(error => {
                         console.error('Error al recuperar información:', error);
@@ -123,7 +124,7 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
             if (match.iduser!=-1 && match.iduserpropietario!=-1){
                 if (match.status === "PENDIENTE") {
                    
-                    const apiUrl = `http://localhost:8080/adoptar/aceptar?id_user=${match.idpet}&id_user_propietario=${match.idpetmatch}&message=${Message}&newStatus=RECHAZADA`;
+                    const apiUrl = `http://localhost:8080/adopcion/aceptar?id_user=${match.iduser}&id_user_propietario=${match.iduserpropietario}&message=${Message1}&newStatus=RECHAZADA`;
 
                     fetch(apiUrl, {
                         method: 'POST',
@@ -143,7 +144,7 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                            window.location.href = 'match.html';
+                            window.location.href = 'adoptar.html';
                         })
                         .catch(error => {
                             console.error('Error al recuperar información:', error);
@@ -153,23 +154,24 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
                     var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                            window.location.href = 'match.html';
+                            window.location.href = 'adoptar.html';
                 }else if (match.status === "ACEPATADA") {
 
                     var contador = sessionStorage.getItem('paginacion');
                     contador++;
                     sessionStorage.setItem('paginacion', contador);
-                    window.location.href = 'match.html';
+                    window.location.href = 'adoptar.html';
                 }
             } else {
                 const apiUrl = `http://localhost:8080/adopcion/NewAdopcion`;
 
                 var newStatus = 'RECHAZADA';
+                var Message1="NOT ADOPT"
                 const match2 = {
-                    idpet: Id_pet,
-                    idpetmatch: Id_pet_match,
+                    iduser: Id_pet,
+                    iduserpropietario: Id_pet_match,
                     status: newStatus,
-                    message:Message
+                    message:Message1
                 };
 
 
@@ -193,7 +195,7 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
                         var contador = sessionStorage.getItem('paginacion');
                         contador++;
                         sessionStorage.setItem('paginacion', contador);
-                        window.location.href = 'match.html';
+                        window.location.href = 'adoptar.html';
                     })
                     .catch(error => {
                         console.error('Error al recuperar información:', error);
