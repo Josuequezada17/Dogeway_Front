@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
-
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
 
     <body>
@@ -64,7 +64,7 @@
         </header>
 
         <main>
-            <form id="form">
+            <form id="mascotaForm" method="post">
                 
                 <div class="column">
                     <fieldset>
@@ -72,66 +72,65 @@
                         <label for="nombre">Nombre de la mascota</label>
                         <input type="text" name="nombreMascota" id="nombre" class="StyleInp" required>
 
-                    </fieldset required>
+                    </fieldset>
                     
                     <label for="raza" name="raza">Seleccione el tipo de:</label>
 
                     <fieldset class="FieldIBP">
                         <legend> 
                             <label for="nombre">Mascota
-                                <select>
+                                <select id="mascota" name="mascota" required>
                                     <option name="perro">PERRO</option>
                                     <option name="gato">GATO</option>
                                     <option name="conejo">CONEJOS</option>
-                                </select required>
+                                </select>
                             </label>
                         </legend>
-                    </fieldset required>
+                    </fieldset>
 
                     <fieldset class="FieldIBP">
                         <legend> 
                             <label for="funcionPet">Para
-                                <select>
+                                <select id="funcion" name="funcionMascota" required>
                                     <option type="funcionPet" name="funcionMatch">MATCH</option>
                                     <option type="funcionPet" name="funcionAdoptar">ADOPCION</option>
                                 </select>
                             </label>
                         </legend>
-
-                    </fieldset required>
+                    </fieldset>
 
                     <fieldset class="">
                         <label for="raza" class="raza">Raza</label>
                         <input type="text" name="raza" id="raza" class="StyleInp" required>
-                    </fieldset required>
+                    </fieldset>
 
                     <fieldset class="FieldIBP">
                         <legend>
                             <label for="tamano">Tamaño 
-                                <select>
+                                <select id="tamanio" name="Tamano" required>
                                     <option type="weight" name="chico">CHICO</option>
                                     <option type="weight" name="mediano">MEDIANO</option>
                                     <option type="weight" name="grande">GRANDE</option>
-                                </select required>
+                                </select>
                             </label>
-                        </legend required>
+                        </legend>
 
-                    </fieldset required>
+                    </fieldset>
 
                     <fieldset class="FieldIBP">
                         <legend> 
                             <label for="sexo">Sexo
-                                <select>
+                                <select id="genero" name="Genero" required>
                                     <option type="sexo" name="masculino">MASCULINO</option>
                                     <option type="sexo" name="femenino">FEMENINO</option>
                                 </select>
                             </label>
                         </legend>
 
-                    </fieldset required>
+                    </fieldset>
 
                     <fieldset>
-                        <label for="descripcion">Descripcion</label>
+                        <label for="descripcion" name="Desc">Descripcion</label>
                         <textarea cols="70" rows="10" id="descripcion" class="StyleInp" required name="descripcion"></textarea>
                     </fieldset required>
 
@@ -175,7 +174,7 @@
                 </div>
 
                 <div class="Btn_XY">
-                    <button type="submit" class="BtnGrl" name="continuar">Continuar</button>
+                    <button type="submit" onclick="registrarMascota()" class="BtnGrl">Registrar Mascota</button>
                 </div>
                 
     
