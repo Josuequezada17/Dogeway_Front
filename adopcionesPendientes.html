@@ -107,12 +107,12 @@
 
                     <div class="cuadro">
                         <div class="cuadro-azul">
-                            <img class="imagen" id="foto" src="" alt="Image-match">
+                            <img class="imagen" id="foto" src="" alt="ImgUser">
 
 
                             <script>
                                 if(sessionStorage.getItem('currentPet')){
-                                var matchpet = JSON.parse(sessionStorage.getItem('matchpet'))
+                                var matchpet = JSON.parse(sessionStorage.getItem('CurrentAdoptarPet'))
                                 document.getElementById('foto').textContent = matchpet.foto;
 
                                 }
