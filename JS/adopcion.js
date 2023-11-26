@@ -55,7 +55,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                            modalMatch.classList.add('modalMatch--show');
+                            modalAdoptar.classList.add('modalAdoptar--show');
                             
                             setTimeout(function() {
                             window.location.href = 'adoptar.html';
@@ -159,6 +159,8 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
                             window.location.href = 'adoptar.html';
                           
                 }else if (match.status === "ACEPTADA") {
+
+                    alert("ya fue hecho el match anteriomente")
 
                     var contador = sessionStorage.getItem('paginacion');
                     contador++;
