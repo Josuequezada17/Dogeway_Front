@@ -1,5 +1,5 @@
 window.onload = function () {
-    console.log
+    
     userInformation(sessionStorage.user, sessionStorage.token);
     ListOfUsers(sessionStorage.token,sessionStorage.paginacion);
     
@@ -25,7 +25,7 @@ function userInformation(correo, token) {
         .then(data => {
             
             sessionStorage.setItem('AllDataUser',JSON.stringify(data));
-            sessionStorage.setItem('paginacion',0);
+            
             console.log(data);
 
         })
@@ -60,7 +60,7 @@ function ListOfUsers(token,page) {
         .then(data => {
             sessionStorage.setItem('adoptarPet',JSON.stringify(data.content[0]));
             console.log('Respuesta del servidor:exitosa',data.content[0]);
-            var user=data.content[0];
+        
           
 var contenedor = document.getElementById('others-adopt');
 // Crear una tabla

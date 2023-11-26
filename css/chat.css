@@ -111,7 +111,7 @@ body {
   
   .cuadro-chat{
     background-color:#D9D9D9;
-    width: 900px;
+    width: 500px;
     height: 500px;
     display: flex;
     align-items: center;
@@ -136,7 +136,7 @@ body {
   
   .cuadro-message{
     background-color:#D9D9D9;
-    width: 900px;
+    width: 500px;
     height: 100px;
     display: flex;
     align-items: center;

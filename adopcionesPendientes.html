@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <title>Match</title>
+    <title>Adopciones Pendientes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/match.css" as="style" />
@@ -107,12 +107,12 @@
 
                     <div class="cuadro">
                         <div class="cuadro-azul">
-                            <img class="imagen" id="foto" src="" alt="Image-match">
+                            <img class="imagen" id="foto" src="" alt="ImgUser">
 
 
                             <script>
                                 if(sessionStorage.getItem('currentPet')){
-                                var matchpet = JSON.parse(sessionStorage.getItem('matchpet'))
+                                var matchpet = JSON.parse(sessionStorage.getItem('CurrentAdoptarPet'))
                                 document.getElementById('foto').textContent = matchpet.foto;
 
                                 }
@@ -146,12 +146,12 @@
                             }
                         
                             function NotAdoptarPet() {
-                                var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
-                                var matchPet = JSON.parse(sessionStorage.getItem('matchPet'));
+                                var currentPet = JSON.parse(sessionStorage.getItem('userPropietary'));
+                                var matchPet = JSON.parse(sessionStorage.getItem('CurrentAdoptarPet'));
                                 var token = sessionStorage.getItem('token');
                         
                                 if (currentPet && matchPet && token) {
-                                    NotAdoptar(currentPet.id, matchPet.id, token);
+                                    NotAdoptar( matchPet.id,currentPet.id,token);
                                 } else {
                                     console.error("Error: Alguno de los objetos o el token es indefinido.");
                                 }
@@ -192,16 +192,16 @@
             <div class="closeAdoptar">
                 <img class="closeAdoptarFoto" src="imagenes/close.png">
             </div>
-
+    
             <div class="adoptarTitulo">
                 <span class="adoptarTituloSuperior">!Has sido</span><br>
                 <span class="adoptarTituloInferior">Adoptado!</span>
             </div>
-
+    
             <div class="adoptadoTitulo2">
                 <span class="adoptadoTituloInferior2">Adoptado!</span>
             </div>
-
+    
             <div>
                 <p class="informacion">¡Te han adopato Terry!</p>
             </div>

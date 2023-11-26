@@ -1,4 +1,5 @@
 window.onload = function () {
+    sessionStorage.setItem('paginacion',0);
     userInformation(sessionStorage.user, sessionStorage.token);
 
     if(sessionStorage.getItem('currentPet')){
@@ -28,7 +29,7 @@ function userInformation(correo, token) {
             return response.json();
         })
         .then(data => {
-            console.log('Respuesta del servidor:exitosa');
+            console.log('Respuesta del servidor:exitosa',data);
             var contenedor = document.getElementById('Pets-Info'); // Asegúrate de reemplazar 'miContenedor' con el ID real
             // Agregar la tabla al contenedor en lugar del cuerpo del documento
         
@@ -72,8 +73,9 @@ function userInformation(correo, token) {
                             sessionStorage.setItem('paginacion',0);
                             sessionStorage.setItem('currentPet', JSON.stringify(mascota));
                             sessionStorage.setItem('userPropietary',JSON.stringify(mascota.userResponseDTO));
-                            var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
-                            ListOfUsers(sessionStorage.token,currentPet.animal,!currentPet.genero,currentPet.tamano,sessionStorage.paginacion);
+                            var currentUser=JSON.parse(sessionStorage.getItem('userPropietary'));
+
+                            ListOfUsers(sessionStorage.token,currentUser.id);
                             alert('La mascota ha sido cambiada por ' + mascota.nombre);
                             
                             window.location.href = 'adopcionesPendientes.html';
@@ -139,8 +141,11 @@ var encabezado = tabla.createTHead();
 var filaEncabezado = encabezado.insertRow();
 filaEncabezado.insertCell().textContent = 'Usuario';
 
+var   paginacion=sessionStorage.getItem('paginacion');
+
+
 // Crear filas de datos
-var userDTO = data[sessionStorage.paginacion];
+var userDTO = data[paginacion];
 sessionStorage.setItem('CurrentAdoptarPet',JSON.stringify(userDTO));
 
     // Crear una fila
