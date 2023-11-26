@@ -14,6 +14,9 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                 if (match.status === "PENDIENTE") {
                    if(match.iduser != Id_pet && match.iduserpropietario != Id_pet_match ){
                     alert("la solicitud de adopcion ya fue enviada espere la respuesta del otro usuario");
+                           var contador = sessionStorage.getItem('paginacion');
+                            contador++;
+                            sessionStorage.setItem('paginacion', contador);
                    }
                    else{
                     
@@ -48,13 +51,12 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
 
                 } else if (match.status === "ACEPTADA") {
                     console.log("El match ha sido aceptado");
-                    
-                    
+                
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
                             modalMatch.classList.add('modalMatch--show');
-                           
+                            
                             setTimeout(function() {
                             window.location.href = 'adoptar.html';
                         }, 3000);
@@ -150,12 +152,13 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
                             console.error('Error al recuperar información:', error);
                         });
                 } else if (match.status === "RECHAZADA") {
-                    console.log("No se puede concretar el match");
+                           console.log("No se puede concretar el match");
                     var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
                             window.location.href = 'adoptar.html';
-                }else if (match.status === "ACEPATADA") {
+                          
+                }else if (match.status === "ACEPTADA") {
 
                     var contador = sessionStorage.getItem('paginacion');
                     contador++;
@@ -183,12 +186,6 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
                     },
                     body: JSON.stringify(match2)
                 })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`Error de red: ${response.status} - ${response.statusText}`);
-                        }
-                        return response.json();
-                    })
                     .then(data => {
                         console.log('Respuesta del servidor: exitosa', data);
 
@@ -200,7 +197,7 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
                     .catch(error => {
                         console.error('Error al recuperar información:', error);
                     });
-            }
+                }
         })
         .catch(error => {
             // Manejar errores aquí
