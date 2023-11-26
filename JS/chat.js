@@ -1,6 +1,10 @@
   window.onload = function () {
     
     userInformation(sessionStorage.user,sessionStorage.token);
+    ListAllPets(sessionStorage.user,sessionStorage.token);
+    loadMatchs();
+   
+    
 
     
     
@@ -37,7 +41,7 @@ function userInformation(correo, token) {
 
 
 function ListAllPets(correo, token) {
-    fetch(`http://localhost:8080/pet/listallpets?correo=${encodeURIComponent(correo)}&utilidadDeMascota=ADOPCION`, {
+    fetch(`http://localhost:8080/pet/listallpets?correo=${encodeURIComponent(correo)}&utilidadDeMascota=MATCH`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -94,11 +98,13 @@ function ListAllPets(correo, token) {
                         imgElement.addEventListener('click', function () {
                             sessionStorage.setItem('paginacion',0);
                             sessionStorage.setItem('currentPet', JSON.stringify(mascota));
+                           
                             
-                            loadMatchs();
-                            alert('La mascota ha sido cambiada por ' + mascota.nombre);
-                            
-                            window.location.href = 'chat.html';
+                            alert('La mascota ha sido cambiada por'  + mascota.nombre);
+                        
+                           loadMatchs();
+                           window.location.href = 'chat.html';
+
                         });
             
                         celda.appendChild(imgElement);
@@ -128,21 +134,17 @@ function ListAllPets(correo, token) {
 }
 
 
-
-
-
-
-
 function loadMatchs() {
     
 
     // Obtener el token de autenticación de donde lo tengas almacenado en tu aplicación 
-    const user=JSON.parse(sessionStorage.getItem('AllDataUser'));
-    const authToken = sessionStorage.getItem('token');
+    var user=JSON.parse(sessionStorage.getItem('currentPet'));
+    const userId=user.id;
+    const token = sessionStorage.token;
  
     // Hacer una solicitud al servidor para obtener la lista de matchs
-    fetch('http://localhost:8080/match/ListOfMatchForUsers?id_pet=${user.id}&status=ACEPTADA',{
-
+    fetch(`http://localhost:8080/match/ListOfMatchForUser?id_pet=${userId}&status=ACEPTADA`,{
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': token 
@@ -195,12 +197,11 @@ function loadMatchs() {
                         // Agregar un evento de clic a la imagen
                         imgElement.addEventListener('click', function () {
                             sessionStorage.setItem('paginacion',0);
-                            sessionStorage.setItem('matchPet', JSON.stringify(mascota));
+                            
+                            sessionStorage.setItem('ChatPet', JSON.stringify(mascota));
                            
-                            var UsuarioActual = JSON.parse(sessionStorage.getItem('AllDataUser'));
-
-                            loadMessages(UsuarioActual.id,mascota.id);
-                            alert('La mascota ha sido cambiada por ' + mascota.nombre);
+                            
+                            alert('La mascota ha sido cambiada por frweferfer' + mascota.nombre);
                             
                             window.location.href = 'chat.html';
                         });
@@ -231,46 +232,191 @@ function loadMatchs() {
 
 
 // Cargar mensajes en el chat
-function loadMessages(UsuarioActual,usuarioDestino) {
+// Cargar mensajes en el chat
+/*function loadMessages() {
 
-    fetch(`http://localhost:8080/chat/getmessage?usuarioActual=${UsuarioActual}&usuarioDestino=${usuarioDestino}`, {
+    var MascotaActal = JSON.parse(sessionStorage.getItem('currentPet'));
+    var MascotaDestino = JSON.parse(sessionStorage.getItem('ChatPet'));
+
+    fetch(`http://localhost:8080/chat/getmessage?usuarioActual=${MascotaActal.id}&usuarioDestino=${MascotaDestino.idMascota}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': token
+            'Authorization': sessionStorage.token
         }
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error de red: ${response.status} - ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Respuesta del servidor:exitosa');
-            var contenedor = document.getElementById('Chat-message'); 
-        
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error de red: ${response.status} - ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Respuesta del servidor:mensaje', data);
+        var contenedor = document.getElementById('Chat-message');
 
-        })
-        .catch(error => {
-            console.error('Error al recuperar información:', error);
-            // Manejar el error de manera adecuada, por ejemplo, redirigir a una página de error
+        // Limpiar el contenido actual del contenedor
+        contenedor.innerHTML = '';
 
+        // Establecer el estilo del contenedor para mostrar mensajes en disposición vertical
+        contenedor.style.flexDirection = 'column';
+
+        // Recorrer los mensajes y agregarlos al contenedor
+        data.forEach(mensaje => {
+            var mensajeElement = document.createElement('div');
+            mensajeElement.className = 'mensaje';
+
+            // Puedes personalizar la presentación de cada mensaje según tus necesidades
+            mensajeElement.innerHTML = `
+                <div>Sender: ${mensaje.sender}</div>
+                <div>Message: ${mensaje.message}</div>
+                <div>DateTime: ${mensaje.localDateTime}</div>
+            `;
+
+            // Agregar el mensaje al contenedor
+            contenedor.appendChild(mensajeElement);
         });
-    
+
+        // Desplazarse hacia abajo para mostrar el mensaje más reciente
+        contenedor.scrollTop = contenedor.scrollHeight;
+    })
+    .catch(error => {
+        console.error('Error al recuperar información:', error);
+        // Manejar el error de manera adecuada, por ejemplo, redirigir a una página de error
+    });
+}
+*/
+
+
+/*
+function loadMessages() {
+    var MascotaActal = JSON.parse(sessionStorage.getItem('currentPet'));
+    var MascotaDestino = JSON.parse(sessionStorage.getItem('ChatPet'));
+
+    fetch(`http://localhost:8080/chat/getmessage?usuarioActual=${MascotaActal.id}&usuarioDestino=${MascotaDestino.idMascota}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': sessionStorage.token
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error de red: ${response.status} - ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Respuesta del servidor:mensaje', data);
+        var contenedor = document.getElementById('Chat-message');
+
+        // Limpiar el contenido actual del contenedor
+        contenedor.innerHTML = '';
+
+        // Establecer el estilo del contenedor para mostrar mensajes en disposición vertical
+        contenedor.style.flexDirection = 'column';
+
+        // Recorrer los mensajes y agregarlos al contenedor
+        data.forEach(mensaje => {
+            var mensajeElement = document.createElement('div');
+                mensajeElement.className = mensaje.sender === MascotaActal.id ? 'mensaje sender' : 'mensaje recipient';
+                var userChat=JSON.parse(sessionStorage.getItem('ChatPet'));
+               if(mensaje.sender == MascotaActal.id){
+                name=MascotaActal.nombre;
+               }
+               else if(mensaje.sender== userChat.id){
+
+                name=userChat.nombre;
+                
+               }
+              
+            // Puedes personalizar la presentación de cada mensaje según tus necesidades
+            mensajeElement.innerHTML = `
+                <div class="message-user">${name}</div>
+                <div class="message-content">${mensaje.message}</div>
+                <div class="timestamp">${mensaje.localDateTime}</div>
+            `;
+
+            // Agregar el mensaje al contenedor
+            contenedor.appendChild(mensajeElement);
+        });
+
+        // Desplazarse hacia abajo para mostrar el mensaje más reciente
+        contenedor.scrollTop = contenedor.scrollHeight;
+    })
+    .catch(error => {
+        console.error('Error al recuperar información:', error);
+        // Manejar el error de manera adecuada, por ejemplo, redirigir a una página de error
+    });
+}*/
+
+function loadMessages() {
+    var MascotaActal = JSON.parse(sessionStorage.getItem('currentPet'));
+    var MascotaDestino = JSON.parse(sessionStorage.getItem('ChatPet'));
+
+    fetch(`http://localhost:8080/chat/getmessage?usuarioActual=${MascotaActal.id}&usuarioDestino=${MascotaDestino.idMascota}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': sessionStorage.token
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Error de red: ${response.status} - ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Respuesta del servidor:mensaje', data);
+        var contenedor = document.getElementById('Chat-message');
+
+        // Limpiar el contenido actual del contenedor
+        contenedor.innerHTML = '';
+
+        // Establecer el estilo del contenedor para mostrar mensajes en disposición vertical
+        contenedor.style.flexDirection = 'column';
+
+        // Recorrer los mensajes y agregarlos al contenedor
+        data.forEach(mensaje => {
+            var mensajeElement = document.createElement('div');
+            mensajeElement.className = mensaje.sender === MascotaActal.id ? 'mensaje sender' : 'mensaje recipient';
+
+            // Puedes personalizar la presentación de cada mensaje según tus necesidades
+            mensajeElement.innerHTML = `
+                <div class="message-header">${mensaje.sender === MascotaActal.id ? 'Tú' : 'Usuario'}:</div>
+                <div class="message-content">${mensaje.message}</div>
+                <div class="timestamp">${mensaje.localDateTime}</div>
+            `;
+
+            // Agregar el mensaje al contenedor
+            contenedor.appendChild(mensajeElement);
+        });
+
+        // Desplazarse hacia abajo para mostrar el mensaje más reciente
+        contenedor.scrollTop = contenedor.scrollHeight;
+    })
+    .catch(error => {
+        console.error('Error al recuperar información:', error);
+        // Manejar el error de manera adecuada, por ejemplo, redirigir a una página de error
+    });
 }
 
+
+
+
+
 // Función para enviar mensajes
-function sendMessage(Sender,SendTo,message) {
-   
+function sendMessage(Sender,SendTo,Message,token) {
+   console.log(SendTo);
     const newMessage = {
         sender: Sender,
         sendto :SendTo,
-        content:message
+        message:Message
     };
 
     fetch(`http://localhost:8080/chat/createmessage`, {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': token
