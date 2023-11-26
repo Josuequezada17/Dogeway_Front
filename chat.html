@@ -71,16 +71,16 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
             </script>
 
-        <script>
-            /*
-            window.onload = function () {
-                if (!sessionStorage.getItem('token')) {
-                    window.location.href = 'error.html';
-                }
-            };
-*/
+            <script>
+                
+                window.onload = function () {
+                    if (!sessionStorage.getItem('token')) {
+                        window.location.href = 'error.html';
+                    }
+                };
 
-        </script>
+                
+            </script>
 
     </header>
 
@@ -100,6 +100,7 @@
 
 
 
+
                 <div class="cuadro-chat">
 
 
@@ -107,17 +108,8 @@
 
                 <div class="cuadro-message">
 
-                    <textarea style="resize:none" style="margin-right:30px" name="message" id="message" cols="80" rows="2"></textarea>
-                    <button onclick="NotAdoptPet()">
-                        <img src="img/enviar.png" alt="ImgEnviar">       
-                    </button>
-                 
-
-                    <script>
-                        var motivoAdopcion = document.getElementById('MotivoAdopcion').value; 
-
-
-                    </script>
+                    <textarea style="margin-right:30px" name="message" id="" cols="80" rows="2"></textarea>
+                    <a href=""><img src="img/enviar.png" alt=""></a>
 
                 </div>
 
