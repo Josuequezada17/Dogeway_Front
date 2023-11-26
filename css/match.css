@@ -553,109 +553,136 @@ label {
 
 /*------------------------- Ventana Modal Reportar ------------------------------------------------------*/
 
-  .modalReportar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #111111bd;
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .6s .9s;
-    --transform: translateY(-100vh);
-    --transition: transform .8s;
-  }
-
-  .modalReportar--show{
-    opacity: 1;
-    pointer-events: unset;
-    transition: opacity .6s;
-    --transform: translateY(0);
-    --transition: transform .8s .8s; 
-  }
-
-  .modalContenedorReportar{
-    margin: auto;
-    width: 600px;
-    height: 600px;
-    background-color: #fff;
-    border-radius: 6px;
-    padding: 3em 2.5em;
-    display: grid;
-    gap: 1em;
-    grid-auto-columns: 100%;
-    text-align: center;
-    transform:  var(--transform);
-    transition: var(--transition);
+.modalReportar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
 }
 
-  .modalTituloReportar{
-    font-size: 3rem;
-    font-weight: bold;
-    font-family: 'Arial', sans-serif;  
-    margin-top: -35px;  
-  }
+.modalReportar--show{
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s; 
+}
 
-  .radio_optionReportar{
-    margin-right: 10px;
-    margin-bottom: 25px;
-  }
 
-  .button_optionReportar{
-    width: 50%;
-    height: 50px;
-    padding: 8px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
 
-  .button_optionReportar:hover{
-    background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
-  }
+.modalContenedorReportar{
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: 580px;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  grid-auto-columns: 100%;
+  text-align: center;
+  transform:  var(--transform);
+  transition: var(--transition);
+}
 
-  .text_optionReportar{
-    width: 300px;
-    padding: 10px;
-    border: 0;
-    background-color: #eee;
-    font-size: 16px;
-    margin-bottom: 50px;
+@media screen and (max-width: 600px) {
+  .modalContenedorReportar {
+    width: 90%; /* Reducir el ancho del modal para pantallas pequeñas */
+    height: auto; /* Ajustar la altura según el contenido o según sea necesario */
+    padding: 2em; /* Ajustar el espacio interno del modal para pantallas pequeñas */
+    /* Otros ajustes necesarios para pantallas pequeñas */
   }
+}
 
-  .opcionesReportar{
-    text-align: left;
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .modalContenedorReportar {
+    width: 70%; /* Ajustar el ancho del modal para pantallas medianas */
+    height: auto; /* Ajustar la altura según el contenido o según sea necesario */
+    /* Otros ajustes necesarios para pantallas medianas */
   }
+}
 
-  label {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.2rem; 
-    color: #333; 
-    margin-right: 10px; 
-    padding: 5px; 
-    font-weight: bold;
+@media screen and (min-width: 1025px) {
+  .modalContenedorReportar {
+    height: auto;
   }
+}
 
-  .imagenReportar{
-    text-align: right;
-  }
+.modalTituloReportar{
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;  
+  margin-top: -35px;  
+}
 
-  .fotoCloseReportar{
-    width: 55px;
-    height: 55px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    margin-top: -30px;
-  }
+.radio_optionReportar{
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
 
-  .fotoCloseReportar:hover{
-    transform: scale(1.1);
-  }
+.button_optionReportar{
+  width: 50%;
+  height: 50px;
+  padding: 8px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.button_optionReportar:hover{
+  background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
+}
+
+.text_optionReportar{
+  width: 300px;
+  padding: 10px;
+  border: 0;
+  background-color: #eee;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.opcionesReportar{
+  text-align: left;
+}
+
+label {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem; 
+  color: #333; 
+  margin-right: 10px; 
+  padding: 5px; 
+  font-weight: bold;
+}
+
+.imagenReportar{
+  text-align: right;
+}
+
+.fotoCloseReportar{
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: -30px;
+}
+
+.fotoCloseReportar:hover{
+  transform: scale(1.1);
+}
 
 /*------------------------- Ventana Modal Bloquear ------------------------------------------------------*/
 .modalBloquear{
@@ -682,8 +709,11 @@ label {
 }
 
 .modalContenedorBloquear{
-  margin: auto;
-  width: 90%;
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: 580px;  width: 90%;
   background-color: #fff;
   max-width: 600px;
   max-height: 90%;
@@ -763,7 +793,8 @@ text-align: right;
 transform: scale(1.1);
 }
 
-/*----VENTANA MODAL MATCH----*/
+
+/*----------------------------------------------VENTANA MODAL MATCH------------------------------*/
 .modalMatch {
   position: fixed;
   top: 0;
@@ -907,4 +938,140 @@ transform: scale(1.1);
   font-size: 16px;
   margin-bottom: 50px;
   margin-top: -150px;
+}
+
+/*----------------------------------------------VENTANA MODAL ADOPTAR------------------------------*/
+.modalAdoptar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+}
+
+.modalAdoptar--show{
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s; 
+}
+
+.modalContainerAdoptar {
+  margin: auto;
+  width: 600px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalContainerAdoptar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../img/terry.JPG'); /* Reemplaza con la ruta de tu imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4; /* Ajusta la opacidad según tus preferencias */
+  z-index: -1; /* Coloca el fondo detrás del contenido del modal */
+  border-radius: 6px; /* Ajusta el redondeo de las esquinas según sea necesario */
+}
+
+/* Resto del estilo sigue igual */
+.modalContainerAdoptar {
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  grid-auto-columns: 100%;
+  text-align: center;
+}
+
+.closeAdoptar {
+  text-align: right;
+  margin-top: -35px; /* Ajusta la posición vertical según sea necesario */
+}
+
+.closeAdoptarFoto {
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.closeAdoptarFoto:hover {
+  transform: scale(1.1);
+}
+
+.adoptarTitulo {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+  position: relative; /* Asegura que el contenido esté por encima del fondo */
+  margin-top: -15px;
+  margin-bottom: 320px; /* Ajusta el espacio entre el título y el siguiente elemento */
+}
+
+.adoptarTituloSuperior,
+.adoptarTituloInferior{
+  font-size: 100px;
+  font-weight: bold;
+  color: #ff6b6b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.adoptarTitulo2 {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+  position: relative; /* Asegura que el contenido esté por encima del fondo */
+  margin-top: -475px;
+}
+
+.adoptarTituloInferior2{
+  font-size: 100px;
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 2px #ff6b6b;
+  -webkit-text-stroke: 2px #ff6b6b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: -100px;
+  font-style: italic;
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%); /* Recorta la mitad izquierda del texto */
+  
+}
+
+.adoptarTituloSuperior {
+  font-size: 40px;
+  color: #ff6b6b;
+  font-style: italic;
+}
+
+.adoptarTituloInferior {
+  text-shadow: 0 4px 6px rgba(255, 107, 107, 0.5);
+  font-style: italic;
+
+}
+
+.informacion {
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  color: white;
+  margin-right: 10px;
+  padding: 5px;
+  font-weight: bold;
+  margin-top: -80px;
+  margin-bottom: 30px; /* Ajusta el espacio entre el texto informativo y el siguiente elemento */
 }

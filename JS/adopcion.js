@@ -1,7 +1,7 @@
 
 function adoptar(Id_pet, Id_pet_match,Message,token) {
-    var modalMatch = document.querySelector('.modalMatch');
-    var closeModalMatch = document.querySelector('.closeMatchFoto');
+    var modalAdoptar = document.querySelector('.modalAdoptar');
+    var closeModalAdoptar = document.querySelector('.closeAdoptarFoto');
     var match;
   
     verifyAdoptar(Id_pet, Id_pet_match, token)
@@ -40,7 +40,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
-                            modalMatch.classList.add('modalMatch--show');
+                            modalAdoptar.classList.add('modalAdoptar--show');
                            setTimeout(function() {
                             window.location.href = 'adoptar.html';
                         }, 3000);
