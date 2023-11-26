@@ -10,6 +10,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/chat.css" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="JS/chat.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
 
@@ -90,40 +91,7 @@
             <div class="other-chats box-table">
 
                 <h4>Elige a tu mascota</h4>
-                <table>
-
-                    <tr> <!-- Comienza una fila -->
-                        <th style="width: 20%;">Foto</th> <!-- Encabezado de columna 1 -->
-                        <th style="width: 20%;">Nombre</th> <!-- Encabezado de columna 2 -->
-                        <th style="width: 40%;">Mensaje</th> <!-- Encabezado de columna 2 -->
-                        <th style="width: 20%;">Utilidad</th> <!-- Encabezado de columna 2 -->
-
-                    </tr>
-
-                    <tr> <!-- Comienza otra fila -->
-                        <td><a href=""><img src="img/Logo.png" alt="pet2"> </a></td>
-                        <!-- Celda de datos 1 en la fila 2 -->
-                        <td>MAX</td> <!-- Celda de datos 2 en la fila 2 -->
-                        <td>Hola, Como estas?</td>
-
-                    </tr>
-
-                    <tr> <!-- Comienza otra fila -->
-                        <td><a href=""><img src="img/Logo.png" alt="pet2"> </a></td>
-                        <!-- Celda de datos 1 en la fila 2 -->
-                        <td>ROKY</td> <!-- Celda de datos 2 en la fila 2 -->
-                        <td>Hola, Como estas?</td> <!-- Celda de datos 2 en la fila 2 -->
-                        <td>Adopcion</td> <!-- Celda de datos 2 en la fila 2 -->
-                    </tr>
-                    <tr> <!-- Comienza otra fila -->
-                        <td><a href=""><img src="img/Logo.png" alt="pet2"> </a></td>
-                        <!-- Celda de datos 1 en la fila 2 -->
-                        <td>FIRULAIS</td> <!-- Celda de datos 2 en la fila 2 -->
-                        <td>Hola, Como estas?</td> <!-- Celda de datos 2 en la fila 2 -->
-                        <td>Match</td> <!-- Celda de datos 2 en la fila 2 -->
-                    </tr>
-
-                </table>
+                
 
             </div>
 
@@ -139,8 +107,17 @@
 
                 <div class="cuadro-message">
 
-                    <textarea style="margin-right:30px" name="message" id="" cols="80" rows="2"></textarea>
-                    <a href=""><img src="img/enviar.png" alt=""></a>
+                    <textarea style="resize:none" style="margin-right:30px" name="message" id="message" cols="80" rows="2"></textarea>
+                    <button onclick="NotAdoptPet()">
+                        <img src="img/enviar.png" alt="ImgEnviar">       
+                    </button>
+                 
+
+                    <script>
+                        var motivoAdopcion = document.getElementById('MotivoAdopcion').value; 
+
+
+                    </script>
 
                 </div>
 
@@ -150,36 +127,7 @@
             <div class="other-chats box-table">
 
                 <h4>Chats de la mascota selecionada</h4>
-                <table>
-
-                    <tr> <!-- Comienza una fila -->
-                        <th style="width: 20%;">Foto</th> <!-- Encabezado de columna 1 -->
-                        <th style="width: 20%;">Nombre</th> <!-- Encabezado de columna 2 -->
-                        <th style="width: 60%;">Mensaje</th> <!-- Encabezado de columna 2 -->
-                    </tr>
-
-                    <tr> <!-- Comienza otra fila -->
-                        <td><a href=""><img src="img/Logo.png" alt="pet2"> </a></td>
-                        <!-- Celda de datos 1 en la fila 2 -->
-                        <td>MAX</td> <!-- Celda de datos 2 en la fila 2 -->
-                        <td>Hola, Como estas?</td>
-
-                    </tr>
-
-                    <tr> <!-- Comienza otra fila -->
-                        <td><a href=""><img src="img/Logo.png" alt="pet2"> </a></td>
-                        <!-- Celda de datos 1 en la fila 2 -->
-                        <td>ROKY</td> <!-- Celda de datos 2 en la fila 2 -->
-                        <td>Hola, Como estas?</td> <!-- Celda de datos 2 en la fila 2 -->
-                    </tr>
-                    <tr> <!-- Comienza otra fila -->
-                        <td><a href=""><img src="img/Logo.png" alt="pet2"> </a></td>
-                        <!-- Celda de datos 1 en la fila 2 -->
-                        <td>FIRULAIS</td> <!-- Celda de datos 2 en la fila 2 -->
-                        <td>Hola, Como estas?</td> <!-- Celda de datos 2 en la fila 2 -->
-                    </tr>
-
-                </table>
+                
 
                 <fieldset class="FieldIB">
                     <button class="BtnGrlReportar">Reportar</button>
