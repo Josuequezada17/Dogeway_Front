@@ -146,12 +146,12 @@
                             }
                         
                             function NotAdoptarPet() {
-                                var currentPet = JSON.parse(sessionStorage.getItem('currentPet'));
-                                var matchPet = JSON.parse(sessionStorage.getItem('matchPet'));
+                                var currentPet = JSON.parse(sessionStorage.getItem('userPropietary'));
+                                var matchPet = JSON.parse(sessionStorage.getItem('CurrentAdoptarPet'));
                                 var token = sessionStorage.getItem('token');
                         
                                 if (currentPet && matchPet && token) {
-                                    NotAdoptar(currentPet.id, matchPet.id, token);
+                                    NotAdoptar( matchPet.id,currentPet.id,token);
                                 } else {
                                     console.error("Error: Alguno de los objetos o el token es indefinido.");
                                 }
