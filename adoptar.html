@@ -110,12 +110,12 @@
                             function AdoptarPet() {
                                 var currentUser = JSON.parse(sessionStorage.getItem('AllDataUser'));
                                 var adoptarPet = JSON.parse(sessionStorage.getItem('adoptarPet'));
-                                console.log(adoptarPet);
+                                var adoptarUser=adoptarPet.userResponseDTO;
                                 var token = sessionStorage.getItem('token');
                                 var motivoAdopcion = document.getElementById('MotivoAdopcion').value; // Obtiene el valor del área de texto
                         
                                 if (currentUser && adoptarPet && token) {
-                                    adoptar(currentUser.id, adoptarPet.id,motivoAdopcion, token);
+                                    adoptar(currentUser.id, adoptarUser.id,motivoAdopcion, token);
                                 } else {
                                     console.error("Error: Alguno de los objetos o el token es indefinido.");
                                 }
@@ -125,11 +125,12 @@
                                 var currentUser = JSON.parse(sessionStorage.getItem('AllDataUser'));
                                 var adoptarPet = JSON.parse(sessionStorage.getItem('adoptarPet'));
                                 console.log(adoptarPet);
+                                var adoptarUser=adoptarPet.userResponseDTO;
                                 var token = sessionStorage.getItem('token');
                                 var motivoAdopcion = document.getElementById('MotivoAdopcion').value; // Obtiene el valor del área de texto
                         
                                 if (currentUser && adoptarPet && token) {
-                                    NotAdoptar(currentUser.id, adoptarPet.id,token);
+                                    NotAdoptar(currentUser.id, adoptarUser.id,token);
                                 } else {
                                     console.error("Error: Alguno de los objetos o el token es indefinido.");
                                 }
