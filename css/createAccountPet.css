@@ -67,11 +67,17 @@ form label, form legend{
     left: 125px;
 }
 
-.Btn_XY{
+/*.Btn_XY{
     display: flex; 
     justify-content: end; 
     align-items: center;
     margin: 0px 100px 20px 0px;
+}*/
+
+.Btn_XY {
+    position: fixed; /* Fija el botón en la ventana, independientemente del desplazamiento */
+    bottom: 20px;
+    right: 20px;
 }
 
 .BtnGrl {

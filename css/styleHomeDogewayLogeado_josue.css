@@ -1,4 +1,4 @@
-body{
+body {
   font-family: 'Baloo 2', sans-serif;
   background: url(../img/Fondo.png);
   background-size: cover;
@@ -14,11 +14,27 @@ body{
 
 main {
   display: flex;
+  flex-direction: column; /* Cambia a dirección de columna para centrar verticalmente */
   justify-content: center;
   align-items: center;
   height: 100vh;
   padding: 2em 0;
   margin: 0 auto 1em;
+}
+
+.btns_opc {
+  list-style: none;
+  padding: 10;
+  text-align: center; /* Centra los elementos de la lista */
+  margin: 10px;
+}
+
+.BtnGrl {
+  width: 180px;
+  padding: 8px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
 }
 
 .BtnGrl-logIn {
@@ -30,12 +46,12 @@ main {
   color: #ffffff;
   font-weight: bold;
 }
-  
+
 .BtnGrl-logIn:hover {
   background: linear-gradient(to top right, rgb(66, 63, 65), rgb(158, 154, 154));
 }
 
-.BtnGrl-rPet{
+.BtnGrl-rPet {
   width: 180px;
   padding: 8px;
   border: none;
@@ -77,12 +93,27 @@ main {
   background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
 }
 
-.texto{
+.BtnGrl-chat{
+  width: 180px;
+  padding: 8px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to top right, rgb(60, 63, 220), rgb(0, 60, 255));
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.BtnGrl-chat:hover {
+  background: linear-gradient(to top right, rgb(40, 20, 220), rgb(6, 55, 83));
+}
+
+
+.texto {
   padding: 9px;
   border: none;
   border-radius: 50px;
   background: #00000080;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: bold;
   text-align: center;
   margin-top: 60px;
@@ -90,36 +121,35 @@ main {
 }
 
 .CA{
-  padding: 10px;
-  margin: 0 270px;
+  margin: 10px;
   font-size: 18px;
 }
 
 .Ad{
-  padding: 10px;
-  margin: 0 270px;
+  margin: 10px;
   font-size: 18px;
 }
 
 .Ex{
-  padding: 10px;
-  margin: 0 270px;
+  margin: 10px;
   font-size: 18px;
 }
 
+.chat{
+  margin: 10px;
+  font-size: 18px;
+}
 
-@media (min-width: 150px) and (max-width: 350px ) {
+@media (min-width: 150px) and (max-width: 350px) {
   .texto {
     font-size: calc(16px + ((100vw - 200px) / 800) * 100);
   }
-
 }
 
 @media (min-width: 351px) and (max-width: 550px) {
   .texto {
     font-size: calc(16px + ((100vw - 300px) / 800) * 100);
   }
-
 }
 
 @media (min-width: 551px) and (max-width: 750px) {
@@ -128,17 +158,14 @@ main {
   }
 }
 
-@media (min-width: 751px) and (max-width: 950px ) {
+@media (min-width: 751px) and (max-width: 950px) {
   .texto {
     font-size: calc(16px + ((100vw - 300px) / 800) * 100);
   }
-
 }
 
-@media (min-width: 951px) and (max-width: 1150px ) {
+@media (min-width: 951px) and (max-width: 1150px) {
   .texto {
     font-size: calc(16px + ((100vw - 300px) / 800) * 100);
   }
-
 }
-  
