@@ -201,7 +201,7 @@ function loadMatchs() {
                             sessionStorage.setItem('ChatPet', JSON.stringify(mascota));
                            
                             
-                            alert('La mascota ha sido cambiada por frweferfer' + mascota.nombre);
+                            alert('La mascota ha sido cambiada por' + mascota.nombre);
                             
                             window.location.href = 'chat.html';
                         });
@@ -223,6 +223,28 @@ function loadMatchs() {
 
             // Agregar la tabla al cuerpo del documento
             contenedor.appendChild(tabla);
+
+            var botones = document.createElement('div');
+    botones.classList.add('botones');
+    
+    var fieldsetReportar = document.createElement('fieldset');
+    fieldsetReportar.classList.add('FieldIB');
+    var btnReportar = document.createElement('button');
+    btnReportar.classList.add('BtnGrlReportar');
+    btnReportar.textContent = 'Reportar';
+    fieldsetReportar.appendChild(btnReportar);
+
+    var fieldsetBloqueo = document.createElement('fieldset');
+    fieldsetBloqueo.classList.add('FieldIB');
+    var btnBloquear = document.createElement('button');
+    btnBloquear.classList.add('BtnGrlBloqueo');
+    btnBloquear.textContent = 'Bloquear';
+    fieldsetBloqueo.appendChild(btnBloquear);
+
+    botones.appendChild(fieldsetReportar);
+    botones.appendChild(fieldsetBloqueo);
+
+    contenedor.appendChild(botones);
 
            
         })
