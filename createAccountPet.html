@@ -248,7 +248,6 @@
                             .then(response => response.json())
                             .then(message => {
                                 console.log('Respuesta del servidor:', message);
-                                sessionStorage.clear();
                                 window.location.href = 'homeDogewayLogeado_josue.html';
                             })
                             .catch(error => {

@@ -159,7 +159,7 @@ function NotMatch(Id_pet, Id_pet_match, token) {
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
                             window.location.href = 'match.html';
-                }else if (match.status === "ACEPATADA") {
+                }else if (match.status === "ACEPTADA") {
 
                     var contador = sessionStorage.getItem('paginacion');
                     contador++;

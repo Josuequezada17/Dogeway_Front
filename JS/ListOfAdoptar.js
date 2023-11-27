@@ -119,6 +119,10 @@ data.content.forEach(function (mascota) {
     imgMascota.alt = 'Mascota Image';
     celdaMascota.appendChild(imgMascota);
 
+
+    var imgFoto=document.getElementById('foto');
+    imgFoto.src=mascota.foto;
+
     // Agregar nombre de la mascota
     var nombreMascota = document.createElement('p');
     nombreMascota.textContent = mascota.nombre; // Ajusta esto según la estructura real de tu objeto

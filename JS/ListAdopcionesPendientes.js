@@ -164,6 +164,10 @@ sessionStorage.setItem('CurrentAdoptarPet',JSON.stringify(userDTO));
     imgUsuario.alt = 'Usuario Image';
     celdaUsuario.appendChild(imgUsuario);
 
+var userFoto=document.getElementById('foto');
+userFoto.src=userDTO.foto;
+
+
     // Agregar nombre del usuario
     var nombreUsuario = document.createElement('p');
     nombreUsuario.textContent = `${userDTO.nombres} ${userDTO.apellidos}`;

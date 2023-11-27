@@ -6,8 +6,9 @@ window.onload = function () {
     
     ListOfUsers(sessionStorage.token,currentPet.animal,!currentPet.genero,currentPet.tamano,sessionStorage.paginacion);
     
-    
     }
+
+    
 
     
 }
@@ -125,7 +126,11 @@ function ListOfUsers(token, Animal,Genero,Tamano, page) {
             return response.json();
         })
         .then(data => {
+
+            
             sessionStorage.setItem('matchPet',JSON.stringify(data.content[0]));
+            
+            
             console.log('Respuesta del servidor:exitosa',data.content[0]);
 var contenedor = document.getElementById('others-animals');
 // Crear una tabla
@@ -158,6 +163,11 @@ data.content.forEach(function (mascota) {
     imgUsuario.alt = 'Usuario Image';
     celdaUsuario.appendChild(imgUsuario);
 
+
+    
+
+
+
     // Agregar nombre del usuario
     var nombreUsuario = document.createElement('p');
     nombreUsuario.textContent = `${userDTO.nombres} ${userDTO.apellidos}`;
@@ -183,6 +193,9 @@ data.content.forEach(function (mascota) {
     imgMascota.classList='img-pet';
     imgMascota.alt = 'Mascota Image';
     celdaMascota.appendChild(imgMascota);
+
+    var fotomascota = document.getElementById('foto');
+    fotomascota.src=mascota.foto;
 
     // Agregar nombre de la mascota
     var nombreMascota = document.createElement('p');
