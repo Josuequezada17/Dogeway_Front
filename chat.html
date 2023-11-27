@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="JS/chat.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="js/LogOut.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
 
 </head>
@@ -57,7 +58,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a style="color:red" class="nav-link" href="#">Log Out</a>
+                            <a style="color: red" class="nav-link" onclick="logOut()">Log Out</a>
                         </li>
 
                     </ul>
@@ -72,13 +73,11 @@
             </script>
 
         <script>
-            /*
             window.onload = function () {
                 if (!sessionStorage.getItem('token')) {
                     window.location.href = 'error.html';
                 }
             };
-*/
 
         </script>
 
@@ -95,11 +94,7 @@
 
             </div>
 
-
             <div class="chat">
-
-
-
 
                 <div class="cuadro-chat mensaje-area">
 
@@ -113,7 +108,6 @@
 
                     <textarea style="resize:none; border-radius:25px; padding: 10px; margin: 10px;" name="message" id="Message" cols="80" rows="2"></textarea>
                     <button style=" border-radius:20px; margin-right: 5px;" onclick="Send()"><img src="img/enviar.png" alt=""></a></button>
-
 
                 </div>
 
@@ -157,137 +151,129 @@
 
                 <h5>Chats de la mascota selecionada</h5>
 
-
-
-
-
             </div>
 
-
-
         </div>
-
-
-
-
 
     </main>
 
     <!-- Agrega esta sección al final del body antes de cerrar el tag </body> -->
 
-</body>
+    </body>
 
 
-<section class="modalReportar">
-    <div class="modalContenedorReportar">
+        <section class="modalReportar">
+            <div class="modalContenedorReportar">
 
-        <div class="imagenReportar">
-            <img class="fotoCloseReportar" src="img/close.png">
-        </div>
+                <div class="imagenReportar">
+                    <img class="fotoCloseReportar" src="img/close.png">
+                </div>
 
-        <h2 class="modalTituloReportar">Motivo del reporte</h2>
+                <h2 class="modalTituloReportar">Motivo del reporte</h2>
 
-        <form name="FormaReportar" id="FormaReportar">
+                <form name="FormaReportar" id="FormaReportar">
 
-            <div class="opcionesReportar">
-                <input type="radio" id="opcion1Reportar" name="opcionesReportar" value="Motivo1"
-                    class="radio_optionReportar">
-                <label for="opcion">Comportamiento inapropiado o acoso</label><br>
+                    <div class="opcionesReportar">
+                        <input type="radio" id="opcion1Reportar" name="opcionesReportar" value="Motivo1"
+                            class="radio_optionReportar">
+                        <label for="opcion">Comportamiento inapropiado o acoso</label><br>
 
-                <input type="radio" id="opcion2Reportar" name="opcionesReportar" value="Motivo2"
-                    class="radio_optionReportar">
-                <label for="opcion">Perfiles falsos o fraudulentos</label><br>
+                        <input type="radio" id="opcion2Reportar" name="opcionesReportar" value="Motivo2"
+                            class="radio_optionReportar">
+                        <label for="opcion">Perfiles falsos o fraudulentos</label><br>
 
-                <input type="radio" id="opcion3Reportar" name="opcionesReportar" value="Motivo3"
-                    class="radio_optionReportar">
-                <label for="opcion">Spam o publicidad no deseada</label><br>
+                        <input type="radio" id="opcion3Reportar" name="opcionesReportar" value="Motivo3"
+                            class="radio_optionReportar">
+                        <label for="opcion">Spam o publicidad no deseada</label><br>
 
-                <input type="radio" id="opcion4Reportar" name="opcionesReportar" value="Motivo4"
-                    class="radio_optionReportar">
-                <label for="opcion">Edad incorrecta</label><br>
+                        <input type="radio" id="opcion4Reportar" name="opcionesReportar" value="Motivo4"
+                            class="radio_optionReportar">
+                        <label for="opcion">Edad incorrecta</label><br>
 
-                <input type="radio" id="opcion5Reportar" name="opcionesReportar" value="Motivo5"
-                    class="radio_optionReportar">
-                <label for="opcion">Comportamiento inapropiado en las fotos de perfil</label><br>
+                        <input type="radio" id="opcion5Reportar" name="opcionesReportar" value="Motivo5"
+                            class="radio_optionReportar">
+                        <label for="opcion">Comportamiento inapropiado en las fotos de perfil</label><br>
 
-                <input type="radio" id="opcion6Reportar" name="opcionesReportar" value="Motivo6"
-                    class="radio_optionReportar">
-                <label for="opcion">Comportamiento violento o amenazante</label><br>
+                        <input type="radio" id="opcion6Reportar" name="opcionesReportar" value="Motivo6"
+                            class="radio_optionReportar">
+                        <label for="opcion">Comportamiento violento o amenazante</label><br>
 
-                <input type="radio" id="otrosReportar" name="opcionesReportar" value="otrosReportar"
-                    class="radio_optionReportar">
-                <label for="opcion">Otros</label><br>
+                        <input type="radio" id="otrosReportar" name="opcionesReportar" value="otrosReportar"
+                            class="radio_optionReportar">
+                        <label for="opcion">Otros</label><br>
 
-                <input type="text" name="motivoTextoReportar" id="motivoTextoReportar"
-                    placeholder="Escribe aqui el motivo del reporte" class="text_optionReportar" /> <br>
+                        <input type="text" name="motivoTextoReportar" id="motivoTextoReportar"
+                            placeholder="Escribe aqui el motivo del reporte" class="text_optionReportar" /> <br>
+                    </div>
+
+                    <input type="submit" value="Enviar" class="button_optionReportar" />
+
+                </form>
             </div>
+        </section>
 
-            <input type="submit" value="Enviar" class="button_optionReportar" />
+        <section class="modalBloquear">
+            <div class="modalContenedorBloquear">
 
-        </form>
-    </div>
-</section>
+                <div class="imagenBloquear">
+                    <img class="fotoCloseBloquear" src="img/close.png">
+                </div>
 
-<section class="modalBloquear">
-    <div class="modalContenedorBloquear">
+                <h2 class="modalTituloBloquear">Motivo del Bloqueo</h2>
 
-        <div class="imagenBloquear">
-            <img class="fotoCloseBloquear" src="img/close.png">
-        </div>
+                <form name="FormaBloquear" id="FormaBloquear">
 
-        <h2 class="modalTituloBloquear">Motivo del Bloqueo</h2>
+                    <div class="opcionesBloquear">
+                        <input type="radio" id="opcion1Bloquear" name="opcionesBloquear" value="Motivo1"
+                            class="radio_optionBloquear">
+                        <label for="opcion">Comportamiento inapropiado o acoso</label><br>
 
-        <form name="FormaBloquear" id="FormaBloquear">
+                        <input type="radio" id="opcion2Bloquear" name="opcionesBloquear" value="Motivo2"
+                            class="radio_optionBloquear">
+                        <label for="opcion">Perfiles falsos o fraudulentos</label><br>
 
-            <div class="opcionesBloquear">
-                <input type="radio" id="opcion1Bloquear" name="opcionesBloquear" value="Motivo1"
-                    class="radio_optionBloquear">
-                <label for="opcion">Comportamiento inapropiado o acoso</label><br>
+                        <input type="radio" id="opcion3Bloquear" name="opcionesBloquear" value="Motivo3"
+                            class="radio_optionBloquear">
+                        <label for="opcion">Spam o publicidad no deseada</label><br>
 
-                <input type="radio" id="opcion2Bloquear" name="opcionesBloquear" value="Motivo2"
-                    class="radio_optionBloquear">
-                <label for="opcion">Perfiles falsos o fraudulentos</label><br>
+                        <input type="radio" id="opcion4Bloquear" name="opcionesBloquear" value="Motivo4"
+                            class="radio_optionBloquear">
+                        <label for="opcion">Violacion a las normas</label><br>
 
-                <input type="radio" id="opcion3Bloquear" name="opcionesBloquear" value="Motivo3"
-                    class="radio_optionBloquear">
-                <label for="opcion">Spam o publicidad no deseada</label><br>
+                        <input type="radio" id="opcion5Bloquear" name="opcionesBloquear" value="Motivo5"
+                            class="radio_optionBloquear">
+                        <label for="opcion">Comportamiento inapropiado en las fotos de perfil</label><br>
 
-                <input type="radio" id="opcion4Bloquear" name="opcionesBloquear" value="Motivo4"
-                    class="radio_optionBloquear">
-                <label for="opcion">Violacion a las normas</label><br>
+                        <input type="radio" id="opcion6Bloquear" name="opcionesBloquear" value="Motivo6"
+                            class="radio_optionBloquear">
+                        <label for="opcion">Comportamiento violento o amenazante</label><br>
 
-                <input type="radio" id="opcion5Bloquear" name="opcionesBloquear" value="Motivo5"
-                    class="radio_optionBloquear">
-                <label for="opcion">Comportamiento inapropiado en las fotos de perfil</label><br>
+                        <input type="radio" id="otrosBloquear" name="opcionesBloquear" value="otrosBloquear"
+                            class="radio_optionBloquear">
+                        <label for="opcion">Otros</label><br>
 
-                <input type="radio" id="opcion6Bloquear" name="opcionesBloquear" value="Motivo6"
-                    class="radio_optionBloquear">
-                <label for="opcion">Comportamiento violento o amenazante</label><br>
+                        <input type="text" name="motivoTextoBloquear" id="motivoTextoBloquear"
+                            placeholder="Escribe aqui el motivo del reporte" class="text_optionBloquear" /> <br>
+                    </div>
 
-                <input type="radio" id="otrosBloquear" name="opcionesBloquear" value="otrosBloquear"
-                    class="radio_optionBloquear">
-                <label for="opcion">Otros</label><br>
+                    <input type="submit" value="Enviar" class="button_optionBloquear" />
 
-                <input type="text" name="motivoTextoBloquear" id="motivoTextoBloquear"
-                    placeholder="Escribe aqui el motivo del reporte" class="text_optionBloquear" /> <br>
+                </form>
             </div>
+        </section>
+        
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-            <input type="submit" value="Enviar" class="button_optionBloquear" />
+        <script src="JS/mainReportar.js"></script>
 
-        </form>
-    </div>
-</section>
+        <script src="JS/mainBloquear.js"></script>
 
-</body>
+        <footer>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        </footer>
 
-<script src="JS/mainReportar.js"></script>
+    </body>
 
-<script src="JS/mainBloquear.js"></script>
-
-<footer>
-
-</footer>
+        
 
 </html>
