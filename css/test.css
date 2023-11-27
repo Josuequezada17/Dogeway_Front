@@ -1,0 +1,152 @@
+body {
+    font-family: 'Baloo 2', sans-serif;
+    background: url(../img/Fondo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+  }
+
+  .logo{
+    margin-right: 10px;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column; /* Cambia a dirección de columna para centrar verticalmente */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 2em 0;
+    margin: 0 auto 1em;
+  }
+  
+.btns_opc {
+    list-style: none;
+    padding: 10;
+    text-align: center; /* Centra los elementos de la lista */
+    margin: 10px;
+  }
+  
+  .BtnGrl {
+    width: 180px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+  }
+  
+  .BtnGrl-logIn {
+    width: 120px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(94, 90, 93), rgb(82, 76, 76));
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .BtnGrl-logIn:hover {
+    background: linear-gradient(to top right, rgb(66, 63, 65), rgb(158, 154, 154));
+  }
+  
+  .BtnGrl-rPet {
+    width: 180px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(204, 3, 64), rgb(204, 12, 23));
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .BtnGrl-rPet:hover {
+    background: linear-gradient(to top right, rgb(204, 4, 72), rgb(150, 4, 33));
+  }
+  
+  .BtnGrl-aPet{
+    width: 180px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(16, 34, 116), rgb(0, 152, 253));
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .BtnGrl-aPet:hover {
+    background: linear-gradient(to top right, rgb(4, 24, 95), rgb(1, 50, 80));
+  }
+  
+  .BtnGrl-explore{
+    width: 180px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(220, 60, 170), rgb(255, 85, 0));
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .BtnGrl-explore:hover {
+    background: linear-gradient(to top right, rgb(220, 20, 170), rgb(255, 35, 0));
+  }
+  
+  .texto {
+    padding: 9px;
+    border: none;
+    border-radius: 50px;
+    background: #00000080;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 60px;
+    font-size: calc(16px + ((100vw - 500px) / 800) * 100);
+  }
+
+  .CA{
+    margin: 10px;
+    font-size: 18px;
+  }
+  
+  .Ad{
+    margin: 10px;
+    font-size: 18px;
+  }
+  
+  .Ex{
+    margin: 10px;
+    font-size: 18px;
+  }
+  
+  @media (min-width: 150px) and (max-width: 350px) {
+    .texto {
+      font-size: calc(16px + ((100vw - 200px) / 800) * 100);
+    }
+  }
+  
+  @media (min-width: 351px) and (max-width: 550px) {
+    .texto {
+      font-size: calc(16px + ((100vw - 300px) / 800) * 100);
+    }
+  }
+  
+  @media (min-width: 551px) and (max-width: 750px) {
+    .texto {
+      font-size: calc(16px + ((100vw - 250px) / 800) * 100);
+    }
+  }
+  
+  @media (min-width: 751px) and (max-width: 950px) {
+    .texto {
+      font-size: calc(16px + ((100vw - 300px) / 800) * 100);
+    }
+  }
+  
+  @media (min-width: 951px) and (max-width: 1150px) {
+    .texto {
+      font-size: calc(16px + ((100vw - 300px) / 800) * 100);
+    }
+  }
+  

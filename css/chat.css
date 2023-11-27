@@ -59,7 +59,7 @@ body {
   }
 
   .sender{
-    color: #000000;
+    color: #60aa00;
     margin-left: 50%;
   } 
   
@@ -153,6 +153,7 @@ body {
   
   overflow-x: auto;
   border: 1px solid #ccc;
+  border-radius: 20px;
  
 }
   
