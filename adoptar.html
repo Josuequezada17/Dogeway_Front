@@ -45,14 +45,14 @@
                             <a class="nav-link" href="match.html" name="match">Match</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#" name="chat">Chat</a>
+                            <a class="nav-link" href="chat.html" name="chat">Chat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" name="user">User</a>
+                            <a class="nav-link" href="editarPerfil.html" name="user">User</a>
                         </li>
 
                         <li class="nav-item">
-                            <a style="color:red" class="nav-link" href="#" name="logOut">Log Out</a>
+                            <a style="color: red" class="nav-link" onclick="logOut()">Log Out</a>
                         </li>
 
                     </ul>
@@ -102,7 +102,7 @@
                                 <script>
                                     if (sessionStorage.getItem('currentPet')) {
                                         var matchpet = JSON.parse(sessionStorage.getItem('adoptarPet'))
-                                        document.getElementById('foto').textContent = matchpet.foto;
+                                        document.getElementById('foto').src = matchpet.foto;
 
                                     }
                                 </script>
@@ -309,6 +309,7 @@
 
 </body>
 
+<script src="js/LogOut.js"></script>
 <script src="Js/ListOfAdoptar.js">
 
 </script>

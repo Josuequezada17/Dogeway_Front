@@ -1,89 +1,131 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
   <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="css/loginDogeway.css" as="style" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-   
     <header class="masthead">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top"
+      >
+        <div class="container">
+          <img class="logo" src="img/Logo.png" alt="" />
+          <a class="navbar-brand" href="homeDogeway_josue.html">DogeWay</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      <nav class=" navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-
-          <div class="container">
-
-              <img class="logo" src="img/Logo.png" alt="">
-              <a class="navbar-brand" href="homeDogeway_josue.html">DogeWay</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-
-                  <ul class="navbar-nav ms-auto">
-                      <li class="nav-item active">
-                          <a class="nav-link" href="aboutUsNoLogeado.html" name="aboutUs">Mas Informacion</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="PrivacyPolicyNoLogeado.html" name="privacyPolicy">Seguridad</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#" name="asistencia">Asistencia</a>
-                      </li>
-                  </ul>
-
-              </div>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="aboutUsNoLogeado.html" name="aboutUs"
+                  >Mas Informacion</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="PrivacyPolicyNoLogeado.html"
+                  name="privacyPolicy"
+                  >Seguridad</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ayudaNoLogeado.html" name="asistencia"
+                  >Asistencia</a
+                >
+              </li>
+            </ul>
           </div>
+        </div>
       </nav>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossorigin="anonymous">
-      </script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+      ></script>
 
       <!-- Full Page Image Header with Vertically Centered Content -->
       <div class="wrapper fadeInDown">
         <div id="formContent" class="form-container">
-          
           <!-- Icon -->
           <div class="fadeIn first">
-            <img class="logo" src="img/Logo.png" id="icon" alt="User Icon" />
+            <img
+              class="logo"
+              src="img/Logo.png"
+              id="icon"
+              alt="User Icon"
+              href="homeDogeway_josue.html"
+            />
           </div>
 
           <!-- Tabs Titles -->
           <h2 class="active"><a href="loginDogeway.html">Iniciar sesión</a></h2>
-      
+
           <!-- Login Form -->
           <form id="loginForm">
-            
-            <input type="text" id="correo" class="fadeIn second" name="login" placeholder="login">
-            
+            <input
+              type="text"
+              id="correo"
+              class="fadeIn second"
+              name="login"
+              placeholder="login"
+            />
+
             <div class="password-container">
-              <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
-              <span id="togglePassword" class="toggle-password" onclick="togglePasswordVisibility()">
-                  <!-- Aquí puedes agregar un ícono de ojo o cerradura abierta -->
-                  <img src="img/pass-icon.png" alt="Toggle Password Visibility"  width="20">
+              <input
+                type="password"
+                id="password"
+                class="fadeIn third"
+                name="login"
+                placeholder="password"
+              />
+              <span
+                id="togglePassword"
+                class="toggle-password"
+                onclick="togglePasswordVisibility()"
+              >
+                <!-- Aquí puedes agregar un ícono de ojo o cerradura abierta -->
+                <img
+                  src="img/pass-icon.png"
+                  alt="Toggle Password Visibility"
+                  width="20"
+                />
               </span>
-          </div>
-          
-        
-            <input type="submit" class="BtnGrl" value="Log In">
+            </div>
+
+            <input type="submit" class="BtnGrl" value="Log In" />
           </form>
 
-          <h2 class="inactive underlineHover"><a href="createAccountUser.html">Crear cuenta</a></h2>
-      
+          <h2 class="inactive underlineHover">
+            <a href="createAccountUser.html">Crear cuenta</a>
+          </h2>
+
           <!-- Remind Passowrd -->
           <div id="formFooter">
             <a class="underlineHover" href="#">Forgot Password?</a>
@@ -91,74 +133,74 @@
         </div>
       </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
+      ></script>
 
       <script>
         function togglePasswordVisibility() {
-            var passwordInput = document.getElementById('password');
-            var toggleIcon = document.getElementById('togglePassword');
-    
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.innerHTML = '<img src="img/pass-icon.png" alt="Toggle Password Visibility" width="20">';
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.innerHTML = '<img src="img/pass-icon.png" alt="Toggle Password Visibility" width="20">';
-            }
+          var passwordInput = document.getElementById("password");
+          var toggleIcon = document.getElementById("togglePassword");
+
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.innerHTML =
+              '<img src="img/pass-icon.png" alt="Toggle Password Visibility" width="20">';
+          } else {
+            passwordInput.type = "password";
+            toggleIcon.innerHTML =
+              '<img src="img/pass-icon.png" alt="Toggle Password Visibility" width="20">';
+          }
         }
-    </script>
-    
-      <script>
-
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-          event.preventDefault();  // Evitar que se realice la acción predeterminada del formulario
-      
-          // Obtener los valores de los campos de entrada
-          const correoValue = document.getElementById('correo').value;
-          const passwordValue = document.getElementById('password').value;
-      
-          // Crear el objeto JSON con los valores de los campos de entrada
-          const message = {
-              correo: correoValue,
-              password: passwordValue
-          };
-      
-          // Realizar la solicitud POST al servidor
-          fetch('http://localhost:8080/login', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(message)
-          })
-          .then(response => response.json())
-          .then(data => {
-              console.log('Respuesta del servidor:', data);
-              const token = data.jwTtoken;
-              sessionStorage.clear();
-              sessionStorage.setItem('token', token);
-              sessionStorage.setItem('user', message.correo);
-  
-  
-              window.location.href = 'homeDogewayLogeado_josue.html';
-  
-          })
-          .catch(error => {
-              sessionStorage.removeItem('token');
-              console.error('Error al enviar la solicitud:', error);
-              alert("Uno de los campos es incorrecto,Verificalo");
-
-          });
-        });
-      
       </script>
-      
+
+      <script>
+        document
+          .getElementById("loginForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Evitar que se realice la acción predeterminada del formulario
+
+            // Obtener los valores de los campos de entrada
+            const correoValue = document.getElementById("correo").value;
+            const passwordValue = document.getElementById("password").value;
+
+            // Crear el objeto JSON con los valores de los campos de entrada
+            const message = {
+              correo: correoValue,
+              password: passwordValue,
+            };
+
+            // Realizar la solicitud POST al servidor
+            fetch("http://localhost:8080/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(message),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("Respuesta del servidor:", data);
+                const token = data.jwTtoken;
+                sessionStorage.clear();
+                sessionStorage.setItem("token", token);
+                sessionStorage.setItem("user", message.correo);
+
+                window.location.href = "homeDogewayLogeado_josue.html";
+              })
+              .catch((error) => {
+                sessionStorage.removeItem("token");
+                console.error("Error al enviar la solicitud:", error);
+                alert("Uno de los campos es incorrecto,Verificalo");
+              });
+          });
+      </script>
     </header>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
   </body>
-
 </html>

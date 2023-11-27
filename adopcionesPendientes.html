@@ -113,7 +113,7 @@
                             <script>
                                 if(sessionStorage.getItem('currentPet')){
                                 var matchpet = JSON.parse(sessionStorage.getItem('CurrentAdoptarPet'))
-                                document.getElementById('foto').textContent = matchpet.foto;
+                                document.getElementById('foto').src = matchpet.foto;
 
                                 }
                             </script>
