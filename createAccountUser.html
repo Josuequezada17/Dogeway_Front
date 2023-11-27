@@ -57,7 +57,7 @@
         </header>
 
         <main>
-            <form id="form-register">   
+            <form id="form-register" action="/upload" method="post" enctype="multipart/form-data">   
                 
                 <div class="column">
                     
@@ -88,9 +88,9 @@
                     <fieldset class="FieldIB">
                         <legend>Genero
                             <select name="genero" id="Genero">
-                                <option>MASCULINO</option>
-                                <option>FEMENINO</option>
-                                <option>Otro</option>
+                                <option>HOMBRE</option>
+                                <option>MUJER</option>
+                                <option>OTRO</option>
                             </select required>
                         </legend>
                     </fieldset>
@@ -100,17 +100,17 @@
 
                     <fieldset>
                         <label for="pais">Pais</label>
-                        <input type="country" id="pais" class="StyleInp" name="pais" required>
+                        <input type="text" id="pais" class="StyleInp" name="pais" required>
 
                         <label for="estado">Estado</label>
-                        <input type="country" id="estado" class="StyleInp" name="estado" required>
+                        <input type="text" id="estado" class="StyleInp" name="estado" required>
 
                         <label for="colonia">Ciudad</label>
-                        <input type="country" id="ciiudad" class="StyleInp" name="ciud" required>
+                        <input type="text" id="ciudad" class="StyleInp" name="ciud" required>
                     </fieldset>
 
                     <label for="telefono">Teléfono</label>
-                    <input type="tel" name="telefono" id="telefono" class="StyleInp" placeholder="(XX) XXXX XXXX" required>
+                    <input type="text" name="telefono" id="telefono"  class="StyleInp" placeholder="(XX) XXXX XXXX" required>
 
                     <fieldset class="FieldIB">
 
@@ -129,9 +129,9 @@
                 </div>
 
                 <div class="column" class="columnPhotos">
-                    <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div action="/upload" method="post" enctype="multipart/form-data">
                         <div class="DivInpImg">
-                            <input type="file" id="image1" class="InpImg" accept="image/*" name="imgU1" required> 
+                            <input type="file" id="image1" class="InpImg" accept="image/*" name="imgU1" > 
                             <img class="mas" src="img/mas.png">
                         </div>
 
@@ -161,86 +161,85 @@
                             <img class="mas" src="img/mas.png">
                         </div>
 
-                    </form>
+                    </div>
                     
                 </div>
 
-            <div class="Btn_XY">
-                <button type="submit" class="BtnGrl">Continuar</button>
-            </div>
+                
             
-
-
+                <div class="Btn_XY">
+                    <button type="submit" onclick="register()" class="BtnGrl">Continuar</button>
+                </div>
+            
             </form>
             
-            <script src="JS/createAccountUser.js"></script>
-
             <script>
 
-                document.getElementById('form-register').addEventListener('submit', function(event) {
-                  event.preventDefault();  // Evitar que se realice la acción predeterminada del formulario
-              
-                  // Obtener los valores de los campos de entrada
-                  const nombreValue = document.getElementById('nombres').value;
-                  const apellidoValue = document.getElementById('apellidos').value;
-                  const correoValue = document.getElementById('correo').value;
-                  const InteresesValue = document.getElementById('Intereses').value;
-                  const generoValue = document.getElementById('Genero').value;
-                  const fechaNacimientoValue = document.getElementById('fechaNacimiento').value;
-                  const paisValue = document.getElementById('pais').value;
-                  const estadoValue = document.getElementById('estado').value;
-                  const ciudadValue = document.getElementById('ciudad').value;
-                  const telefonoValue = document.getElementById('telefono').value;
-                  const passwordValue = document.getElementById('password').value;
-                  const confirm_passwordValue = document.getElementById('confirm_password').value;
-                  const image1Value = document.getElementById('image1').value;
 
-
-                  if(passwordValue == !confirm_passwordValue){
-                    alert("Contraseña incorrecta");
-                  }else{
-                    alert("Contraseña validada");
-                  }
-              
-                  // Crear el objeto JSON con los valores de los campos de entrada
-                  const message = {
-                      nombres: nombreValue,
-                      apellidos: apellidoValue,
-                      correo:correoValue,
-                      intereses:InteresesValue,
-                      genero: generoValue,
-                      fechaNacimiento: fechaNacimientoValue,
-                      pais: paisValue,
-                  };
-              
-                  // Realizar la solicitud POST al servidor
-                  fetch('http://localhost:8080/singup', {
-                      method: 'POST',
-                      headers: {
-                          'Content-Type': 'application/json',
-                      },
-                      body: JSON.stringify(message)
-                  })
-                  .then(response => response.json())
-                  .then(data => {
-                      console.log('Respuesta del servidor:', data);
-                      const token = data.jwTtoken;
-                      sessionStorage.clear();
-                      sessionStorage.setItem('token', token);
-                      sessionStorage.setItem('user', message.correo);
-          
-          
-                      window.location.href = 'homeDogewayLogeado_josue.html';
-          
-                  })
-                  .catch(error => {
-                      sessionStorage.removeItem('token');
-                      console.error('Error al enviar la solicitud:', error);
-                      alert("Uno de los campos es incorrecto,Verificalo");
-        
-                  });
-                });
-              
+                function register() {
+                    document.getElementById('form-register').addEventListener('submit', function (event) {
+                        event.preventDefault(); // Evitar que se realice la acción predeterminada del formulario
+                
+                        // Obtener los valores de los campos de entrada
+                        var nombreValue = document.getElementById('nombres').value;
+                        var apellidoValue = document.getElementById('apellidos').value;
+                        var correoValue = document.getElementById('correo').value;
+                        var InteresesValue = document.getElementById('Intereses').value;
+                        var generoValue = document.getElementById('Genero').value;
+                        var fechaNacimientoValue = document.getElementById('fechaNacimiento').value;
+                        var paisValue = document.getElementById('pais').value;
+                        var estadoValue = document.getElementById('estado').value;
+                        var ciudadValue = document.getElementById('ciudad').value;
+                        var telefonoValue = document.getElementById('telefono').value;
+                        var passwordValue = document.getElementById('password').value;
+                        var confirm_passwordValue = document.getElementById('confirm_password').value;
+                
+                        if (passwordValue !== confirm_passwordValue) {
+                            alert("Contraseña incorrecta");
+                            return;
+                        } else {
+                            // Continuar con el proceso
+                        }
+                
+                        // Crear objeto FormData para enviar archivos
+                        var formData = new FormData();
+                        formData.append('nombres', nombreValue);
+                        formData.append('apellidos', apellidoValue);
+                        formData.append('correo', correoValue);
+                        formData.append('intereses', InteresesValue);
+                        formData.append('genero', generoValue);
+                        formData.append('fechaNacimiento', fechaNacimientoValue);
+                        formData.append('pais', paisValue);
+                        formData.append('estado', estadoValue);
+                        formData.append('ciudad', ciudadValue);
+                        formData.append('telefono', telefonoValue);
+                        formData.append('password', passwordValue);
+                
+                        // Agregar la imagen al FormData
+                        var imageInput = document.getElementById('image1');
+                        if (imageInput.files.length > 0) {
+                            formData.append('foto', imageInput.files[0]);
+                        }
+                
+                        // Realizar la solicitud POST al servidor
+                        fetch('http://localhost:8080/signup', {
+                            method: 'POST',
+                            body: formData
+                        })
+                            .then(response => response.json())
+                            .then(message => {
+                                console.log('Respuesta del servidor:', message);
+                               
+                                window.location.href = 'homeDogewayLogeado_josue.html';
+                            })
+                            .catch(error => {
+                                console.error('Error al enviar la solicitud:', error);
+                                alert("Uno de los campos es incorrecto, Verifícalo");
+                            });
+                    });
+                }
+                
+                
               </script>
               
 

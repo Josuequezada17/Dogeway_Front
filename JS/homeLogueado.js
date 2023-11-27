@@ -3,7 +3,7 @@
 // Verificar el soporte de geolocalización
 if (navigator.geolocation) {
     // Verificar si ya se otorgó permiso
-    var permisoOtorgado = localStorage.getItem('permisoUbicacion');
+    var permisoOtorgado = sessionStorage.getItem('permisoUbicacion');
 
     if (!permisoOtorgado) {
         // Solicitar permiso explícitamente
@@ -17,7 +17,7 @@ if (navigator.geolocation) {
                     alert("Ubicación obtenida con éxito. Latitud: " + latitud + ", Longitud: " + longitud);
 
                     // Marcar el permiso como otorgado
-                    localStorage.setItem('permisoUbicacion', 'otorgado');
+                    sessionStorage.setItem('permisoUbicacion', 'otorgado');
                 },
                 function(error) {
                     // En caso de error al obtener la ubicación

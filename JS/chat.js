@@ -386,7 +386,7 @@ function loadMessages() {
             mensajeElement.innerHTML = `
                 <div class="message-header">${mensaje.sender === MascotaActal.id ? 'Tú' : 'Usuario'}:</div>
                 <div class="message-content">${mensaje.message}</div>
-                <div class="timestamp">${mensaje.localDateTime}</div>
+                
             `;
 
             // Agregar el mensaje al contenedor

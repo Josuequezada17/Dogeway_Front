@@ -1,4 +1,4 @@
-function registrarMascota(){
+function registrarMascotass(){
     var data={
         nombre: $('#nombre').val(),
         animal: $('#mascota').val(),

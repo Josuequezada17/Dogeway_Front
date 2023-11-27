@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="column" class="columnPhotos">
-                        <form action="/upload" method="post" enctype="multipart/form-data">
+                        <div action="/upload" method="post" enctype="multipart/form-data">
                             <div class="DivInpImg">
                                 <input type="file" id="image1" class="InpImg" accept="image/*" name="img1" required> 
                                 <img class="mas" src="img/mas.png">
@@ -169,7 +169,7 @@
                                 <img class="mas" src="img/mas.png">
                             </div>
 
-                        </form>
+                        </div>
                         
                 </div>
 
@@ -179,7 +179,63 @@
                 
     
             </form>
-            <script src="JS/createAccountPet.js"></script>
+            
+            <script>
+
+                function registrarMascota() {
+
+                    document.getElementById('mascotaForm').addEventListener('submit', function(event) {
+                    event.preventDefault();  // Evitar que se realice la acción predeterminada del formulario
+                    // Obtén los valores de los campos del formulario
+                    var nombreMascotaValue = document.getElementById('nombre').value.toString();
+                    var tipoMascotaValue = document.getElementById('mascota').value.toString();
+                    var funcionMascotaValue = document.getElementById('funcion').value.toString();
+                    var razaValue = document.getElementById('raza').value.toString();
+                    var tamanoValue = document.getElementById('tamanio').value.toString();
+                    var generoValue = document.getElementById('genero').value.toString();
+                    var descripcionValue = document.getElementById('descripcion').value.toString();
+
+                    if(generoValue == "MASCULINO"){
+                        generoValue = false;
+                    }else{
+                        generoValue = true;
+                    }
+
+                    // Construye un objeto con los datos del formulario
+                    var formData = new FormData();
+                    
+                    formData.append('nombre', nombreMascotaValue );
+                    formData.append('mascota', tipoMascotaValue);
+                    formData.append('funcion', funcionMascotaValue);
+                    formData.append('raza', razaValue);
+                    formData.append('tamanio', tamanoValue);
+                    formData.append('descripcion', descripcionValue);
+                    
+                  // Agregar la imagen al FormData
+                  var imageInput = document.getElementById('image1');
+                        if (imageInput.files.length > 0) {
+                            formData.append('foto', imageInput.files[0]);
+                        }
+                
+                        // Realizar la solicitud POST al servidor
+                        fetch('http://localhost:8080/signup', {
+                            method: 'POST',
+                            body: formData
+                        })
+                            .then(response => response.json())
+                            .then(message => {
+                                console.log('Respuesta del servidor:', message);
+                                sessionStorage.clear();
+                                window.location.href = 'homeDogewayLogeado_josue.html';
+                            })
+                            .catch(error => {
+                                console.error('Error al enviar la solicitud:', error);
+                                alert("Uno de los campos es incorrecto, Verifícalo");
+                            });
+                    });
+                }
+
+            </script>
 
         </main>
 
