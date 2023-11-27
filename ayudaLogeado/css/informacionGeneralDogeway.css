@@ -8,6 +8,10 @@ body{
     box-sizing: border-box;
 }
 
+.logo{
+    margin-right: 10px;
+}
+
 .container-divider{
     border-top: 1px solid #ddd;
     margin-top: 90px;
