@@ -45,7 +45,7 @@ function llenarPerfiles() {
         var botonModificar = document.createElement('a');
         botonModificar.className = 'botonModificar';
         botonModificar.textContent = 'Modificar';
-        botonModificar.href = 'pagina-modificar-perfil.html?id=' + perfil.id;
+        botonModificar.href = 'updateAccountUser?id=' + perfil.id;
         perfilDiv.appendChild(botonModificar);
 
         perfilesContainer.appendChild(perfilDiv);

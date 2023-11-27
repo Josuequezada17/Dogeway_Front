@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <title>Crear cuenta de mascota</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        <link rel="stylesheet" href="css/updateAccountPet.css" as="style" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="JS/ListOfAdoptar.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    </head>
+
+    <body>
+        <header class="masthead">
+
+            <nav class=" navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+
+                <div class="container">
+
+                    <img class="logo" src="img/Logo.png" alt="">
+                    <a class="navbar-brand" href="homeDogewayLogeado_josue.html">DogeWay</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="aboutUsNoLogeado.html" name="aboutUs">Mas Informacion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="PrivacyPolicyNoLogeado.html" name="privacyPolicy">Seguridad</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="ayudaNoLogeado.html" name="asistencia">Asistencia</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous">
+            </script>
+
+            <script>/*
+                window.onload = function () {
+                    if (!sessionStorage.getItem('token')) {
+                        window.location.href = 'error.html';
+                    }
+                };
+                */
+            </script>
+
+        </header>
+
+        <main>
+            <form id="mascotaForm" method="post" enctype="multipart/form-data" action="/upload" method="post" enctype="multipart/form-data">
+                
+                <div class="column">
+                    <fieldset>
+
+                        <label for="nombre">Nombre de la mascota</label>
+                        <input type="text" name="nombreMascota" id="nombre" class="StyleInp" required>
+
+                    </fieldset>
+                    
+                    <label for="raza" name="raza">Seleccione el tipo de:</label>
+
+                    <fieldset class="FieldIBP">
+                        <legend> 
+                            <label for="nombre">Mascota
+                                <select id="mascota" name="mascota" required>
+                                    <option name="perro">PERRO</option>
+                                    <option name="gato">GATO</option>
+                                    <option name="conejo">CONEJO</option>
+                                </select>
+                            </label>
+                        </legend>
+                    </fieldset>
+
+                    <fieldset class="FieldIBP">
+                        <legend> 
+                            <label for="funcionPet">Para
+                                <select id="funcion" name="funcionMascota" required>
+                                    <option type="funcionPet" name="funcionMatch">MATCH</option>
+                                    <option type="funcionPet" name="funcionAdoptar">ADOPCION</option>
+                                </select>
+                            </label>
+                        </legend>
+                    </fieldset>
+
+                  <!--  <fieldset class="">
+                        <label for="raza" class="raza">Raza</label> pendiente en el back
+                        <input type="text" name="raza" id="raza" class="StyleInp" required>
+                    </fieldset> 
+                  -->
+
+                    <fieldset class="FieldIBP">
+                        <legend>
+                            <label for="tamano">Tamaño 
+                                <select id="tamano" name="Tamano" required>
+                                    <option type="weight" name="chico">CHICO</option>
+                                    <option type="weight" name="mediano">MEDIANO</option>
+                                    <option type="weight" name="grande">GRANDE</option>
+                                </select>
+                            </label>
+                        </legend>
+
+                    </fieldset>
+
+                    <fieldset class="FieldIBP">
+                        <legend> 
+                            <label for="sexo">Sexo
+                                <select id="genero" name="Genero" required>
+                                    <option type="sexo" name="masculino">MASCULINO</option>
+                                    <option type="sexo" name="femenino">FEMENINO</option>
+                                </select>
+                            </label>
+                        </legend>
+
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="descripcion" name="Desc">Descripcion</label>
+                        <textarea cols="70" rows="10" id="descripcion" class="StyleInp" required name="descripcion"></textarea>
+                    </fieldset required>
+
+                    <fieldset class="FieldIBP">
+                        <legend> 
+                            <label for="sexo">Personalidad
+                                <select id="personalidad" name="Personalidad" required>
+                                    <option type="personalidad" name="jugueton">JUGUETON</option>
+                                    <option type="personalidad" name="amigable">AMIGABLE</option>
+                                    <option type="personalidad" name="agresivo">AGRESIVO</option>
+                                </select>
+                            </label>
+                        </legend>
+
+                </div>
+
+                <div class="column" class="columnPhotos">
+                        <div action="/upload" method="post" enctype="multipart/form-data">
+                            <div class="DivInpImg">
+                                <input type="file" id="image1" class="InpImg" accept="image/*" name="img1" required> 
+                                <img class="mas" src="img/mas.png">
+                            </div> 
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image2" class="InpImg" accept="image/*" name="img2">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image3" class="InpImg" accept="image/*" name="img3">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image4" class="InpImg" accept="image/*" name="img4">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image5" class="InpImg" accept="image/*" name="img5">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                            <div class="DivInpImg">
+                                <input type="file" id="image6" class="InpImg" accept="image/*" name="img6">
+                                <img class="mas" src="img/mas.png">
+                            </div>
+
+                        </div>
+                        
+                </div>
+
+                <div class="Btn_XY">
+                    <button type="submit" onclick="registrarMascota()" class="BtnGrl">Registrar Mascota</button>
+                </div>
+    
+            </form>
+            
+            <script>
+
+                function registrarMascota() {
+
+                    document.getElementById('mascotaForm').addEventListener('submit', function(event) {
+                    event.preventDefault();  // Evitar que se realice la acción predeterminada del formulario
+                    // Obtén los valores de los campos del formulario
+                    var nombreMascotaValue = document.getElementById('nombre').value.toString();
+                    var tipoMascotaValue = document.getElementById('mascota').value.toString();
+                    var funcionMascotaValue = document.getElementById('funcion').value.toString();
+                    //var razaValue = document.getElementById('raza').value.toString();
+                    var tamanoValue = document.getElementById('tamano').value.toString();
+                    var generoValue = document.getElementById('genero').value.toString();
+                    var descripcionValue = document.getElementById('descripcion').value.toString();
+                    var personalidadValue = document.getElementById('personalidad').value.toString();
+
+                    if(generoValue == "MASCULINO"){
+                        generoValue = true;
+                    }else{
+                        generoValue = false;
+                    }
+
+                    userInformation(sessionStorage.user, sessionStorage.token);
+                    var Dueno=JSON.parse(sessionStorage.getItem('AllDataUser'));
+
+                    console.log(nombreMascotaValue,tipoMascotaValue,funcionMascotaValue,tamanoValue,generoValue,descripcionValue,personalidadValue,generoValue);
+                    // Construye un objeto con los datos del formulario
+                    var formData = new FormData();
+                    
+                    formData.append('nombre', nombreMascotaValue );
+                    formData.append('animal', tipoMascotaValue);
+                    formData.append('utilidadDeMascota', funcionMascotaValue);
+                    formData.append('tamano', tamanoValue);
+                    formData.append('descripcion', descripcionValue);
+                    formData.append('personalidad', personalidadValue);
+                    formData.append('genero', generoValue);
+                    formData.append('id',Dueno.id);
+                    
+                  // Agregar la imagen al FormData
+                  var imageInput = document.getElementById('image1');
+                        if (imageInput.files.length > 0) {
+                            formData.append('foto', imageInput.files[0]);
+                        }
+                
+                        // Realizar la solicitud POST al servidor
+                        fetch('http://localhost:8080/pet/create', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': sessionStorage.token
+                            },
+                             
+                            body: formData
+                        })
+                            .then(response => response.json())
+                            .then(message => {
+                                console.log('Respuesta del servidor:', message);
+                                sessionStorage.clear();
+                                window.location.href = 'homeDogewayLogeado_josue.html';
+                            })
+                            .catch(error => {
+                                console.error('Error al enviar la solicitud:', error);
+                                
+                            });
+                    });
+                }
+
+            </script>
+
+        </main>
+
+        <footer>
+            
+        </footer>
+    </body>
+
+</html>

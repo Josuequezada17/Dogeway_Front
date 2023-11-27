@@ -6,8 +6,6 @@
    
     
 
-    
-    
 }
 
 function userInformation(correo, token) {
