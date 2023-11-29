@@ -1,87 +1,54 @@
-<!DOCTYPE hmtl>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Código</title>
+    <script>src="JS/verificarCorreo.js"</script>
+</head>
+<body>
 
-<html lang = "es">
+    <h2>Ingrese el código de verificación enviado a su correo</h2>
 
-    <head>
+    <form id="verificationForm">
+        <label for="verificationCode">Código de Verificación:</label>
+        <input type="text" id="verificationCode" required>
+        <button type="submit">Verificar</button>
+    </form>
 
-        <meta name="viewport" content="width=device-width">
-        <meta charset="utf-8" />
-        <title>DogeWay</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-        <link rel="stylesheet" href="reset.css/reset.css">
-        <link rel="stylesheet" href="styleHomeDogewayLogeado_josue.css" as="style" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+    <script>
+        document.getElementById('verificationForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-    </head>
+            // Obtener el código de verificación ingresado por el usuario
+            const verificationCode = document.getElementById('verificationCode').value;
 
-    <body>
+            // Enviar el código al servidor para su verificación
+            verificarCodigo(verificationCode);
+        });
 
-        <header>
+        const verificarCodigo = async (codigo) => {
+            try {
+                const response = await fetch('http://localhost:8080/usuario/user/verifier', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ code: codigo }),
+                });
 
-            <nav class=" navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+                if (response.ok) {
+                    console.log('Código de verificación correcto');
+                    // Aquí puedes redirigir al usuario a la página de inicio o realizar otras acciones
+                } else {
+                    console.error('Código de verificación incorrecto');
+                    // Aquí puedes mostrar un mensaje de error al usuario
+                }
+            } catch (error) {
+                console.error('Error de red', error);
+            }
+        };
+    </script>
 
-                <div class="container">
-
-                    <img class="logo" src="img/Logo.png" alt="">
-                    <a class="navbar-brand" href="homeDogewayLogeado_josue.html">DogeWay</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="aboutUsLogeado.html">Mas Informacion</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="PrivacyPolicyLogeado.html">Seguridad</a>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Asistencia</a>
-                            </li>
-                            
-                        
-                            <li class="nav-item">
-                                <a href="#"><button  class="BtnGrl-logIn">Editar perfil</button></a>
-                            </li>
-                        
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </nav>
-
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous">
-            </script>
-
-        </header>
-
-        
-
-        <main>
-            
-            <p class="texto">Comencemos</p>
-            
-        </main>
-
-        <!--<footer class="endPage">
-
-            <img src="img/Logo.png" alt="Logo de DogeWay">
-            <p class="textEndPage">&copy Copyright DogeWay 2023</p>
-
-        </footer>-->
-
-    </body> 
-
+</body>
 </html>

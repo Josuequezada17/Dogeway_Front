@@ -57,7 +57,7 @@
         </header>
 
         <main>
-            <form id="form-register" action="/upload" method="post" enctype="multipart/form-data">   
+            <form id="form-register" method="post" enctype="multipart/form-data">   
                 
                 <div class="column">
                     
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="column" class="columnPhotos">
-                    <div action="/upload" method="post" enctype="multipart/form-data">
+                    <div  method="post" enctype="multipart/form-data">
                         <div class="DivInpImg">
                             <input type="file" id="image1" class="InpImg" accept="image/*" name="imgU1" > 
                             <img class="mas" src="img/mas.png">
@@ -168,10 +168,106 @@
                 
             
                 <div class="Btn_XY">
-                    <button type="submit" onclick="register()" class="BtnGrl">Continuar</button>
+                    <button type="submit" onclick="mostrarModalVerificacion()" id="continuar" Even class="BtnGrl">Continuar</button>
                 </div>
             
             </form>
+
+            
+            <script>
+                document.getElementById('continuar').addEventListener('click', function() {
+                    mostrarModalVerificacion();
+                });
+            </script>
+
+
+            <!-- Verification Modal -->
+            <!--<div class="modal fade" id="verificationModal" tabindex="-1" aria-labelledby="verificationModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="verificationModalLabel">Verificación de Correo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Se ha enviado un PIN a tu correo electrónico. Por favor, ingrésalo a continuación:</p>
+                            <input type="text" id="pinInput" class="form-control" placeholder="Ingresa el PIN">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" onclick="verifyEmail()">Verificar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function verifyEmail() {
+
+                    // Aquí puedes realizar la verificación del PIN y continuar con el proceso si es correcto
+                    // Puedes acceder al valor del PIN usando document.getElementById('pinInput').value
+                    // Si la verificación es exitosa, puedes redirigir al usuario a la siguiente página
+                    // y cerrar el modal usando $('#verificationModal').modal('hide');
+                    // Ejemplo:
+                    // if (pin es correcto) {
+                    //     $('#verificationModal').modal('hide');
+                    //     // Realizar acciones adicionales si es necesario
+                    //     window.location.href = 'pagina_siguiente.html';
+                    // } else {
+                    //     alert('PIN incorrecto. Inténtalo de nuevo.');
+                    // }
+                }
+            </script>-->
+
+                <script>
+                    var correoValue = document.getElementById('correo').value;
+
+                    // Realizar la solicitud para obtener el código de verificación
+                    fetch('http://localhost:8080/signup/verifier?correo=' + correoValue, {
+                        method: 'POST',
+                    })
+                    .then(response => response.text())
+                    .then(codigoVerificacion => {
+                        // Mostrar el modal de verificación
+                        mostrarModalVerificacion(codigoVerificacion);
+                    })
+                    .catch(error => {
+                        console.error('Error al obtener el código de verificación:', error);
+                    });
+                </script>
+
+                <script>
+                    function mostrarModalVerificacion(codigoVerificacion) {
+                        // Mostrar el modal de verificación
+                        var pinInput = document.getElementById('pinInput');
+                        pinInput.value = ''; // Limpiar el campo del PIN
+                        $('#verificationModal').modal('show');
+
+                        // Configurar la función de verificación del PIN
+                        document.getElementById('verifyButton').addEventListener('click', function () {
+                            var pinIngresado = pinInput.value;
+
+                            // Realizar la solicitud para verificar el código de verificación
+                            fetch('http://localhost:8080/signup/verify?codigo=' + pinIngresado, {
+                                method: 'POST',
+                            })
+                                .then(response => response.text())
+                                .then(resultado => {
+                                    if (resultado === 'correcto') {
+                                        // Cerrar el modal y realizar acciones adicionales si es necesario
+                                        $('#verificationModal').modal('hide');
+                                        alert('Código de verificación correcto. Registro exitoso.');
+                                        register();
+                                    } else {
+                                        alert('Código de verificación incorrecto. Inténtalo de nuevo.');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error al verificar el código de verificación:', error);
+                                });
+                        });
+                    }
+                </script>
             
             <script>
 
@@ -220,7 +316,7 @@
                         if (imageInput.files.length > 0) {
                             formData.append('foto', imageInput.files[0]);
                         }
-                
+                        
                         // Realizar la solicitud POST al servidor
                         fetch('http://localhost:8080/signup', {
                             method: 'POST',
@@ -230,7 +326,9 @@
                             .then(message => {
                                 console.log('Respuesta del servidor:', message);
                                
-                                window.location.href = 'emailVerifier.html';
+                                sessionStorage.setItem('correo', correoValue);
+                                console.log("antes", correoValue);
+                                
                             })
                             .catch(error => {
                                 console.error('Error al enviar la solicitud:', error);
@@ -238,9 +336,11 @@
                             });
                     });
                 }
+
                 
                 
-            </script>              
+            </script>    
+            
 
         </main>
 

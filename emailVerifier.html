@@ -15,18 +15,24 @@
         <button type="submit">Verificar</button>
     </form>
 
-    <script type="text/javascript" src="path/to/jquery"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
             <script type="text/javascript">
+
+                var correVerifier = sessionStorage.getItem('correo');
+                console.log("Hola", correVerifier);
                 $(document).ready(function() {
-                    
+
+                    var email = document.getElementById('correo');
                     // send API request
                     $.ajax({
                         url: 'https://api.email-validator.net/api/verify',
                         type: 'POST',
                         cache: false,
                         crossDomain: true,
-                        data: { EmailAddress: 'email address', APIKey: 'ev-c8ac9dd8c1a7289997547bb002410f87' },
+                        data: { EmailAddress: correVerifier , APIKey: 'ev-c8ac9dd8c1a7289997547bb002410f87' },
                         dataType: 'json',
                         success: function (json) {
                             // check API result
