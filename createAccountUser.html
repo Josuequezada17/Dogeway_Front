@@ -7,13 +7,14 @@
         <meta charset="utf-8" />
         <title>Crear cuenta usuario</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-33b5b8823c3b8ea6a1f5f7f8b4ef6c6b5a26ac5f39fd74c8de95a0f070e31787" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
         <link rel="stylesheet" href="css/createAccountUser.css" as="style" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
         
     </head>
 
@@ -171,15 +172,16 @@
                 
             
                 <div class="Btn_XY">
-                    <button type="submit" onclick="verifier()" id="continuar" Even class="BtnGrl">Continuar</button>
+                    <button type="submit" onclick="verifier()"  Even class="BtnGrl">Continuar</button>
                 </div>
             
             </form>
 
-
+            
+          
 
             
-            <section class="modalVerification"  id="modalVerification">
+            <section class="modalVerification">
                 <div class="modalContenedorVerification">
 
                     <div class="imagenReportar">
@@ -195,60 +197,59 @@
                             <input type="text" id="pinInput" class="form-control" placeholder="Ingresa el PIN">
                         </div>
 
-                        <div class="Btn_XY">
-                            <button type="submit" onclick="" id="verifyButton" Even class="BtnGrl">Verificar</button>
-                        </div>
+                        <input type="submit" value="Verificar" class="button_optionReportar" />
 
                     </form>
                 </div>
             </section>
 
 
-        
+            
 
                 <script>
 
-                    function verifier() {
-                        var correoValue = document.getElementById('correo').value;
-                    
-                        // Realizar la solicitud para obtener el código de verificación
-                        fetch('http://localhost:8080/signup/verifier?correo=' + correoValue, {
-                            method: 'POST',
-                        })
-                        .then(response => response.text())
-                        .then(codigoVerificacion => {
-                            // Mostrar el modal de verificación
-                            mostrarModalVerificacion(codigoVerificacion);
-                        })
-                        .catch(error => {
-                            console.error('Error al obtener el código de verificación:', error);
-                        });
-                    }
+                    function verifier(){
+                    var correoValue = document.getElementById('correo').value;
 
+                    // Realizar la solicitud para obtener el código de verificación
+                    fetch('http://localhost:8080/signup/verifier?correo=' + correoValue, {
+                        method: 'POST',
+                    })
+                    .then(response => response.text())
+                    .then(codigoVerificacion => {
+                        // Mostrar el modal de verificación
+                        sessionStorage.setItem('CodeVerification')
+                        mostrarModalVerificacion(codigoVerificacion);
+                    })
+                    .catch(error => {
+                        console.error('Error al obtener el código de verificación:', error);
+                    });
+                }
+                </script>
+                
 
-                    
-                    function mostrarModalVerificacion(codigoVerificacion){
+                <script>
+                    function mostrarModalVerificacion(codigoVerificacion) {
                         // Mostrar el modal de verificación
                         var pinInput = document.getElementById('pinInput');
                         pinInput.value = ''; // Limpiar el campo del PIN
-                        console.log('Mostrando modal');
                         $('#modalVerification').modal('show');
-                
+
                         // Configurar la función de verificación del PIN
                         document.getElementById('verifyButton').addEventListener('click', function () {
                             var pinIngresado = pinInput.value;
-                
+
                             // Realizar la solicitud para verificar el código de verificación
-                            fetch('http://localhost:8080/signup/verifycode?codigoIngresado=' + pinIngresado + '&codigoEsperado=' + codigoVerificacion, {
+                            fetch('http://localhost:8080/signup/verify?codigo=' + pinIngresado, {
                                 method: 'POST',
                             })
                                 .then(response => response.text())
                                 .then(resultado => {
                                     if (resultado === 'correcto') {
-                                        // Cerrar el modal y realizar el registro
-                                        $('#modalVerification').modal('hide');
-                                        alert('Código de verificación correcto. Procediendo con el registro.');
-                                        register(); // Esta función realizará el registro
+                                        // Cerrar el modal y realizar acciones adicionales si es necesario
+                                        $('#verificationModal').modal('hide');
+                                        alert('Código de verificación correcto. Registro exitoso.');
+                                        register();
                                     } else {
                                         alert('Código de verificación incorrecto. Inténtalo de nuevo.');
                                     }
@@ -258,11 +259,7 @@
                                 });
                         });
                     }
-                    
-                    
                 </script>
-
-               
             
             <script>
 

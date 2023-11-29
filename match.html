@@ -1,408 +1,298 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <title>Match</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/match.css" as="style" />
-    <script src="js/match.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <header>
-      <nav
-        class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top"
-      >
-        <div class="container">
-          <img class="logo" src="img/Logo.png" alt="" />
-          <a class="navbar-brand" href="homeDogewayLogeado_josue.html"
-            >DogeWay</a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <title>Match</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/match.css" as="style" />
+  <script src="js/match.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet" />
+</head>
 
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="aboutUsLogeado.html"
-                  >Mas Informacion</a
-                >
-              </li>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+      <div class="container">
+        <img class="logo" src="img/Logo.png" alt="" />
+        <a class="navbar-brand" href="homeDogewayLogeado_josue.html">DogeWay</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-              <li class="nav-item">
-                <a class="nav-link" href="PrivacyPolicyLogeado.html"
-                  >Seguridad</a
-                >
-              </li>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="aboutUsLogeado.html">Mas Informacion</a>
+            </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="ayudaLogeado.html">Asistencia</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="PrivacyPolicyLogeado.html">Seguridad</a>
+            </li>
 
-              <li class="nav-item active">
-                <a class="nav-link" href="chat.html">Chat</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ayudaLogeado.html">Asistencia</a>
+            </li>
 
-              <li class="nav-item">
-                <a class="nav-link" href="editarPerfil.html">User</a>
-              </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="chat.html">Chat</a>
+            </li>
 
-              <li class="nav-item">
-                <a style="color: red" class="nav-link" onclick="logOut()"
-                  >Log Out</a
-                >
-              </li>
-            </ul>
-          </div>
+            <li class="nav-item">
+              <a class="nav-link" href="editarPerfil.html">User</a>
+            </li>
+
+            <li class="nav-item">
+              <a style="color: red" class="nav-link" onclick="logOut()">Log Out</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"
-      ></script>
-    </header>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+  </header>
 
-    <main class="header masthead">
-      <div class="match">
-        <div class="contenedor tres-columnas">
-          <div id="Pets-Info" class="info container-match box-table">
-            <h4>Mascota Actual</h4>
+  <main class="header masthead">
+    <div class="match">
+      <div class="contenedor tres-columnas">
+        <div id="Pets-Info" class="info container-match box-table">
+          <h4>Mascota Actual</h4>
 
-            <h5 id="id-current"></h5>
+          <h5 id="id-current"></h5>
 
-            <h5 id="name-current"></h5>
+          <h5 id="name-current"></h5>
 
-            <h4>Mascotas Registradas</h4>
+          <h4>Mascotas Registradas</h4>
+
+          <script>
+            // Obtener el valor del almacenamiento local
+            if (sessionStorage.getItem("currentPet")) {
+              var currentPet = JSON.parse(
+                sessionStorage.getItem("currentPet")
+              );
+              document.getElementById("id-current").textContent =
+                currentPet.id;
+              document.getElementById("name-current").textContent =
+                currentPet.nombre;
+            }
+          </script>
+        </div>
+
+        <br />
+
+        <div class="info container-match">
+          <div class="cuadro">
+            <div class="cuadro-azul">
+              <img class="imagen" id="foto" src="" alt="Image-match" />
+
+
+            </div>
+          </div>
+
+          <div class="buttons-container">
+            <!-- Se agrega el referencia para dar match -->
+            <button onclick="matchPet()">
+              <img src="img/Ok.png" alt="Match" />
+            </button>
+
+            <button onclick="notMatchPet()">
+              <img src="img/Cancel.png" alt="NotMatch" />
+            </button>
 
             <script>
-              // Obtener el valor del almacenamiento local
-              if (sessionStorage.getItem("currentPet")) {
+              function matchPet() {
                 var currentPet = JSON.parse(
                   sessionStorage.getItem("currentPet")
                 );
-                document.getElementById("id-current").textContent =
-                  currentPet.id;
-                document.getElementById("name-current").textContent =
-                  currentPet.nombre;
+                var matchPet = JSON.parse(sessionStorage.getItem("matchPet"));
+                var token = sessionStorage.getItem("token");
+
+                if (currentPet && matchPet && token) {
+                  match(currentPet.id, matchPet.id, token);
+                } else {
+                  console.error(
+                    "Error: Alguno de los objetos o el token es indefinido."
+                  );
+                }
+              }
+
+              function notMatchPet() {
+                var currentPet = JSON.parse(
+                  sessionStorage.getItem("currentPet")
+                );
+                var matchPet = JSON.parse(sessionStorage.getItem("matchPet"));
+                var token = sessionStorage.getItem("token");
+
+                if (currentPet && matchPet && token) {
+                  NotMatch(currentPet.id, matchPet.id, token);
+                } else {
+                  console.error(
+                    "Error: Alguno de los objetos o el token es indefinido."
+                  );
+                }
               }
             </script>
           </div>
-
-          <br />
-
-          <div class="info container-match">
-            <div class="cuadro">
-              <div class="cuadro-azul">
-                <img class="imagen" id="foto" src="" alt="Image-match" />
-
-                
-              </div>
-            </div>
-
-            <div class="buttons-container">
-              <!-- Se agrega el referencia para dar match -->
-              <button onclick="matchPet()">
-                <img src="img/Ok.png" alt="Match" />
-              </button>
-
-              <button onclick="notMatchPet()">
-                <img src="img/Cancel.png" alt="NotMatch" />
-              </button>
-
-              <script>
-                function matchPet() {
-                  var currentPet = JSON.parse(
-                    sessionStorage.getItem("currentPet")
-                  );
-                  var matchPet = JSON.parse(sessionStorage.getItem("matchPet"));
-                  var token = sessionStorage.getItem("token");
-
-                  if (currentPet && matchPet && token) {
-                    match(currentPet.id, matchPet.id, token);
-                  } else {
-                    console.error(
-                      "Error: Alguno de los objetos o el token es indefinido."
-                    );
-                  }
-                }
-
-                function notMatchPet() {
-                  var currentPet = JSON.parse(
-                    sessionStorage.getItem("currentPet")
-                  );
-                  var matchPet = JSON.parse(sessionStorage.getItem("matchPet"));
-                  var token = sessionStorage.getItem("token");
-
-                  if (currentPet && matchPet && token) {
-                    NotMatch(currentPet.id, matchPet.id, token);
-                  } else {
-                    console.error(
-                      "Error: Alguno de los objetos o el token es indefinido."
-                    );
-                  }
-                }
-              </script>
-            </div>
-          </div>
-
-          <div class="info box-table" id="others-animals"></div>
-
-          <div>
-            <fieldset class="FieldIB">
-              <button class="BtnGrlReportar">Reportar</button>
-            </fieldset>
-
-            <fieldset class="FieldIB">
-              <button class="BtnGrlBloqueo">Bloquear</button>
-            </fieldset>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <section class="modalMatch">
-      <div class="modalContainerMatch">
-        <div class="closeMatch">
-          <img class="closeMatchFoto" src="imagenes/close.png" />
         </div>
 
-        <div class="matchTitulo">
-          <span class="matchTituloSuperior">It's a</span><br />
-          <span class="matchTituloInferior">Match!</span>
-        </div>
-
-        <div class="matchTitulo2">
-          <span class="matchTituloInferior2">Match!</span>
-        </div>
+        <div class="info box-table" id="others-animals"></div>
 
         <div>
-          <p class="informacion">¡También le gustas a Terry!</p>
+          <fieldset class="FieldIB">
+            <button class="BtnGrlReportar">Reportar</button>
+          </fieldset>
+
+          <fieldset class="FieldIB">
+            <button class="BtnGrlBloqueo">Bloquear</button>
+          </fieldset>
         </div>
       </div>
-    </section>
+    </div>
+  </main>
 
-    <section class="modalReportar">
-      <div class="modalContenedorReportar">
-        <div class="imagenReportar">
-          <img class="fotoCloseReportar" src="img/close.png" />
+  <section class="modalMatch">
+    <div class="modalContainerMatch">
+      <div class="closeMatch">
+        <img class="closeMatchFoto" src="imagenes/close.png" />
+      </div>
+
+      <div class="matchTitulo">
+        <span class="matchTituloSuperior">It's a</span><br />
+        <span class="matchTituloInferior">Match!</span>
+      </div>
+
+      <div class="matchTitulo2">
+        <span class="matchTituloInferior2">Match!</span>
+      </div>
+
+      <div>
+        <p class="informacion">¡También le gustas a Terry!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="modalReportar">
+    <div class="modalContenedorReportar">
+      <div class="imagenReportar">
+        <img class="fotoCloseReportar" src="img/close.png" />
+      </div>
+
+      <h2 class="modalTituloReportar">Motivo del reporte</h2>
+
+      <form name="FormaReportar" id="FormaReportar">
+        <div class="opcionesReportar">
+          <input type="radio" id="opcion1Reportar" name="opcionesReportar" value="Motivo1"
+            class="radio_optionReportar" />
+          <label for="opcion">Comportamiento inapropiado o acoso</label><br />
+
+          <input type="radio" id="opcion2Reportar" name="opcionesReportar" value="Motivo2"
+            class="radio_optionReportar" />
+          <label for="opcion">Perfiles falsos o fraudulentos</label><br />
+
+          <input type="radio" id="opcion3Reportar" name="opcionesReportar" value="Motivo3"
+            class="radio_optionReportar" />
+          <label for="opcion">Spam o publicidad no deseada</label><br />
+
+          <input type="radio" id="opcion4Reportar" name="opcionesReportar" value="Motivo4"
+            class="radio_optionReportar" />
+          <label for="opcion">Edad incorrecta</label><br />
+
+          <input type="radio" id="opcion5Reportar" name="opcionesReportar" value="Motivo5"
+            class="radio_optionReportar" />
+          <label for="opcion">Comportamiento inapropiado en las fotos de perfil</label><br />
+
+          <input type="radio" id="opcion6Reportar" name="opcionesReportar" value="Motivo6"
+            class="radio_optionReportar" />
+          <label for="opcion">Comportamiento violento o amenazante</label><br />
+
+          <input type="radio" id="otrosReportar" name="opcionesReportar" value="otrosReportar"
+            class="radio_optionReportar" />
+          <label for="opcion">Otros</label><br />
+
+          <input type="text" name="motivoTextoReportar" id="motivoTextoReportar"
+            placeholder="Escribe aqui el motivo del reporte" class="text_optionReportar" />
+          <br />
         </div>
 
-        <h2 class="modalTituloReportar">Motivo del reporte</h2>
+        <input type="submit" value="Enviar" class="button_optionReportar" />
+      </form>
+    </div>
+  </section>
 
-        <form name="FormaReportar" id="FormaReportar">
-          <div class="opcionesReportar">
-            <input
-              type="radio"
-              id="opcion1Reportar"
-              name="opcionesReportar"
-              value="Motivo1"
-              class="radio_optionReportar"
-            />
-            <label for="opcion">Comportamiento inapropiado o acoso</label><br />
-
-            <input
-              type="radio"
-              id="opcion2Reportar"
-              name="opcionesReportar"
-              value="Motivo2"
-              class="radio_optionReportar"
-            />
-            <label for="opcion">Perfiles falsos o fraudulentos</label><br />
-
-            <input
-              type="radio"
-              id="opcion3Reportar"
-              name="opcionesReportar"
-              value="Motivo3"
-              class="radio_optionReportar"
-            />
-            <label for="opcion">Spam o publicidad no deseada</label><br />
-
-            <input
-              type="radio"
-              id="opcion4Reportar"
-              name="opcionesReportar"
-              value="Motivo4"
-              class="radio_optionReportar"
-            />
-            <label for="opcion">Edad incorrecta</label><br />
-
-            <input
-              type="radio"
-              id="opcion5Reportar"
-              name="opcionesReportar"
-              value="Motivo5"
-              class="radio_optionReportar"
-            />
-            <label for="opcion"
-              >Comportamiento inapropiado en las fotos de perfil</label
-            ><br />
-
-            <input
-              type="radio"
-              id="opcion6Reportar"
-              name="opcionesReportar"
-              value="Motivo6"
-              class="radio_optionReportar"
-            />
-            <label for="opcion">Comportamiento violento o amenazante</label
-            ><br />
-
-            <input
-              type="radio"
-              id="otrosReportar"
-              name="opcionesReportar"
-              value="otrosReportar"
-              class="radio_optionReportar"
-            />
-            <label for="opcion">Otros</label><br />
-
-            <input
-              type="text"
-              name="motivoTextoReportar"
-              id="motivoTextoReportar"
-              placeholder="Escribe aqui el motivo del reporte"
-              class="text_optionReportar"
-            />
-            <br />
-          </div>
-
-          <input type="submit" value="Enviar" class="button_optionReportar" />
-        </form>
+  <section class="modalBloquear">
+    <div class="modalContenedorBloquear">
+      <div class="imagenBloquear">
+        <img class="fotoCloseBloquear" src="img/close.png" />
       </div>
-    </section>
 
-    <section class="modalBloquear">
-      <div class="modalContenedorBloquear">
-        <div class="imagenBloquear">
-          <img class="fotoCloseBloquear" src="img/close.png" />
+      <h2 class="modalTituloBloquear">Motivo del Bloqueo</h2>
+
+      <form name="FormaBloquear" id="FormaBloquear">
+        <div class="opcionesBloquear">
+          <input type="radio" id="opcion1Bloquear" name="opcionesBloquear" value="Motivo1"
+            class="radio_optionBloquear" />
+          <label for="opcion">Comportamiento inapropiado o acoso</label><br />
+
+          <input type="radio" id="opcion2Bloquear" name="opcionesBloquear" value="Motivo2"
+            class="radio_optionBloquear" />
+          <label for="opcion">Perfiles falsos o fraudulentos</label><br />
+
+          <input type="radio" id="opcion3Bloquear" name="opcionesBloquear" value="Motivo3"
+            class="radio_optionBloquear" />
+          <label for="opcion">Spam o publicidad no deseada</label><br />
+
+          <input type="radio" id="opcion4Bloquear" name="opcionesBloquear" value="Motivo4"
+            class="radio_optionBloquear" />
+          <label for="opcion">Violacion a las normas</label><br />
+
+          <input type="radio" id="opcion5Bloquear" name="opcionesBloquear" value="Motivo5"
+            class="radio_optionBloquear" />
+          <label for="opcion">Comportamiento inapropiado en las fotos de perfil</label><br />
+
+          <input type="radio" id="opcion6Bloquear" name="opcionesBloquear" value="Motivo6"
+            class="radio_optionBloquear" />
+          <label for="opcion">Comportamiento violento o amenazante</label><br />
+
+          <input type="radio" id="otrosBloquear" name="opcionesBloquear" value="otrosBloquear"
+            class="radio_optionBloquear" />
+          <label for="opcion">Otros</label><br />
+
+          <input type="text" name="motivoTextoBloquear" id="motivoTextoBloquear"
+            placeholder="Escribe aqui el motivo del reporte" class="text_optionBloquear" />
+          <br />
         </div>
 
-        <h2 class="modalTituloBloquear">Motivo del Bloqueo</h2>
+        <input type="submit" value="Enviar" class="button_optionBloquear" />
+      </form>
+    </div>
+  </section>
+</body>
 
-        <form name="FormaBloquear" id="FormaBloquear">
-          <div class="opcionesBloquear">
-            <input
-              type="radio"
-              id="opcion1Bloquear"
-              name="opcionesBloquear"
-              value="Motivo1"
-              class="radio_optionBloquear"
-            />
-            <label for="opcion">Comportamiento inapropiado o acoso</label><br />
+<script src="js/LogOut.js"></script>
+<script>
+  window.onload = function () {
+    if (!sessionStorage.getItem("token")) {
+      window.location.href = "error.html";
+    }
+  };
+</script>
 
-            <input
-              type="radio"
-              id="opcion2Bloquear"
-              name="opcionesBloquear"
-              value="Motivo2"
-              class="radio_optionBloquear"
-            />
-            <label for="opcion">Perfiles falsos o fraudulentos</label><br />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-            <input
-              type="radio"
-              id="opcion3Bloquear"
-              name="opcionesBloquear"
-              value="Motivo3"
-              class="radio_optionBloquear"
-            />
-            <label for="opcion">Spam o publicidad no deseada</label><br />
+<script src="JS/mainReportar.js"></script>
 
-            <input
-              type="radio"
-              id="opcion4Bloquear"
-              name="opcionesBloquear"
-              value="Motivo4"
-              class="radio_optionBloquear"
-            />
-            <label for="opcion">Violacion a las normas</label><br />
+<script src="JS/mainBloquear.js"></script>
 
-            <input
-              type="radio"
-              id="opcion5Bloquear"
-              name="opcionesBloquear"
-              value="Motivo5"
-              class="radio_optionBloquear"
-            />
-            <label for="opcion"
-              >Comportamiento inapropiado en las fotos de perfil</label
-            ><br />
+<script src="Js/ListOfPets.js"></script>
 
-            <input
-              type="radio"
-              id="opcion6Bloquear"
-              name="opcionesBloquear"
-              value="Motivo6"
-              class="radio_optionBloquear"
-            />
-            <label for="opcion">Comportamiento violento o amenazante</label
-            ><br />
+<footer></footer>
 
-            <input
-              type="radio"
-              id="otrosBloquear"
-              name="opcionesBloquear"
-              value="otrosBloquear"
-              class="radio_optionBloquear"
-            />
-            <label for="opcion">Otros</label><br />
-
-            <input
-              type="text"
-              name="motivoTextoBloquear"
-              id="motivoTextoBloquear"
-              placeholder="Escribe aqui el motivo del reporte"
-              class="text_optionBloquear"
-            />
-            <br />
-          </div>
-
-          <input type="submit" value="Enviar" class="button_optionBloquear" />
-        </form>
-      </div>
-    </section>
-  </body>
-
-  <script src="js/LogOut.js"></script>
-  <script>
-    window.onload = function () {
-      if (!sessionStorage.getItem("token")) {
-        window.location.href = "error.html";
-      }
-    };
-  </script>
-
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-  <script src="JS/mainReportar.js"></script>
-
-  <script src="JS/mainBloquear.js"></script>
-
-  <script src="Js/ListOfPets.js"></script>
-
-  <footer></footer>
 </html>
