@@ -69,10 +69,16 @@ form label, form legend{
     width: 44%;
 }
 
-.Btn_XY {
+.Btn_XY{
     position: fixed; /* Fija el botón en la ventana, independientemente del desplazamiento */
     bottom: 20px;
     right: 20px;
+}
+
+.Btn_XY2{
+    position: fixed; /* Fija el botón en la ventana, independientemente del desplazamiento */
+    bottom: 20px;
+    right: 150px;
 }
 
 .BtnGrl {

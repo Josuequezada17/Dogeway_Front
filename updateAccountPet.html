@@ -165,6 +165,11 @@
                 </div>
 
 
+                <div class="Btn_XY2">
+                    <button type="submit" onclick="DeletePet()" class="BtnGrl">Eliminar Mascota</button>
+                </div>
+
+
                 <script>
 
                     var Pet = JSON.parse(sessionStorage.getItem('currentPet'));
@@ -253,7 +258,41 @@
                     });
                 }
 
+
+
+               
             </script>
+
+            <script>
+                function DeletePet() {
+                    var Pet = JSON.parse(sessionStorage.getItem('currentPet'));
+                    event.preventDefault();  
+                    fetch(`http://localhost:8080/pet/${Pet.id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': sessionStorage.token
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Mascota eliminada con éxito.');
+                            alert("Mascota eliminada con éxito.")
+                            window.location.href = 'updateAccountPet.html';
+                            // Aquí puedes redirigir a otra página o hacer cualquier otra acción después de eliminar la mascota.
+                        } else {
+                            console.error('Error al eliminar la mascota:', response.statusText);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error en la solicitud DELETE:', error);
+                    });
+                }
+                
+
+            </script>
+
+            
 
         </main>
 

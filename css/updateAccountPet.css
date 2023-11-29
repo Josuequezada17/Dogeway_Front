@@ -82,6 +82,12 @@ form label, form legend{
     right: 20px;
 }
 
+.Btn_XY2{
+  position: fixed; /* Fija el botón en la ventana, independientemente del desplazamiento */
+  bottom: 20px;
+  right: 150px;
+}
+
 .BtnGrl {
     width: 120px;
     padding: 8px;
