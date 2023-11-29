@@ -142,7 +142,7 @@
                 </div>
 
                 <div class="Btn_XY2">
-                    <button type="submit" onclick="register()" class="BtnGrl">Editar Usuario</button>
+                    <button type="submit" onclick="DeleteUser()" class="BtnGrl">Eliminar Usuario</button>
                 </div>
             
             
@@ -295,7 +295,7 @@
 
               <script>
                 function DeleteUser() {
-                    var user = JSON.parse(sessionStorage.getItem('allDataUserUpdate'));
+                    var user = JSON.parse(sessionStorage.getItem('AllDataUser'));
                     event.preventDefault();  
                     fetch(`http://localhost:8080/usuario/${user.id}`, {
                         method: 'DELETE',
@@ -306,13 +306,13 @@
                     })
                     .then(response => {
                         if (response.ok) {
-                            console.log('Mascota eliminada con éxito.');
-                            alert("Mascota eliminada con éxito.")
+                            console.log('Usuario eliminada con éxito.');
+                            alert("Usuario eliminada con éxito.")
                             sessionStorage.clear();
                             window.location.href = 'homeDogeway_josue.html';
                             // Aquí puedes redirigir a otra página o hacer cualquier otra acción después de eliminar la mascota.
                         } else {
-                            console.error('Error al eliminar la mascota:', response.statusText);
+                            console.error('Error al eliminar el usuario:', response.statusText);
                         }
                     })
                     .catch(error => {
