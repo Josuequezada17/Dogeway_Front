@@ -10,7 +10,8 @@
         <link rel="stylesheet" href="css/updateAccountPet.css" as="style" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="JS/ListOfAdoptar.js"></script>
+        <script src="JS/updatePet.js"></script>
+        <link rel="stylesheet" href="css/updateAccountPet.css">
         <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
@@ -42,6 +43,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="ayudaNoLogeado.html" name="asistencia">Asistencia</a>
                             </li>
+                           
                         </ul>
 
                     </div>
@@ -65,7 +67,8 @@
         </header>
 
         <main>
-            <form id="mascotaForm" method="post" enctype="multipart/form-data" action="/upload" method="post" enctype="multipart/form-data">
+
+            <form id="mascotaForm">
                 
                 <div class="column">
                     <fieldset>
@@ -80,7 +83,7 @@
                     <fieldset class="FieldIBP">
                         <legend> 
                             <label for="nombre">Mascota
-                                <select id="mascota" name="mascota" required>
+                                <select id="mascota" name="mascota" required value="Pet.animal">
                                     <option name="perro">PERRO</option>
                                     <option name="gato">GATO</option>
                                     <option name="conejo">CONEJO</option>
@@ -150,52 +153,46 @@
                 </div>
 
                 <div class="column" class="columnPhotos">
-                        <div action="/upload" method="post" enctype="multipart/form-data">
-                            <div class="DivInpImg">
-                                <input type="file" id="image1" class="InpImg" accept="image/*" name="img1" required> 
-                                <img class="mas" src="img/mas.png">
-                            </div> 
+                    <div id="Pets-Info" class="box-table">
 
-                            <div class="DivInpImg">
-                                <input type="file" id="image2" class="InpImg" accept="image/*" name="img2">
-                                <img class="mas" src="img/mas.png">
-                            </div>
-
-                            <div class="DivInpImg">
-                                <input type="file" id="image3" class="InpImg" accept="image/*" name="img3">
-                                <img class="mas" src="img/mas.png">
-                            </div>
-
-                            <div class="DivInpImg">
-                                <input type="file" id="image4" class="InpImg" accept="image/*" name="img4">
-                                <img class="mas" src="img/mas.png">
-                            </div>
-
-
-                            <div class="DivInpImg">
-                                <input type="file" id="image5" class="InpImg" accept="image/*" name="img5">
-                                <img class="mas" src="img/mas.png">
-                            </div>
-
-                            <div class="DivInpImg">
-                                <input type="file" id="image6" class="InpImg" accept="image/*" name="img6">
-                                <img class="mas" src="img/mas.png">
-                            </div>
-
-                        </div>
+               
+                    </div>
                         
                 </div>
 
                 <div class="Btn_XY">
-                    <button type="submit" onclick="registrarMascota()" class="BtnGrl">Registrar Mascota</button>
+                    <button type="submit" onclick="registrarMascota()" class="BtnGrl">Editar Mascota</button>
                 </div>
+
+
+                <script>
+
+                    var Pet = JSON.parse(sessionStorage.getItem('currentPet'));
+
+                    if (Pet.genero == true) {
+                        Pet.genero = "MASCULINO";
+                    } else {
+                        Pet.genero = "FEMENINO";
+                    }
+                
+                    // Cargar la variable Pet en los campos del formulario
+                    document.getElementById('nombre').value = Pet.nombre;
+                    document.getElementById('mascota').value = Pet.animal;
+                    document.getElementById('funcion').value = Pet.utilidadDeMascota;
+                    document.getElementById('tamano').value = Pet.tamano;
+                    document.getElementById('genero').value = Pet.genero;
+                    document.getElementById('descripcion').value = Pet.descripcion;
+                    document.getElementById('personalidad').value = Pet.personalidad;
+
+                </script>
     
-            </form>
+            </form>  
             
             <script>
 
                 function registrarMascota() {
 
+                    var Pet = JSON.parse(sessionStorage.getItem('currentPet'));
                     document.getElementById('mascotaForm').addEventListener('submit', function(event) {
                     event.preventDefault();  // Evitar que se realice la acción predeterminada del formulario
                     // Obtén los valores de los campos del formulario
@@ -213,43 +210,41 @@
                     }else{
                         generoValue = false;
                     }
-
-                    userInformation(sessionStorage.user, sessionStorage.token);
-                    var Dueno=JSON.parse(sessionStorage.getItem('AllDataUser'));
-
-                    console.log(nombreMascotaValue,tipoMascotaValue,funcionMascotaValue,tamanoValue,generoValue,descripcionValue,personalidadValue,generoValue);
-                    // Construye un objeto con los datos del formulario
-                    var formData = new FormData();
                     
-                    formData.append('nombre', nombreMascotaValue );
-                    formData.append('animal', tipoMascotaValue);
-                    formData.append('utilidadDeMascota', funcionMascotaValue);
-                    formData.append('tamano', tamanoValue);
-                    formData.append('descripcion', descripcionValue);
-                    formData.append('personalidad', personalidadValue);
-                    formData.append('genero', generoValue);
-                    formData.append('id',Dueno.id);
+                                       
                     
-                  // Agregar la imagen al FormData
-                  var imageInput = document.getElementById('image1');
-                        if (imageInput.files.length > 0) {
-                            formData.append('foto', imageInput.files[0]);
-                        }
+
+                    var mascotaData = {
+                        idmascota:Pet.id,
+                        nombre: nombreMascotaValue,
+                        animal: tipoMascotaValue,
+                        utilidadDeMascota: funcionMascotaValue,
+                        tamano: tamanoValue,
+                        descripcion: descripcionValue,
+                        personalidad: personalidadValue,
+                        genero: generoValue,
+                       
+                    };
+                    
+               
+                 
                 
                         // Realizar la solicitud POST al servidor
-                        fetch('http://localhost:8080/pet/create', {
+                        fetch('http://localhost:8080/pet/update', {
                             method: 'POST',
-                            headers: {
+                            headers:{
+                                'Content-Type': 'application/json',
                                 'Authorization': sessionStorage.token
+                                
                             },
                              
-                            body: formData
+                            body: JSON.stringify(mascotaData),
                         })
-                            .then(response => response.json())
-                            .then(message => {
-                                console.log('Respuesta del servidor:', message);
-                                sessionStorage.clear();
-                                window.location.href = 'homeDogewayLogeado_josue.html';
+                            
+                            .then(data => {
+                                console.log('Respuesta del servidor:', data);
+                                
+                                window.location.href = 'updateAccountPet.html';
                             })
                             .catch(error => {
                                 console.error('Error al enviar la solicitud:', error);

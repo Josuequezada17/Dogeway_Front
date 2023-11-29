@@ -8,7 +8,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
         .then(data => {
             // Guardar el JSON en la variable match
             match = data;
-            console.log('Variable match:', match);
+            //console.log('Variable match:', match);
 
             if (match.iduser!=-1 && match.iduserpropietario!=-1){
                 if (match.status === "PENDIENTE") {
@@ -36,7 +36,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                             return response.json();
                         })
                         .then(data => {
-                            console.log('Respuesta del servidor: exitosa', data);
+                           // console.log('Respuesta del servidor: exitosa', data);
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
                             sessionStorage.setItem('paginacion', contador);
@@ -46,11 +46,11 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                         }, 3000);
                         })
                         .catch(error => {
-                            console.error('Error al recuperar información:', error);
+                           // console.error('Error al recuperar información:', error);
                         });}
 
                 } else if (match.status === "ACEPTADA") {
-                    console.log("El match ha sido aceptado");
+                   console.log("El match ha sido aceptado");
                 
                             var contador = sessionStorage.getItem('paginacion');
                             contador++;
@@ -95,7 +95,7 @@ function adoptar(Id_pet, Id_pet_match,Message,token) {
                         return response.json();
                     })
                     .then(data => {
-                        console.log('Respuesta del servidor: exitosa', data);
+                       // console.log('Respuesta del servidor: exitosa', data);
 
                         var contador = sessionStorage.getItem('paginacion');
                         contador++;
@@ -189,7 +189,7 @@ function NotAdoptar(Id_pet, Id_pet_match, token) {
                     body: JSON.stringify(match2)
                 })
                     .then(data => {
-                        console.log('Respuesta del servidor: exitosa', data);
+                        //console.log('Respuesta del servidor: exitosa', data);
 
                         var contador = sessionStorage.getItem('paginacion');
                         contador++;

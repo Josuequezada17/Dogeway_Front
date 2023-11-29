@@ -1,5 +1,6 @@
 //Notificación para activar ubicación
 
+if(sessionStorage.localizacion==0){
 // Verificar el soporte de geolocalización
 if (navigator.geolocation) {
     // Verificar si ya se otorgó permiso
@@ -45,4 +46,6 @@ if (navigator.geolocation) {
 } else {
     // El navegador no soporta geolocalización
     alert("Tu navegador no soporta geolocalización.");
+}
+sessionStorage.setItem('localizacion',1);
 }

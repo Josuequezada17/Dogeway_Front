@@ -5,7 +5,7 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta charset="utf-8" />
-        <title>Crear cuenta usuario</title>
+        <title>Editar cuenta usuario</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
         <link rel="stylesheet" href="css/updateAccountUser.css" as="style" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
                 <div class="container">
 
                     <img class="logo" src="img/Logo.png" alt="">
-                    <a class="navbar-brand" href="homeDogeway_josue.html">DogeWay</a>
+                    <a class="navbar-brand" href="homeDogewayLogeado_josue.html">DogeWay</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -42,6 +42,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="ayudaNoLogeado.html">Asistencia</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a href="updateAccountPet.html"
+                                  ><button class="BtnGrl-logIn">Mascota</button></a
+                                >
+                              </li>
                         </ul>
 
                     </div>
@@ -124,9 +130,15 @@
                     
                 </div>
 
+                <div class="column" class="columPhotos">
+
+                    <img id="foto" class="foto" src="" alt="img">
+                    
+                </div>
+
               
                 <div class="Btn_XY">
-                    <button type="submit" onclick="register()" class="BtnGrl">Continuar</button>
+                    <button type="submit" onclick="register()" class="BtnGrl">Editar Usuario</button>
                 </div>
             
             </form>
@@ -154,7 +166,7 @@
                             return response.json();
                         })
                         .then(data => {
-                            
+                            console.log(data);
                             sessionStorage.setItem('AllDataUser',JSON.stringify(data));
                             var fechaDeNacimientoTimestamp = data.fecha_nacimiento;
                             // Convertir la marca de tiempo a un objeto de fecha
@@ -168,6 +180,7 @@
                             // Formatear la fecha para establecerla en el campo de fecha
                             var fechaFormateada = año + '-' + mes + '-' + dia;
 
+                            document.getElementById('foto').src=data.foto;
                             document.getElementById('nombres').value=data.nombres;
                             document.getElementById('apellidos').value=data.apellidos;
                             document.getElementById('Intereses').value=data.intereses;
@@ -177,6 +190,7 @@
                             document.getElementById('estado').value=data.estado;
                             document.getElementById('ciudad').value=data.ciudad;
                             document.getElementById('telefono').value=data.telefono;
+                          
 
                         
                         })
@@ -219,7 +233,7 @@
 
                         if(!passwordValue){
 
-                            passwordValue==null;
+                            passwordValue=null;
                         }                
                         // Crear objeto FormData para enviar archivos
                         var update= {
@@ -261,7 +275,7 @@
                             .then(data => {
                                 console.log('Respuesta del servidor:',data);
                                
-                                window.location.href = 'loginDogeway.html';
+                                alert("actualizado con exito");
                             })
                             .catch(error => {
                                 console.error('Error al enviar la solicitud:', error);

@@ -76,9 +76,18 @@ function userInformation(correo, token) {
                             var currentUser=JSON.parse(sessionStorage.getItem('userPropietary'));
 
                             ListOfUsers(sessionStorage.token,currentUser.id);
-                            alert('La mascota ha sido cambiada por ' + mascota.nombre);
+                            document.getElementById('nombre').value=mascota.nombre;
+                            document.getElementById('mascota').value=mascota.animal;
+                            document.getElementById('funcion').value=mascota.UtilidadDeMascota;
+                            //var razaValue = document.getElementById('raza').value.toString();
+                            document.getElementById('tamano').value=mascota.tamano;
+                            document.getElementById('genero').value=mascota.genero;
+                            document.getElementById('descripcion').value=mascota.descripcion;
+                            document.getElementById('personalidad').value=mascota.personalidad;
+                           
+
+                        
                             
-                            window.location.href = 'adopcionesPendientes.html';
                         });
             
                         celda.appendChild(imgElement);

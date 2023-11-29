@@ -10,6 +10,23 @@ form {
 .logo{
     margin-right: 10px;
 }
+.BtnGrl-logIn:hover {
+    background: linear-gradient(to top right, rgb(66, 63, 65), rgb(158, 154, 154));
+  }
+
+.BtnGrl-logIn {
+    width: 120px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to top right, rgb(94, 90, 93), rgb(82, 76, 76));
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .BtnGrl-logIn:hover {
+    background: linear-gradient(to top right, rgb(66, 63, 65), rgb(158, 154, 154));
+  }
 
 form label, form legend{
     display: block;

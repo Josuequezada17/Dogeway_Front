@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Código</title>
+</head>
+<body>
+
+    <h2>Ingrese el código de verificación enviado a su correo</h2>
+
+    <form id="verificationForm">
+        <label for="verificationCode">Código de Verificación:</label>
+        <input type="text" id="verificationCode" required>
+        <button type="submit">Verificar</button>
+    </form>
+
+    <script type="text/javascript" src="path/to/jquery"></script>
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    
+                    // send API request
+                    $.ajax({
+                        url: 'https://api.email-validator.net/api/verify',
+                        type: 'POST',
+                        cache: false,
+                        crossDomain: true,
+                        data: { EmailAddress: 'email address', APIKey: 'ev-c8ac9dd8c1a7289997547bb002410f87' },
+                        dataType: 'json',
+                        success: function (json) {
+                            // check API result
+                            if (typeof(json.status) != "undefined") {
+                                var resultcode = json.status;
+                                if (typeof(json.info) != "undefined") {
+                                    // short summary
+                                    info = json.info;
+                                } else info = "";
+                                if (typeof(json.details) != "undefined") {
+                                    // detailed description
+                                    details = json.details;
+                                } else details = "";
+                                // resultcode 200, 207, 215 - valid
+                                // resultcode 215 - can be retried to update catch-all status
+                                // resultcode 114 - greylisting, wait 5min and retry
+                                // resultcode 118 - api rate limit, wait 5min and retry
+                                // resultcode 3xx/4xx - bad
+                            }
+                        }
+                    });
+                });
+            </script>
+              
+
+</body>
+</html>
