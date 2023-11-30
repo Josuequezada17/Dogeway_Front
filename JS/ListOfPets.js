@@ -29,7 +29,7 @@ function userInformation(correo, token) {
         })
         .then(data => {
             console.log('Respuesta del servidor:exitosa');
-            var contenedor = document.getElementById('Pets-Info'); // Asegúrate de reemplazar 'miContenedor' con el ID real
+            var contenedor = document.getElementById('Pets-Info'); 
             // Agregar la tabla al contenedor en lugar del cuerpo del documento
         
             // Datos de ejemplo

@@ -73,7 +73,9 @@
               </li>
 
               <li class="nav-item">
-                <a style="color: red" class="nav-link" onclick="logOut()">Log Out</a>
+                <a style="color: red" class="nav-link" onclick="logOut()"
+                  >Log Out</a
+                >
               </li>
             </ul>
           </div>
@@ -87,11 +89,11 @@
       ></script>
 
       <script>
-          window.onload = function () {
-              if (!sessionStorage.getItem('token')) {
-                  window.location.href = 'error.html';
-              }
-          };
+        window.onload = function () {
+          if (!sessionStorage.getItem("token")) {
+            window.location.href = "error.html";
+          }
+        };
       </script>
     </header>
 
@@ -112,9 +114,7 @@
               >
             </li>
             <li class="Ex">
-              <a href="match.html"
-                ><button class="BtnGrl-explore">Deslizar</button></a
-              >
+              <a href="match.html"><button class="BtnGrl-explore">Deslizar</button></a>
             </li>
 
             <li class="chat">
