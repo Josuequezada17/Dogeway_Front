@@ -331,12 +331,12 @@ alert("El codigo es incorrecto verificalo");
                             console.log('Respuesta del servidor:', message);
 
                             sessionStorage.setItem('correo', correoValue);
-                          
+                            alert("Creada Correctamente");
 
                         })
                         .catch(error => {
                             console.error('Error al enviar la solicitud:', error);
-                            alert("Creada Correctamente");
+                            alert("Algo salio mal verificalo");
                         });
                 
             }
